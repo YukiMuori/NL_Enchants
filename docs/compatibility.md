@@ -35,12 +35,32 @@ platform MythicEnchants already requires.
 
 ## Known runtime edge cases (to verify in-game)
 
-- After a **relog**, MythicMobs auras are cleaned up; the double-jump
-  listeners are restored by re-equipping the boots (unless MythicEnchants
-  re-fires `~onEquip` at login — verify and update
-  `docs/enchantments/double_jump.md` accordingly).
-- A stale double-jump charge can survive a relog only for its remaining
-  5-second window; it self-expires.
+Per-enchant RUNTIME-VERIFY flags live in `docs/enchantments/*.md`. The
+consolidated list:
+
+- **Listener-aura enchants** (`nl:double_jump`, `nl:climber`) after a
+  **relog**: MythicMobs cleans auras on quit; re-equipping the boots
+  restores them unless MythicEnchants re-fires `~onEquip` at login (verify
+  and update the specs accordingly).
+- **`~onUse` draw behavior** (`nl:hawkeye`): frequency of firing while
+  drawing, per the MythicEnchants projectilepath documentation.
+- **`~onUse` on hoes** (`nl:green_thumb`): the `~onUse` trigger is
+  documented for bow drawing; hoe usage needs in-game confirmation, with
+  `@TargetBlock` resolving to the looked-at crop.
+- **`@MobsInRadius{types=...}`** (`nl:sentinel`): confirm vanilla entity
+  type names are accepted by the targeter's types filter, and review the
+  hostile list against the server's custom mobs.
+- **`triggerblocktype` with material lists** (`nl:shatter`, `nl:reaping`,
+  `nl:replanter`): confirm comma lists behave like the documented single
+  tag/material form.
+- **`unbreaking{c=...}` on `~onItem_damage`** (`nl:conservation`): confirm
+  the item-damage trigger also fires for tool-wear from block breaking.
+- **`recoveritem` re-equip** (`nl:soulbond`): confirm `reequip=true` restores
+  armor to the correct slot after death recovery.
+- **`nl:grounded` set stacking**: 4× II pieces reach 80% knockback
+  resistance — verify feel in PvP and retune if it reads as oppressive.
+- **`projectile` spring** (`nl:ricochet`): confirm the spawned meta-projectile
+  visuals/damage feel right and that `oH` damage honors protection plugins.
 
 ## Datapack & resource pack interplay
 

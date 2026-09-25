@@ -9,11 +9,12 @@ Every enchantment is split into three layers. Gameplay logic and presentation
 must never be mixed inside one skill.
 
 ```text
-enchantments/<category>.yml      the enchantment definition — a THIN dispatcher
-skills/<category>/<enchant>.yml  gameplay logic (NL_ENCHANT_* metaskills)
-vfx/<category>/<enchant>_vfx.yml presentation only (NL_VFX_* metaskills)
-resourcepack/                    client-side names/descriptions (en_us, it_it)
-docs/enchantments/<enchant>.md   the human-readable specification
+enchantments/<category>/<id>.yml  the enchantment definition — THIN dispatcher,
+                                  ONE FILE PER ENCHANT (file name = enchant ID)
+skills/<category>/<id>.yml        gameplay logic (NL_ENCHANT_* metaskills)
+vfx/<category>/<id>.yml           presentation only (NL_VFX_* metaskills)
+resourcepack/                     client-side names/descriptions (en_us, it_it)
+docs/enchantments/<id>.md         the human-readable specification
 ```
 
 The enchantment's `Skills:` section only dispatches to metaskills:
@@ -24,8 +25,13 @@ nl:example:
   - skill{s=NL_ENCHANT_EXAMPLE_SOMETHING} @self ~onTrigger
 ```
 
-Reference implementation: `nl:double_jump` (see
-`docs/enchantments/double_jump.md`). Copy its structure for new enchantments.
+Small self-contained behaviors (e.g. replanter's four `setblock` lines, or
+`conservation`'s single `unbreaking` line) may live inline in the
+enchantment file when a metaskill would add nothing. VFX always live in
+`vfx/`.
+
+Reference implementations: `nl:double_jump` (listener-aura architecture) and
+`nl:executioner` (direct trigger lines). Copy their structure.
 
 ## Conventions
 
@@ -58,13 +64,32 @@ Currently load-bearing verified facts (re-verify after plugin upgrades):
 | --- | --- |
 | Enchant config fields (Display, MaxLevel, ValidSlots, SupportedItems, Enchanting, Options, Skills) | MythicEnchants → Enchantment Config |
 | `~onEquip` / `~onUnequip` enchantment triggers | MythicEnchants → MythicStats page, Enchantment Config example |
-| Rarity tiers incl. `RARE`, `LEGENDARY` | MythicEnchants → Rarities |
-| `#minecraft:enchantable/foot_armor` item tag | Minecraft 1.21+ item tags |
+| `~onBlockBreak` trigger + `veinminer` origin semantics | MythicEnchants → VeinMiner |
+| `~onItem_damage` trigger (unbreaking usage) | MythicEnchants → Unbreaking |
+| `~onUse` (bow draw), `~onBowMiss`, `arrowbuff`, `projectilepath` | MythicEnchants → ProjectilePath / ArrowBuff, MM Triggers |
+| `recoveritem` on `~onDeath` | MythicEnchants → RecoverItem (official example) |
+| `reducedamage` (flat, cause filter, cap) with `<math:damage>` | MythicEnchants → ReduceDamage (official examples) |
+| `lethalcheck` inline on `~onDamaged` | MythicEnchants → LethalCheck (official example) |
+| `hasMythicEnchant` (id/level/slot), `itemDurability`, `batchedchance` | MythicEnchants → Conditions |
+| `addcounter` / `?counter` / `<counter.KEY>` | MythicEnchants → Counter |
+| Rarity tiers incl. `RARE`, `LEGENDARY`, `MYTHIC` | MythicEnchants → Rarities |
+| `#minecraft:enchantable/{weapon,foot_armor,bow,pickaxe,hoe,armor,durability}` item tags | Minecraft 1.21+ item tags |
 | `onJump` aura mechanic (Paper-only) | MythicMobs → Mechanics → onjump |
-| `OnInput` aura component, `requirejump` | MythicMobs → Aura Components → OnInput |
-| `velocity`, `particles`, `sound`, `aura`, `auraremove`, `setvariable`, `delay`, `skill` mechanics | MythicMobs → Mechanics |
-| `hasaura`, `onground`, `variableisset`, inline `?cond` / `?!cond` | MythicMobs → Conditions / Inline Conditions |
+| `OnInput` aura component (`requirejump`, `requiresprint`) | MythicMobs → Aura Components → OnInput |
+| `OnBlockBreak` component (`oB=`, `bt=`) + recursion warning | MythicMobs → Aura Components → OnBlockBreak |
+| `aura` (stacks, refresh, CancelOnTakeDamage, ot/oe), `auraremove`, `hasaura` | MythicMobs → Aura / Conditions |
+| `velocity` (SET/ADD, relative), `potion` (type/d/l/hasParticles) | MythicMobs → Mechanics |
+| `damage{a=...;cause=...}`, `setblock{m=...}`, `dropitem{i=...}`, `bonemeal`, `particles`, `sound` | MythicMobs → Mechanics |
+| `projectile{v;mr;d;gravity;fromorigin;oT;oH}` + `@EntitiesInRadius{r;limit;sort;targetPlayers}` | MythicMobs → Projectile / Targeters (official examples) |
+| `@TargetBlock{maxdistance}`, `@MobsInRadius`, `@BlocksInRadius`, `@origin`, `@trigger`, `@self`, `@targetlocation` | MythicMobs → Targeters / official examples |
+| `bowtension{value=>0.9}`, `healthpercent{p=<30%}`, `lastdamagecause{c=...}`, `mobsinradius{types;a;r}`, `blocktype{type=...}`, `blocktypeinradius{t;a;r}`, `triggerblocktype{t=...}`, `onground`, `outside`, `moving`, `isclimbing`, `chance{c=...}` | MythicMobs → Conditions (+ ME quick-start for `chance`) |
+| Composite inline conditions `?((a && b) || (c d))` + condition actions (`false`, `castinstead`) | MythicMobs → Inline Conditions / Conditions |
+| `<math:EXPR>` with `enchant_level`, `damage`, `item_attack` variables | MythicEnchants → Enchantment Config |
 | Paper jump event is ground-only (no mid-air press event) | Paper PlayerJumpEvent javadoc |
+
+Deliberately NOT used (kept out of the free-feature set): Premium-only
+inline targeter conditions, `onBounceSkill` (Premium), ModelEngine,
+MythicCrucible.
 
 ## Adding a new enchantment — checklist
 
