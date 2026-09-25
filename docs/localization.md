@@ -37,6 +37,10 @@ Keep both layers synchronized whenever an enchant is added or renamed: the
 validator (`tools/validate.py`) checks that every `nl:` enchant has both
 language entries in both files.
 
+The player-facing catalog is documented in both languages: `README.md`
+(English) and `README.it.md` (Italiano) — the Italian catalog table quotes
+exactly the `it_it.json` description strings.
+
 ## Rules
 
 - Technical IDs (`nl:double_jump`) are language-independent and frozen.

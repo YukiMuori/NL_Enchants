@@ -7,10 +7,11 @@
 # `plugins/MythicMobs/packs/NL_Enchants/`.
 
 Name: NL_Enchants
-Version: 0.1.0
+Version: 0.2.1
 Author: Neverland
 Description:
 - Neverland vanilla-friendly custom enchantments.
+- Incantesimi personalizzati vanilla-friendly di Neverland.
 - Namespace: nl
 - Requires MythicEnchants + MythicMobs.
 Icon:

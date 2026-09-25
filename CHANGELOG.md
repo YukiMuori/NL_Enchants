@@ -5,6 +5,26 @@ Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning:
 [SemVer](https://semver.org/) — MAJOR breaking · MINOR enchant/feature ·
 PATCH fix/balance. Gameplay values are never changed silently.
 
+## [0.2.1] — 2026-09-25
+
+Documentation and localization release — no gameplay changes.
+
+### Added
+
+- **Italian README** (`README.it.md`): full translation, including the
+  complete 30-enchantment catalog with Italian names and the exact
+  descriptions shipped in the `it_it` lang file. Language switcher banner
+  on both READMEs.
+- `packinfo.yml` description is now bilingual (EN + IT) for the
+  `/mm menu` pack hover.
+
+### Changed
+
+- **Italian localization pass** — polished 9 `it_it` description strings
+  for natural phrasing (removed anglicisms, punctuation consistency):
+  executioner, mark, momentum, prospector, reaping, replanter, grounded,
+  second_wind, voidbound. Cosmetic only; display names and IDs untouched.
+
 ## [0.2.0] — 2026-09-25
 
 Full catalog release: all 30 enchantments of the Neverland concept list,
@@ -107,5 +127,6 @@ metadata, localization layer, and the reference implementation enchantment.
 - Runtime validation on Paper + MythicMobs + MythicEnchants:
   **required** — not yet performed.
 
+[0.2.1]: https://github.com/YukiMuori/NL_Enchants/releases/tag/v0.2.1
 [0.2.0]: https://github.com/YukiMuori/NL_Enchants/releases/tag/v0.2.0
 [0.1.0]: https://github.com/YukiMuori/NL_Enchants/releases/tag/v0.1.0
