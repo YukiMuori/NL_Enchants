@@ -1,5 +1,7 @@
 # NL_Enchants
 
+**English** · [Italiano](README.it.md)
+
 **Neverland vanilla-friendly custom enchantments** for MythicEnchants +
 MythicMobs. A production enchantment pack for the **Neverland Survival**
 server: contextual effects, short reactive mechanics, readable VFX — every
