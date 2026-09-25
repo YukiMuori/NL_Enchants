@@ -1,0 +1,8 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — mining VFX for one enchant. Presentation only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_VFX_SHATTER_CRACK:
+  Skills:
+  - particles{p=crit;a=8;hs=0.5;vs=0.5;y=0.5} @origin
+  - sound{s=entity.player.attack.sweep;v=0.6;p=0.8} @self

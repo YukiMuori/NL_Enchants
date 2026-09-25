@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — mining enchantment (one file per enchant)
+#  Docs: docs/enchantments/conservation.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:conservation:
+  Display: '<white>Conservation'
+  Description: '<gray>Your tools sometimes ignore wear.'
+  Rarity: UNCOMMON
+  MaxLevel: 2
+  AnvilCost: 2
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/durability'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - unbreaking{c=<math:0.15+0.1*enchant_level>} @self ~onItem_damage

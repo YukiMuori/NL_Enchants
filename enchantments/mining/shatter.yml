@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — mining enchantment (one file per enchant)
+#  Docs: docs/enchantments/shatter.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:shatter:
+  Display: '<aqua>Shatter'
+  Description: '<gray>Your picks sometimes crack the neighboring blocks of the same family.'
+  Rarity: RARE
+  MaxLevel: 3
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/pickaxe'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_ENCHANT_SHATTER_STONE} @self ~onBlockBreak
+  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak

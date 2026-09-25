@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — shatter skills. Gameplay logic only.
+#  veinminer: official MythicEnchants mechanic — same-material-family area
+#  break with built-in re-entrancy guard, durability cost and throttling.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_SHATTER_STONE:
+  Conditions:
+  - triggerblocktype{t=STONE,COBBLESTONE,DEEPSLATE,COBBLED_DEEPSLATE,TUFF,GRANITE,DIORITE,ANDESITE,NETHERRACK,BLACKSTONE}
+  - chance{c=<math:0.1+0.05*enchant_level>}
+  Skills:
+  - veinminer{t=STONE,COBBLESTONE,DEEPSLATE,COBBLED_DEEPSLATE,TUFF,GRANITE,DIORITE,ANDESITE,NETHERRACK,BLACKSTONE;rx=1;ry=1;rz=1;maxblocks=12;perblock=2} @self
+  - skill{s=NL_VFX_SHATTER_CRACK} @self
+
+NL_ENCHANT_SHATTER_ORE:
+  Conditions:
+  - triggerblocktype{t=COAL_ORE,DEEPSLATE_COAL_ORE,IRON_ORE,DEEPSLATE_IRON_ORE,COPPER_ORE,DEEPSLATE_COPPER_ORE,GOLD_ORE,DEEPSLATE_GOLD_ORE,REDSTONE_ORE,DEEPSLATE_REDSTONE_ORE,LAPIS_ORE,DEEPSLATE_LAPIS_ORE,DIAMOND_ORE,DEEPSLATE_DIAMOND_ORE,EMERALD_ORE,DEEPSLATE_EMERALD_ORE,NETHER_GOLD_ORE,NETHER_QUARTZ_ORE}
+  - chance{c=<math:0.08+0.04*enchant_level>}
+  Skills:
+  - veinminer{t=COAL_ORE,DEEPSLATE_COAL_ORE,IRON_ORE,DEEPSLATE_IRON_ORE,COPPER_ORE,DEEPSLATE_COPPER_ORE,GOLD_ORE,DEEPSLATE_GOLD_ORE,REDSTONE_ORE,DEEPSLATE_REDSTONE_ORE,LAPIS_ORE,DEEPSLATE_LAPIS_ORE,DIAMOND_ORE,DEEPSLATE_DIAMOND_ORE,EMERALD_ORE,DEEPSLATE_EMERALD_ORE,NETHER_GOLD_ORE,NETHER_QUARTZ_ORE;rx=1;ry=1;rz=1;maxblocks=8;perblock=2} @self
+  - skill{s=NL_VFX_SHATTER_CRACK} @self

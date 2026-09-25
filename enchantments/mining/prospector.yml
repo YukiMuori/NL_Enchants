@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — mining enchantment (one file per enchant)
+#  Docs: docs/enchantments/prospector.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:prospector:
+  Display: '<aqua>Prospector'
+  Description: '<gray>Mining an ore sends out a pulse that hums when more treasure hides nearby.'
+  Rarity: RARE
+  MaxLevel: 1
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/pickaxe'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak

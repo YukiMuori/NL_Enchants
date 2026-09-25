@@ -1,0 +1,15 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — prospector skills. Gameplay logic only.
+#  Presence ping: blocktypeinradius checks around the player (free version
+#  of MythicMobs cannot filter per-block targets without Premium inline
+#  targeter conditions — see docs/enchantments/prospector.md).
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_PROSPECTOR_PING:
+  Cooldown: 6
+  Conditions:
+  - triggerblocktype{t=DIAMOND_ORE,DEEPSLATE_DIAMOND_ORE,EMERALD_ORE,DEEPSLATE_EMERALD_ORE,GOLD_ORE,DEEPSLATE_GOLD_ORE,IRON_ORE,DEEPSLATE_IRON_ORE}
+  Skills:
+  - skill{s=NL_VFX_PROSPECTOR_STRONG} @self ?blocktypeinradius{t=DIAMOND_ORE,DEEPSLATE_DIAMOND_ORE,EMERALD_ORE,DEEPSLATE_EMERALD_ORE,GOLD_ORE,DEEPSLATE_GOLD_ORE,IRON_ORE,DEEPSLATE_IRON_ORE;a=4to999;r=8}
+  - skill{s=NL_VFX_PROSPECTOR_MED} @self ?blocktypeinradius{t=DIAMOND_ORE,DEEPSLATE_DIAMOND_ORE,EMERALD_ORE,DEEPSLATE_EMERALD_ORE,GOLD_ORE,DEEPSLATE_GOLD_ORE,IRON_ORE,DEEPSLATE_IRON_ORE;a=2to3;r=8}
+  - skill{s=NL_VFX_PROSPECTOR_LOW} @self ?blocktypeinradius{t=DIAMOND_ORE,DEEPSLATE_DIAMOND_ORE,EMERALD_ORE,DEEPSLATE_EMERALD_ORE,GOLD_ORE,DEEPSLATE_GOLD_ORE,IRON_ORE,DEEPSLATE_IRON_ORE;a=1;r=8}
