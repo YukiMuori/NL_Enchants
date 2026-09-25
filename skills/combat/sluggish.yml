@@ -1,0 +1,11 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_SLUGGISH_PROC:
+  # chance{c=...} — Mythic condition, per official ME quick-start usage.
+  Conditions:
+  - chance{c=<math:0.08+0.04*enchant_level>}
+  Skills:
+  - potion{type=SLOW;d=50;l=<math:enchant_level-1>;hasParticles=false} @trigger
+  - skill{s=NL_VFX_SLUGGISH_HIT} @trigger

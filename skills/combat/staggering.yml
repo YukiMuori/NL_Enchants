@@ -1,0 +1,11 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_STAGGERING_PROC:
+  Conditions:
+  - chance{c=<math:0.06+0.04*enchant_level>}
+  Skills:
+  - velocity{m=SET;x=0;y=0.2;z=0} @trigger
+  - velocity{m=SET;x=0;y=0;z=0;delay=1;repeat=6;repeatInterval=1} @trigger
+  - skill{s=NL_VFX_STAGGERING_HIT} @trigger

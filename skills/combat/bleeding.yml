@@ -1,0 +1,13 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_BLEEDING_PROC:
+  Conditions:
+  - chance{c=0.12}
+  Skills:
+  - aura{auraname=nl_bleeding;d=<math:60+20*enchant_level>;i=20;maxStacks=1;overwriteAll=true;ot=NL_ENCHANT_BLEEDING_TICK;oe=NL_VFX_BLEEDING_END} @trigger
+NL_ENCHANT_BLEEDING_TICK:
+  Skills:
+  - damage{a=1} @self
+  - skill{s=NL_VFX_BLEEDING_TICK} @self

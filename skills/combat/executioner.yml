@@ -1,0 +1,17 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_EXECUTIONER_MARK:
+  Cooldown: 3
+  TargetConditions:
+  - healthpercent{p=<30%}
+  Skills:
+  - particles{p=angry_villager;a=1;hs=0.1;vs=0.1;y=2.3} @trigger
+  - sound{s=entity.villager.no;v=0.4;p=1.6} @trigger
+NL_ENCHANT_EXECUTIONER_STRIKE:
+  TargetConditions:
+  - healthpercent{p=<30%}
+  Skills:
+  - damage{a=<math:enchant_level>} @trigger
+  - skill{s=NL_VFX_EXECUTIONER_STRIKE} @trigger

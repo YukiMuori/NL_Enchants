@@ -1,0 +1,15 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_PREDATOR_MARK:
+  # Tag the attacker (@trigger of ~onDamaged) for 5s.
+  Skills:
+  - aura{auraname=nl_predator_stalk;d=100;i=20;maxStacks=1;overwriteAll=true} @trigger
+NL_ENCHANT_PREDATOR_STRIKE:
+  TargetConditions:
+  - hasaura{aura=nl_predator_stalk} true
+  Skills:
+  - damage{a=<math:1+enchant_level>} @trigger
+  - auraremove{aura=nl_predator_stalk} @trigger
+  - skill{s=NL_VFX_PREDATOR_STRIKE} @trigger

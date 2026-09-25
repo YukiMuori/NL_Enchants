@@ -1,0 +1,22 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — combat enchantment (one file per enchant)
+#  Docs: docs/enchantments/echo.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:echo:
+  Display: '<light_purple>Echo'
+  Description: '<gray>A part of your strike sometimes repeats a moment later.'
+  Rarity: EPIC
+  MaxLevel: 3
+  AnvilCost: 5
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/weapon'
+  PrimaryItems:
+  - '#minecraft:swords'
+  Enchanting:
+    Weight: 2
+    MinCost: 24
+    MaxCost: 44
+  Skills:
+  - skill{s=NL_ENCHANT_ECHO_STRIKE} @self ~onAttack

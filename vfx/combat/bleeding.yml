@@ -1,0 +1,11 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — combat VFX for one enchant. Presentation only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_VFX_BLEEDING_TICK:
+  Skills:
+  - particles{p=damage_indicator;a=2;hs=0.3;vs=0.4;y=0.8} @self
+NL_VFX_BLEEDING_END:
+  Skills:
+  - particles{p=block;m=REDSTONE_BLOCK;a=10;hs=0.3;vs=0.4;y=1;s=0.05} @self
+  - sound{s=entity.player.hurt_sweetberry_bush;v=0.5;p=0.9} @self

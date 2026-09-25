@@ -1,0 +1,13 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_ECHO_STRIKE:
+  # item_attack is only available on ~onAttack (MythicEnchants variable).
+  Cooldown: 2
+  Conditions:
+  - chance{c=0.25}
+  Skills:
+  - delay 6
+  - damage{a=<math:item_attack*0.1*enchant_level>} @trigger
+  - skill{s=NL_VFX_ECHO_HIT} @trigger
