@@ -58,7 +58,7 @@ def load_yaml(path: Path):
 
 
 def main() -> int:
-    # ── 1+2+3: enchantments ────────────────────────────────────────────────
+    # ── 1+2+3: enchantments (one file per enchant; file name == enchant ID) ─
     enchants: dict[str, Path] = {}
     skill_texts: list[tuple[Path, str]] = []
 
@@ -67,11 +67,17 @@ def main() -> int:
         if not isinstance(data, dict):
             err(f"{path.relative_to(ROOT)}: top level must be a mapping of enchant IDs")
             continue
+        if len(data) > 1:
+            err(f"{path.relative_to(ROOT)}: layout violation — one enchant per file "
+                f"(found {len(data)})")
         for eid, cfg in data.items():
             label = f"{path.relative_to(ROOT)}:{eid}"
             if not ENCHANT_ID_RE.match(str(eid)):
                 err(f"{label}: enchant ID must match nl:<lowercase_snake_case>")
                 continue
+            if path.stem != str(eid).split(":", 1)[1]:
+                err(f"{label}: file must be named after the enchant "
+                    f"(expected '{eid.split(':', 1)[1]}.yaml')")
             if eid in enchants:
                 err(f"{label}: duplicate enchant ID (also in {enchants[eid].relative_to(ROOT)})")
                 continue
