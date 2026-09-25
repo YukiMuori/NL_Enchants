@@ -1,0 +1,19 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — tenacity skills. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_TENACITY_STACK:
+  Cooldown: 1
+  Conditions:
+  - hasaura{aura=nl_tenacity_hard} true
+  Skills:
+  - potion{type=RESISTANCE;d=<math:40+20*enchant_level>;l=0;hasParticles=false} @self
+  - aura{auraname=nl_tenacity_hard;d=100;i=20;maxStacks=1;overwriteAll=true} @self
+  - skill{s=NL_VFX_TENACITY_PULSE} @self
+
+NL_ENCHANT_TENACITY_START:
+  Cooldown: 1
+  Conditions:
+  - hasaura{aura=nl_tenacity_hard} false
+  Skills:
+  - aura{auraname=nl_tenacity_hard;d=100;i=20;maxStacks=1;overwriteAll=true} @self

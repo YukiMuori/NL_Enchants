@@ -1,0 +1,11 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — reprisal skills. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_REPRISAL_THORN:
+  Cooldown: 1
+  Conditions:
+  - chance{c=0.2}
+  Skills:
+  - damage{a=<math:enchant_level+1>;cause=THORNS} @trigger
+  - skill{s=NL_VFX_REPRISAL_PULSE} @self
