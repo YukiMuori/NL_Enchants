@@ -1,8 +1,12 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — ranged enchantment (one file per enchant)
+#  NL_Enchants — ricochet (one file per enchant)
 #  Docs: docs/enchantments/ricochet.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · direct enchant lines may use <math:...> (Enchantment-Config form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
 nl:ricochet:
   Display: '<light_purple>Ricochet'
   Description: '<gray>A missed arrow springs once toward a nearby enemy.'

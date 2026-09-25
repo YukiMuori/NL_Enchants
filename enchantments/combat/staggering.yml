@@ -1,8 +1,12 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat enchantment (one file per enchant)
+#  NL_Enchants — staggering (one file per enchant)
 #  Docs: docs/enchantments/staggering.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · metaskills use <skill.var.enchant-level> (the documented in-context form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
 nl:staggering:
   Display: '<aqua>Staggering'
   Description: '<gray>Your strikes can briefly knock the target off balance.'
@@ -21,4 +25,4 @@ nl:staggering:
     MinCost: 16
     MaxCost: 38
   Skills:
-  - skill{s=NL_ENCHANT_STAGGERING_PROC} @self ~onAttack
+  - skill{s=NL_ENCHANT_STAGGERING_PROC} @target ~onAttack

@@ -1,11 +1,13 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+#  NL_Enchants — combat skills. Gameplay logic only.
+#  Variable form inside metaskills: <skill.var.enchant-level> (official docs).
+#  Mechanics without a targeter INHERIT the dispatch targeter's targets.
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_SLUGGISH_PROC:
-  # chance{c=...} — Mythic condition, per official ME quick-start usage.
+  # chance form per official ME quick-start: c=<skill.var.enchant-level>*X
   Conditions:
-  - chance{c=<math:0.08+0.04*enchant_level>}
+  - chance{c=<skill.var.enchant-level>*0.05}
   Skills:
-  - potion{type=SLOW;d=50;l=<math:enchant_level-1>;hasParticles=false} @trigger
-  - skill{s=NL_VFX_SLUGGISH_HIT} @trigger
+  - potion{type=SLOW;d=50;l=0;hasParticles=false}
+  - skill{s=NL_VFX_SLUGGISH_HIT}

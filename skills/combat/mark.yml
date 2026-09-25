@@ -1,17 +1,19 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+#  NL_Enchants — combat skills. Gameplay logic only.
+#  Variable form inside metaskills: <skill.var.enchant-level> (official docs).
+#  Mechanics without a targeter INHERIT the dispatch targeter's targets.
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_MARK_APPLY:
   TargetConditions:
   - hasaura{aura=nl_mark_state} false
   Skills:
-  - aura{auraname=nl_mark_state;d=160;i=20;maxStacks=1;overwriteAll=true} @trigger
-  - skill{s=NL_VFX_MARK_APPLY} @trigger
+  - aura{auraname=nl_mark_state;d=160;i=20;maxStacks=1;overwriteAll=true}
+  - skill{s=NL_VFX_MARK_APPLY}
 NL_ENCHANT_MARK_HIT:
   TargetConditions:
   - hasaura{aura=nl_mark_state} true
   Skills:
-  - damage{a=1.5} @trigger
-  - aura{auraname=nl_mark_state;d=160;i=20;maxStacks=1;overwriteAll=true} @trigger
-  - skill{s=NL_VFX_MARK_PULSE} @trigger
+  - damage{a=1.5}
+  - aura{auraname=nl_mark_state;d=160;i=20;maxStacks=1;overwriteAll=true}
+  - skill{s=NL_VFX_MARK_PULSE}

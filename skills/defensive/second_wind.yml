@@ -1,5 +1,7 @@
 # ══════════════════════════════════════════════════════════════════════════════
 #  NL_Enchants — second wind skills. Gameplay logic only.
+#  Fixed durations (constants only); healthpercent checks the caster (the
+#  wearer) per the Conditions semantics.
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_SECONDWIND_CHECK:
@@ -7,6 +9,6 @@ NL_ENCHANT_SECONDWIND_CHECK:
   Conditions:
   - healthpercent{p=<30%}
   Skills:
-  - potion{type=REGENERATION;d=<math:60+20*enchant_level>;l=0;hasParticles=false} @self
+  - potion{type=REGENERATION;d=60;l=0;hasParticles=false} @self
   - potion{type=SPEED;d=60;l=0;hasParticles=false} @self
   - skill{s=NL_VFX_SECONDWIND_GASP} @self

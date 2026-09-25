@@ -1,10 +1,11 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+#  NL_Enchants — combat skills. Gameplay logic only.
+#  Variable form inside metaskills: <skill.var.enchant-level> (official docs).
+#  Mechanics without a targeter INHERIT the dispatch targeter's targets.
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_MOMENTUM_GAIN:
-  # Chain token: stacking aura (max 5), broken by taking damage.
   Skills:
   - aura{auraname=nl_momentum;d=100;i=20;maxStacks=5;refreshDuration=true;CancelOnTakeDamage=true;oe=NL_VFX_MOMENTUM_BREAK} @self
-  - potion{type=SPEED;d=100;l=<math:enchant_level-1>;hasParticles=false} @self
+  - potion{type=SPEED;d=100;l=0;hasParticles=false} @self
   - skill{s=NL_VFX_MOMENTUM_GAIN} @self

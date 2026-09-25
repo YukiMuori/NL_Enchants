@@ -1,8 +1,12 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat enchantment (one file per enchant)
+#  NL_Enchants — sluggish (one file per enchant)
 #  Docs: docs/enchantments/sluggish.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · metaskills use <skill.var.enchant-level> (the documented in-context form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
 nl:sluggish:
   Display: '<white>Sluggish'
   Description: '<gray>Your strikes can bog the target down in a viscous haze.'
@@ -21,4 +25,4 @@ nl:sluggish:
     MinCost: 8
     MaxCost: 30
   Skills:
-  - skill{s=NL_ENCHANT_SLUGGISH_PROC} @self ~onAttack
+  - skill{s=NL_ENCHANT_SLUGGISH_PROC} @target ~onAttack

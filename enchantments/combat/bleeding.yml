@@ -1,8 +1,12 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat enchantment (one file per enchant)
+#  NL_Enchants — bleeding (one file per enchant)
 #  Docs: docs/enchantments/bleeding.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · metaskills use <skill.var.enchant-level> (the documented in-context form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
 nl:bleeding:
   Display: '<white>Bleeding'
   Description: '<gray>Your strikes can open wounds that keep hurting.'
@@ -19,4 +23,4 @@ nl:bleeding:
     MinCost: 8
     MaxCost: 30
   Skills:
-  - skill{s=NL_ENCHANT_BLEEDING_PROC} @self ~onAttack
+  - skill{s=NL_ENCHANT_BLEEDING_PROC} @target ~onAttack

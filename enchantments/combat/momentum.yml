@@ -1,8 +1,12 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat enchantment (one file per enchant)
+#  NL_Enchants — momentum (one file per enchant)
 #  Docs: docs/enchantments/momentum.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · metaskills use <skill.var.enchant-level> (the documented in-context form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
 nl:momentum:
   Display: '<white>Momentum'
   Description: '<gray>Chained kills keep you fast — taking a hit breaks the flow.'

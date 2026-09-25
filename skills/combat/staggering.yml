@@ -1,11 +1,13 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+#  NL_Enchants — combat skills. Gameplay logic only.
+#  Variable form inside metaskills: <skill.var.enchant-level> (official docs).
+#  Mechanics without a targeter INHERIT the dispatch targeter's targets.
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_STAGGERING_PROC:
   Conditions:
-  - chance{c=<math:0.06+0.04*enchant_level>}
+  - chance{c=<skill.var.enchant-level>*0.05}
   Skills:
-  - velocity{m=SET;x=0;y=0.2;z=0} @trigger
-  - velocity{m=SET;x=0;y=0;z=0;delay=1;repeat=6;repeatInterval=1} @trigger
-  - skill{s=NL_VFX_STAGGERING_HIT} @trigger
+  - velocity{m=SET;x=0;y=0.2;z=0}
+  - velocity{m=SET;x=0;y=0;z=0;delay=1;repeat=6;repeatInterval=1}
+  - skill{s=NL_VFX_STAGGERING_HIT}

@@ -1,8 +1,12 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat enchantment (one file per enchant)
+#  NL_Enchants — predator (one file per enchant)
 #  Docs: docs/enchantments/predator.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · metaskills use <skill.var.enchant-level> (the documented in-context form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
 nl:predator:
   Display: '<aqua>Predator'
   Description: '<gray>Strike back harder at the enemy that just hit you.'
@@ -19,5 +23,5 @@ nl:predator:
     MinCost: 16
     MaxCost: 38
   Skills:
-  - skill{s=NL_ENCHANT_PREDATOR_MARK} @self ~onDamaged
-  - skill{s=NL_ENCHANT_PREDATOR_STRIKE} @self ~onAttack
+  - skill{s=NL_ENCHANT_PREDATOR_MARK} @trigger ~onDamaged
+  - skill{s=NL_ENCHANT_PREDATOR_STRIKE} @target ~onAttack

@@ -1,5 +1,6 @@
 # ══════════════════════════════════════════════════════════════════════════════
 #  NL_Enchants — reprisal skills. Gameplay logic only.
+#  Inherited target from ~onDamaged @trigger dispatch = the attacker.
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_REPRISAL_THORN:
@@ -7,5 +8,5 @@ NL_ENCHANT_REPRISAL_THORN:
   Conditions:
   - chance{c=0.2}
   Skills:
-  - damage{a=<math:enchant_level+1>;cause=THORNS} @trigger
+  - damage{a=<skill.var.enchant-level>;cause=thorns}
   - skill{s=NL_VFX_REPRISAL_PULSE} @self

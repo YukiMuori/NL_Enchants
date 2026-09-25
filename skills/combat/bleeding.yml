@@ -1,13 +1,17 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat skills for one enchant. Gameplay logic only.
+#  NL_Enchants — combat skills. Gameplay logic only.
+#  Variable form inside metaskills: <skill.var.enchant-level> (official docs).
+#  Mechanics without a targeter INHERIT the dispatch targeter's targets.
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_BLEEDING_PROC:
   Conditions:
-  - chance{c=0.12}
+  - chance{c=<skill.var.enchant-level>*0.05}
   Skills:
-  - aura{auraname=nl_bleeding;d=<math:60+20*enchant_level>;i=20;maxStacks=1;overwriteAll=true;ot=NL_ENCHANT_BLEEDING_TICK;oe=NL_VFX_BLEEDING_END} @trigger
+  - aura{auraname=nl_bleeding;d=80;i=20;maxStacks=1;overwriteAll=true;ot=NL_ENCHANT_BLEEDING_TICK;oe=NL_VFX_BLEEDING_END}
 NL_ENCHANT_BLEEDING_TICK:
+  # Runs later (aura tick): constants only — no enchant variables here.
+  CancelIfNoTargets: false
   Skills:
   - damage{a=1} @self
   - skill{s=NL_VFX_BLEEDING_TICK} @self

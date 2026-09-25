@@ -1,8 +1,12 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat enchantment (one file per enchant)
+#  NL_Enchants — mark (one file per enchant)
 #  Docs: docs/enchantments/mark.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · metaskills use <skill.var.enchant-level> (the documented in-context form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
 nl:mark:
   Display: '<aqua>Mark'
   Description: '<gray>Your first hit marks a target; keeping the pressure rewarded.'
@@ -19,5 +23,5 @@ nl:mark:
     MinCost: 16
     MaxCost: 38
   Skills:
-  - skill{s=NL_ENCHANT_MARK_APPLY} @self ~onAttack
-  - skill{s=NL_ENCHANT_MARK_HIT} @self ~onAttack
+  - skill{s=NL_ENCHANT_MARK_APPLY} @target ~onAttack
+  - skill{s=NL_ENCHANT_MARK_HIT} @target ~onAttack

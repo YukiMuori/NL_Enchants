@@ -1,11 +1,18 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — mining enchantment (one file per enchant)
+#  NL_Enchants — prospector (one file per enchant)
 #  Docs: docs/enchantments/prospector.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · direct enchant lines may use <math:...> (Enchantment-Config form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
+#  REDESIGNED v0.3.0 as "Diamond Sense" — exact-position reveal of arbitrary
+#  ores needs Premium inline targeter conditions (out of scope); a reliable
+#  presence ping for diamonds uses only documented mechanics.
 nl:prospector:
   Display: '<aqua>Prospector'
-  Description: '<gray>Mining an ore sends out a pulse that hums when more treasure hides nearby.'
+  Description: '<gray>Mining ore sends out a pulse — diamonds nearby make it sing.'
   Rarity: RARE
   MaxLevel: 1
   AnvilCost: 4
@@ -17,4 +24,11 @@ nl:prospector:
     MinCost: 16
     MaxCost: 38
   Skills:
-  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak
+  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:coal_ores}
+  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:iron_ores}
+  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:copper_ores}
+  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:gold_ores}
+  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:redstone_ores}
+  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:lapis_ores}
+  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:diamond_ores}
+  - skill{s=NL_ENCHANT_PROSPECTOR_PING} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:emerald_ores}

@@ -1,12 +1,13 @@
 # ══════════════════════════════════════════════════════════════════════════════
 #  NL_Enchants — voidbound skills. Gameplay logic only.
-#  lethalcheck runs inline on the ~onDamaged line (official pattern).
-#  cap=1 lets the reduction fully negate the lethal event.
+#  lethalcheck gates the dispatch line (official inline pattern).
+#  reducedamage with a=1000 + cap=1 fully negates the lethal event without
+#  needing the <math:damage> variable inside a metaskill.
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_VOIDBOUND_SAVE:
   Cooldown: 600
   Skills:
-  - reducedamage{a=<math:damage+10>;cap=1} @self
+  - reducedamage{a=1000;cap=1} @self
   - potion{type=ABSORPTION;d=200;l=1;hasParticles=false} @self
   - skill{s=NL_VFX_VOIDBOUND_IMPLODE} @self

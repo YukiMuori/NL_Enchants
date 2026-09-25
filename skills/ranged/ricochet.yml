@@ -1,17 +1,22 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — ranged skills for one enchant. Gameplay logic only.
+#  NL_Enchants — ricochet skills. Gameplay logic only.
+#  @EntitiesInRadius usage per official MythicMobs examples; the spawned
+#  meta-projectile is a VISUAL spring, not the vanilla arrow.
+#  EXPERIMENTAL: verify feel in-game (see docs/testing.md).
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_RICOCHET_ARM:
   Skills:
   - aura{auraname=nl_ric_armed;d=80;i=20;maxStacks=1;overwriteAll=true} @self
+
 NL_ENCHANT_RICOCHET_MISS:
   Conditions:
   - hasaura{aura=nl_ric_armed} true
   Skills:
   - auraremove{aura=nl_ric_armed} @self
-  - projectile{v=20;mr=16;d=100;gravity=0.05;fromorigin=true;oT=NL_VFX_RICOCHET_TRAIL;oH=NL_ENCHANT_RICOCHET_HIT} @EntitiesInRadius{r=10;limit=1;sort=NEAREST;targetPlayers=false}
+  - projectile{v=20;mr=16;d=100;gravity=0.05;fromorigin=true;oT=NL_VFX_RICOCHET_TRAIL;oH=NL_ENCHANT_RICOCHET_HIT} @EntitiesInRadius{r=8;limit=1;sort=NEAREST;targetPlayers=false}
   - skill{s=NL_VFX_RICOCHET_BOUNCE} @self
+
 NL_ENCHANT_RICOCHET_HIT:
   Skills:
-  - damage{a=4} @target
+  - damage{a=4}

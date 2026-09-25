@@ -1,11 +1,17 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — farming enchantment (one file per enchant)
+#  NL_Enchants — green_thumb (one file per enchant)
 #  Docs: docs/enchantments/green_thumb.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · direct enchant lines may use <math:...> (Enchantment-Config form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
+#  REDESIGNED v0.3.0: growth burst on harvest (bonemeal around the player).
+#  The old hoe-~onUse/@TargetBlock design relied on unverified behavior.
 nl:green_thumb:
   Display: '<white>Green Thumb'
-  Description: '<gray>Working the soil with your hoe sometimes encourages the crop.'
+  Description: '<gray>Harvesting sometimes spreads a burst of growth around you.'
   Rarity: COMMON
   MaxLevel: 2
   AnvilCost: 1
@@ -17,4 +23,7 @@ nl:green_thumb:
     MinCost: 4
     MaxCost: 24
   Skills:
-  - skill{s=NL_ENCHANT_GREENTHUMB_USE} @self ~onUse
+  - skill{s=NL_ENCHANT_GREENTHUMB_BURST} @self ~onBlockBreak ?triggerblocktype{t=WHEAT}
+  - skill{s=NL_ENCHANT_GREENTHUMB_BURST} @self ~onBlockBreak ?triggerblocktype{t=CARROTS}
+  - skill{s=NL_ENCHANT_GREENTHUMB_BURST} @self ~onBlockBreak ?triggerblocktype{t=POTATOES}
+  - skill{s=NL_ENCHANT_GREENTHUMB_BURST} @self ~onBlockBreak ?triggerblocktype{t=BEETROOTS}

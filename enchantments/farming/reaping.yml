@@ -1,8 +1,12 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — farming enchantment (one file per enchant)
+#  NL_Enchants — reaping (one file per enchant)
 #  Docs: docs/enchantments/reaping.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · direct enchant lines may use <math:...> (Enchantment-Config form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
 nl:reaping:
   Display: '<aqua>Reaping'
   Description: '<gray>Harvesting sometimes sweeps the neighboring crops in one go.'
@@ -17,4 +21,7 @@ nl:reaping:
     MinCost: 16
     MaxCost: 38
   Skills:
-  - skill{s=NL_ENCHANT_REAPING_SWEEP} @self ~onBlockBreak
+  - skill{s=NL_ENCHANT_REAPING_SWEEP} @self ~onBlockBreak ?triggerblocktype{t=WHEAT}
+  - skill{s=NL_ENCHANT_REAPING_SWEEP} @self ~onBlockBreak ?triggerblocktype{t=CARROTS}
+  - skill{s=NL_ENCHANT_REAPING_SWEEP} @self ~onBlockBreak ?triggerblocktype{t=POTATOES}
+  - skill{s=NL_ENCHANT_REAPING_SWEEP} @self ~onBlockBreak ?triggerblocktype{t=BEETROOTS}

@@ -22,4 +22,4 @@ nl:reprisal:
     MinCost: 8
     MaxCost: 30
   Skills:
-  - skill{s=NL_ENCHANT_REPRISAL_THORN} @self ~onDamaged
+  - skill{s=NL_ENCHANT_REPRISAL_THORN} @trigger ~onDamaged

@@ -1,11 +1,19 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — ranged enchantment (one file per enchant)
+#  NL_Enchants — hawkeye (one file per enchant)
 #  Docs: docs/enchantments/hawkeye.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#
+#  RELIABILITY RULES (v0.3.0):
+#   · dispatch lines mirror official MythicEnchants examples exactly
+#   · direct enchant lines may use <math:...> (Enchantment-Config form)
+#   · one condition per line; no comma lists inside conditions
 # ══════════════════════════════════════════════════════════════════════════════
-
+#  REDESIGNED v0.3.0 on fully-documented mechanics only:
+#  arrowbuff on ~onShoot is the official Power example; bowtension is the
+#  official draw-tension condition; inline ?conditions on enchant lines are
+#  the official pattern. The old draw-focus listeners were removed.
 nl:hawkeye:
   Display: '<aqua>Hawkeye'
-  Description: '<gray>Aim while standing still to empower your next fully-drawn shot.'
+  Description: '<gray>Fully-drawn shots fly harder and truer.'
   Rarity: RARE
   MaxLevel: 2
   AnvilCost: 4
@@ -17,5 +25,5 @@ nl:hawkeye:
     MinCost: 16
     MaxCost: 38
   Skills:
-  - skill{s=NL_ENCHANT_HAWKEYE_FOCUS} @self ~onUse
-  - skill{s=NL_ENCHANT_HAWKEYE_RELEASE} @self ~onShoot
+  - arrowbuff{a=<math:enchant_level*0.75>} @self ~onShoot ?bowtension{value=>0.9}
+  - skill{s=NL_VFX_HAWKEYE_RELEASE} @self ~onShoot ?bowtension{value=>0.9}
