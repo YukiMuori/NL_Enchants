@@ -1,0 +1,25 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — legendary enchantment (one file per enchant)
+#  Docs: docs/enchantments/voidbound.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:voidbound:
+  Display: '<light_purple>Voidbound'
+  Description: '<gray>Once, when death should have taken you, the void refuses to collect.'
+  Rarity: MYTHIC
+  MaxLevel: 1
+  AnvilCost: 8
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  ConflictingEnchants:
+  - nl:second_wind
+  Enchanting:
+    Weight: 1
+    MinCost: 35
+    MaxCost: 55
+  Skills:
+  - skill{s=NL_ENCHANT_VOIDBOUND_SAVE} @self ~onDamaged ?lethalcheck

@@ -1,0 +1,25 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — legendary enchantment (one file per enchant)
+#  Docs: docs/enchantments/reflection.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:reflection:
+  Display: '<gold>Reflection'
+  Description: '<gray>Airborne steel turns against its archer.'
+  Rarity: LEGENDARY
+  MaxLevel: 1
+  AnvilCost: 7
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  ConflictingEnchants:
+  - nl:reprisal
+  Enchanting:
+    Weight: 2
+    MinCost: 30
+    MaxCost: 50
+  Skills:
+  - skill{s=NL_ENCHANT_REFLECTION_MIRROR} @self ~onDamaged ?lastdamagecause{c=PROJECTILE}

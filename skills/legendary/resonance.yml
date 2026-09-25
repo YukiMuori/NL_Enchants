@@ -1,0 +1,47 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — resonance skills. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_RESONANCE_EQUIP:
+  Skills:
+  - aura{auraname=nl_resonance_hum;d=1728000;i=160;overwriteAll=true;CancelOnDeath=false;ot=NL_ENCHANT_RESONANCE_PULSE} @self
+  - skill{s=NL_VFX_RESONANCE_LINK} @self
+
+NL_ENCHANT_RESONANCE_UNEQUIP:
+  Skills:
+  - auraremove{aura=nl_resonance_hum} @self
+
+NL_ENCHANT_RESONANCE_PULSE:
+  Skills:
+  - skill{s=NL_ENCHANT_RESONANCE_T1} @self
+  - skill{s=NL_ENCHANT_RESONANCE_T2} @self
+  - skill{s=NL_ENCHANT_RESONANCE_T3} @self
+  - skill{s=NL_ENCHANT_RESONANCE_T4} @self
+
+NL_ENCHANT_RESONANCE_T1:
+  Conditions:
+  - '((hasMythicEnchant{id=nl:resonance;slot=HEAD} && hasMythicEnchant{id=nl:resonance;slot=CHEST} false && hasMythicEnchant{id=nl:resonance;slot=LEGS} false && hasMythicEnchant{id=nl:resonance;slot=FEET} false) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} false && hasMythicEnchant{id=nl:resonance;slot=CHEST} && hasMythicEnchant{id=nl:resonance;slot=LEGS} false && hasMythicEnchant{id=nl:resonance;slot=FEET} false) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} false && hasMythicEnchant{id=nl:resonance;slot=CHEST} false && hasMythicEnchant{id=nl:resonance;slot=LEGS} && hasMythicEnchant{id=nl:resonance;slot=FEET} false) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} false && hasMythicEnchant{id=nl:resonance;slot=CHEST} false && hasMythicEnchant{id=nl:resonance;slot=LEGS} false && hasMythicEnchant{id=nl:resonance;slot=FEET}))'
+  Skills:
+  - potion{type=REGENERATION;d=40;l=0;hasParticles=false} @self
+  - skill{s=NL_VFX_RESONANCE_PULSE1} @self
+
+NL_ENCHANT_RESONANCE_T2:
+  Conditions:
+  - '((hasMythicEnchant{id=nl:resonance;slot=HEAD} && hasMythicEnchant{id=nl:resonance;slot=CHEST} && hasMythicEnchant{id=nl:resonance;slot=LEGS} false && hasMythicEnchant{id=nl:resonance;slot=FEET} false) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} && hasMythicEnchant{id=nl:resonance;slot=CHEST} false && hasMythicEnchant{id=nl:resonance;slot=LEGS} && hasMythicEnchant{id=nl:resonance;slot=FEET} false) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} false && hasMythicEnchant{id=nl:resonance;slot=CHEST} && hasMythicEnchant{id=nl:resonance;slot=LEGS} && hasMythicEnchant{id=nl:resonance;slot=FEET} false) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} && hasMythicEnchant{id=nl:resonance;slot=CHEST} false && hasMythicEnchant{id=nl:resonance;slot=LEGS} false && hasMythicEnchant{id=nl:resonance;slot=FEET}) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} false && hasMythicEnchant{id=nl:resonance;slot=CHEST} && hasMythicEnchant{id=nl:resonance;slot=LEGS} false && hasMythicEnchant{id=nl:resonance;slot=FEET}) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} false && hasMythicEnchant{id=nl:resonance;slot=CHEST} false && hasMythicEnchant{id=nl:resonance;slot=LEGS} && hasMythicEnchant{id=nl:resonance;slot=FEET}))'
+  Skills:
+  - potion{type=REGENERATION;d=80;l=0;hasParticles=false} @self
+  - skill{s=NL_VFX_RESONANCE_PULSE2} @self
+
+NL_ENCHANT_RESONANCE_T3:
+  Conditions:
+  - '((hasMythicEnchant{id=nl:resonance;slot=HEAD} && hasMythicEnchant{id=nl:resonance;slot=CHEST} && hasMythicEnchant{id=nl:resonance;slot=LEGS} && hasMythicEnchant{id=nl:resonance;slot=FEET} false) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} && hasMythicEnchant{id=nl:resonance;slot=CHEST} && hasMythicEnchant{id=nl:resonance;slot=LEGS} false && hasMythicEnchant{id=nl:resonance;slot=FEET}) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} && hasMythicEnchant{id=nl:resonance;slot=CHEST} false && hasMythicEnchant{id=nl:resonance;slot=LEGS} && hasMythicEnchant{id=nl:resonance;slot=FEET}) || (hasMythicEnchant{id=nl:resonance;slot=HEAD} false && hasMythicEnchant{id=nl:resonance;slot=CHEST} && hasMythicEnchant{id=nl:resonance;slot=LEGS} && hasMythicEnchant{id=nl:resonance;slot=FEET}))'
+  Skills:
+  - potion{type=REGENERATION;d=80;l=1;hasParticles=false} @self
+  - skill{s=NL_VFX_RESONANCE_PULSE3} @self
+
+NL_ENCHANT_RESONANCE_T4:
+  Conditions:
+  - '((hasMythicEnchant{id=nl:resonance;slot=HEAD} && hasMythicEnchant{id=nl:resonance;slot=CHEST} && hasMythicEnchant{id=nl:resonance;slot=LEGS} && hasMythicEnchant{id=nl:resonance;slot=FEET}))'
+  Skills:
+  - potion{type=REGENERATION;d=160;l=1;hasParticles=false} @self
+  - skill{s=NL_VFX_RESONANCE_PULSE4} @self

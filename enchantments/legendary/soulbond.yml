@@ -1,0 +1,25 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — legendary enchantment (one file per enchant)
+#  Docs: docs/enchantments/soulbond.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:soulbond:
+  Display: '<gold>Soulbond'
+  Description: '<gray>Bonded gear refuses to leave you — and binds its companions too.'
+  Rarity: LEGENDARY
+  MaxLevel: 1
+  AnvilCost: 7
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 2
+    MinCost: 30
+    MaxCost: 50
+  Skills:
+  - recoveritem{slot=TRIGGER;limit=3;reequip=true} @trigger ~onDeath
+  - skill{s=NL_ENCHANT_SOULBOND_WEB} @self ~onDeath
+  - skill{s=NL_VFX_SOULBOND_LINK} @self ~onEquip

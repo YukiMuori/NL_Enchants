@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — legendary enchantment (one file per enchant)
+#  Docs: docs/enchantments/resonance.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:resonance:
+  Display: '<gold>Resonance'
+  Description: '<gray>Attuned pieces hum together, slowly knitting your wounds.'
+  Rarity: LEGENDARY
+  MaxLevel: 1
+  AnvilCost: 7
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 1
+    MinCost: 30
+    MaxCost: 50
+  Skills:
+  - skill{s=NL_ENCHANT_RESONANCE_EQUIP} @self ~onEquip
+  - skill{s=NL_ENCHANT_RESONANCE_UNEQUIP} @self ~onUnequip

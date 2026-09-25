@@ -1,0 +1,9 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — legendary VFX for one enchant. Presentation only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_VFX_SOULBOND_LINK:
+  Skills:
+  - particles{p=end_rod;a=6;hs=0.4;vs=0.4;y=1} @self
+  - particles{p=soul;a=6;hs=0.4;vs=0.5;y=1} @self
+  - sound{s=block.amethyst_block.chime;v=0.6;p=0.7} @self

@@ -1,0 +1,11 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — reflection skills. Gameplay logic only.
+#  Projectile damage is halved; the removed half hits the shooter (@trigger).
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_REFLECTION_MIRROR:
+  Cooldown: 8
+  Skills:
+  - reducedamage{a=<math:damage*0.5>} @self
+  - damage{a=<math:damage*0.5>} @trigger
+  - skill{s=NL_VFX_REFLECTION_SHATTER} @self

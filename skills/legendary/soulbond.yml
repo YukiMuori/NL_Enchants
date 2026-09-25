@@ -1,0 +1,14 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — soulbond skills. Gameplay logic only.
+#  Per-piece: the item itself survives death (3 charges). With 2+ pieces the
+#  bond extends to the whole outfit (each slot keeps its own charge count).
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_SOULBOND_WEB:
+  Conditions:
+  - '((hasMythicEnchant{id=nl:soulbond;slot=HEAD} && hasMythicEnchant{id=nl:soulbond;slot=CHEST}) || (hasMythicEnchant{id=nl:soulbond;slot=HEAD} && hasMythicEnchant{id=nl:soulbond;slot=LEGS}) || (hasMythicEnchant{id=nl:soulbond;slot=HEAD} && hasMythicEnchant{id=nl:soulbond;slot=FEET}) || (hasMythicEnchant{id=nl:soulbond;slot=CHEST} && hasMythicEnchant{id=nl:soulbond;slot=LEGS}) || (hasMythicEnchant{id=nl:soulbond;slot=CHEST} && hasMythicEnchant{id=nl:soulbond;slot=FEET}) || (hasMythicEnchant{id=nl:soulbond;slot=LEGS} && hasMythicEnchant{id=nl:soulbond;slot=FEET}))'
+  Skills:
+  - recoveritem{slot=HEAD;limit=3;reequip=true} @self
+  - recoveritem{slot=CHEST;limit=3;reequip=true} @self
+  - recoveritem{slot=LEGS;limit=3;reequip=true} @self
+  - recoveritem{slot=FEET;limit=3;reequip=true} @self

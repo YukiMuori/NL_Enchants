@@ -1,0 +1,25 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — legendary VFX for one enchant. Presentation only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_VFX_RESONANCE_LINK:
+  Skills:
+  - particles{p=end_rod;a=6;hs=0.5;vs=0.5;y=1} @self
+  - sound{s=block.amethyst_block.chime;v=0.6;p=0.7} @self
+NL_VFX_RESONANCE_PULSE1:
+  Skills:
+  - particles{p=end_rod;a=6;hs=0.6;vs=0.3;y=1} @self
+  - sound{s=block.amethyst_block.chime;v=0.4;p=1} @self
+NL_VFX_RESONANCE_PULSE2:
+  Skills:
+  - particles{p=end_rod;a=10;hs=0.8;vs=0.3;y=1} @self
+  - sound{s=block.amethyst_block.chime;v=0.5;p=0.9} @self
+NL_VFX_RESONANCE_PULSE3:
+  Skills:
+  - particles{p=end_rod;a=14;hs=1;vs=0.35;y=1} @self
+  - sound{s=block.amethyst_block.chime;v=0.6;p=0.8} @self
+NL_VFX_RESONANCE_PULSE4:
+  Skills:
+  - particles{p=end_rod;a=16;hs=1.2;vs=0.4;y=1} @self
+  - particles{p=glow;a=8;hs=0.9;vs=0.6;y=1} @self
+  - sound{s=block.amethyst_block.chime;v=0.7;p=0.6} @self
