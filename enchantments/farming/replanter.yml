@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — farming enchantment (one file per enchant)
+#  Docs: docs/enchantments/replanter.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:replanter:
+  Display: '<white>Replanter'
+  Description: '<gray>Harvested crops are immediately replanted.'
+  Rarity: COMMON
+  MaxLevel: 1
+  AnvilCost: 1
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/hoe'
+  Enchanting:
+    Weight: 6
+    MinCost: 4
+    MaxCost: 24
+  Skills:
+  - setblock{m=WHEAT} @origin ~onBlockBreak ?triggerblocktype{t=WHEAT}
+  - setblock{m=CARROTS} @origin ~onBlockBreak ?triggerblocktype{t=CARROTS}
+  - setblock{m=POTATOES} @origin ~onBlockBreak ?triggerblocktype{t=POTATOES}
+  - setblock{m=BEETROOTS} @origin ~onBlockBreak ?triggerblocktype{t=BEETROOTS}
+  - skill{s=NL_VFX_REPLANTER_PUFF} @origin ~onBlockBreak ?triggerblocktype{t=WHEAT,CARROTS,POTATOES,BEETROOTS}

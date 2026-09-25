@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — farming enchantment (one file per enchant)
+#  Docs: docs/enchantments/reaping.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:reaping:
+  Display: '<aqua>Reaping'
+  Description: '<gray>Harvesting sometimes sweeps the neighboring crops in one go.'
+  Rarity: RARE
+  MaxLevel: 1
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/hoe'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_ENCHANT_REAPING_SWEEP} @self ~onBlockBreak

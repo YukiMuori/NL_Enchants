@@ -1,0 +1,8 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — farming VFX for one enchant. Presentation only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_VFX_GREENTHUMB_SPARKLE:
+  Skills:
+  - particles{p=composter;a=6;hs=0.3;vs=0.3;y=0.5} @self
+  - sound{s=item.bone_meal.use;v=0.5;p=1.2} @self

@@ -1,0 +1,8 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — farming VFX for one enchant. Presentation only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_VFX_REAPING_SWEEP:
+  Skills:
+  - particles{p=block;m=WHEAT;a=10;hs=0.6;vs=0.6} @origin
+  - sound{s=block.grass.break;v=0.7;p=0.9} @origin

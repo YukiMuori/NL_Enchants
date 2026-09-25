@@ -1,0 +1,16 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — green thumb skills. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_GREENTHUMB_USE:
+  Conditions:
+  - chance{c=<math:0.1+0.05*enchant_level>}
+  Skills:
+  - skill{s=NL_ENCHANT_GREENTHUMB_GROW} @TargetBlock{maxdistance=4}
+
+NL_ENCHANT_GREENTHUMB_GROW:
+  TargetConditions:
+  - blocktype{type=WHEAT,CARROTS,POTATOES,BEETROOTS}
+  Skills:
+  - bonemeal @targetlocation
+  - skill{s=NL_VFX_GREENTHUMB_SPARKLE} @targetlocation

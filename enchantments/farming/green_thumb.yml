@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — farming enchantment (one file per enchant)
+#  Docs: docs/enchantments/green_thumb.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:green_thumb:
+  Display: '<white>Green Thumb'
+  Description: '<gray>Working the soil with your hoe sometimes encourages the crop.'
+  Rarity: COMMON
+  MaxLevel: 2
+  AnvilCost: 1
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/hoe'
+  Enchanting:
+    Weight: 6
+    MinCost: 4
+    MaxCost: 24
+  Skills:
+  - skill{s=NL_ENCHANT_GREENTHUMB_USE} @self ~onUse

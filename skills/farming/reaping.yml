@@ -1,0 +1,13 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — reaping skills. Gameplay logic only.
+#  Immature neighbors may also break (they drop seeds only); documented
+#  compromise in docs/enchantments/reaping.md.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_REAPING_SWEEP:
+  Conditions:
+  - triggerblocktype{t=WHEAT,CARROTS,POTATOES,BEETROOTS}
+  - chance{c=0.35}
+  Skills:
+  - veinminer{t=WHEAT,CARROTS,POTATOES,BEETROOTS;rx=1;ry=1;rz=1;maxblocks=8;perblock=2} @self
+  - skill{s=NL_VFX_REAPING_SWEEP} @self
