@@ -1,7 +1,6 @@
 {
   "enchantment.nl.double_jump": "Double Jump",
   "enchantment.nl.double_jump.desc": "Press the jump key again while airborne to leap a second time.",
-
   "enchantment.nl.sluggish": "Sluggish",
   "enchantment.nl.sluggish.desc": "Your strikes can bog the target down in a viscous haze.",
   "enchantment.nl.bleeding": "Bleeding",
@@ -18,33 +17,28 @@
   "enchantment.nl.echo.desc": "A part of your strike sometimes repeats a moment later.",
   "enchantment.nl.mark": "Mark",
   "enchantment.nl.mark.desc": "Your first hit marks a target; keeping the pressure rewarded.",
-
   "enchantment.nl.hawkeye": "Hawkeye",
-  "enchantment.nl.hawkeye.desc": "Aim while standing still to empower your next fully-drawn shot.",
+  "enchantment.nl.hawkeye.desc": "Fully-drawn shots fly harder and truer.",
   "enchantment.nl.ricochet": "Ricochet",
   "enchantment.nl.ricochet.desc": "A missed arrow springs once toward a nearby enemy.",
   "enchantment.nl.recall": "Recall",
   "enchantment.nl.recall.desc": "Arrows sometimes return to your quiver after landing.",
-
   "enchantment.nl.shadowstep": "Shadowstep",
   "enchantment.nl.shadowstep.desc": "When struck, you may slip backward leaving a shadow of yourself behind.",
   "enchantment.nl.climber": "Climber",
   "enchantment.nl.climber.desc": "Sprint to climb ladders and vines faster; jump to leap off them.",
-
   "enchantment.nl.shatter": "Shatter",
   "enchantment.nl.shatter.desc": "Your picks sometimes crack the neighboring blocks of the same family.",
   "enchantment.nl.prospector": "Prospector",
-  "enchantment.nl.prospector.desc": "Mining an ore sends out a pulse that hums when more treasure hides nearby.",
+  "enchantment.nl.prospector.desc": "Mining ore sends out a pulse — diamonds nearby make it sing.",
   "enchantment.nl.conservation": "Conservation",
   "enchantment.nl.conservation.desc": "Your tools sometimes ignore wear.",
-
   "enchantment.nl.green_thumb": "Green Thumb",
-  "enchantment.nl.green_thumb.desc": "Working the soil with your hoe sometimes encourages the crop.",
+  "enchantment.nl.green_thumb.desc": "Harvesting sometimes spreads a burst of growth around you.",
   "enchantment.nl.reaping": "Reaping",
   "enchantment.nl.reaping.desc": "Harvesting sometimes sweeps the neighboring crops in one go.",
   "enchantment.nl.replanter": "Replanter",
   "enchantment.nl.replanter.desc": "Harvested crops are immediately replanted.",
-
   "enchantment.nl.grounded": "Grounded",
   "enchantment.nl.grounded.desc": "You stand firm — a share of knockback slides off you.",
   "enchantment.nl.reprisal": "Reprisal",
@@ -53,12 +47,10 @@
   "enchantment.nl.second_wind.desc": "At the brink, a burst of vigor carries you a little longer.",
   "enchantment.nl.tenacity": "Tenacity",
   "enchantment.nl.tenacity.desc": "Weathering blow after blow hardens you against the next ones.",
-
   "enchantment.nl.sentinel": "Sentinel",
   "enchantment.nl.sentinel.desc": "Your helm quietly stirs when hostile eyes watch you.",
   "enchantment.nl.wayfarer": "Wayfarer",
   "enchantment.nl.wayfarer.desc": "Long stretches of honest travel reward you with a moment of vigor.",
-
   "enchantment.nl.resonance": "Resonance",
   "enchantment.nl.resonance.desc": "Attuned pieces hum together, slowly knitting your wounds.",
   "enchantment.nl.voidbound": "Voidbound",

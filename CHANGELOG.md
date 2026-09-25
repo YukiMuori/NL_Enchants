@@ -5,6 +5,60 @@ Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning:
 [SemVer](https://semver.org/) — MAJOR breaking · MINOR enchant/feature ·
 PATCH fix/balance. Gameplay values are never changed silently.
 
+## [0.3.0] — 2026-09-26
+
+**Reliability rebuild.** Field testing showed most of the 0.2.0 catalog
+non-functional. Root cause: bare `<math:enchant_level>` variables inside
+metaskills (documented only for direct enchant lines) → unresolvable →
+metaskill aborted. Every enchant was rebuilt on patterns proven by official
+documentation, and the reliability rules are now enforced pack-wide
+(`docs/development.md`).
+
+### Fixed (architecture)
+
+- All metaskills now use `<skill.var.enchant-level>`; direct enchant lines
+  use `<math:...>`; aura-tick/delayed skills use constants only (R1).
+- Dispatch lines aligned to official trigger/target semantics:
+  `~onAttack → @target`, `~onDamaged → @self`/`@trigger`, `~onBlockBreak →
+  @self`/`@origin` (R2); metaskill mechanics inherit targets (R3).
+- One condition per line — comma lists removed from all conditions;
+  material lists live only in mechanics that document them (veinminer) (R4).
+- `CancelIfNoTargets: false` on utility metaskills without guaranteed
+  targets (R5).
+
+### Redesigned (unverified mechanisms removed)
+
+- `nl:hawkeye` → direct `arrowbuff` on `~onShoot` gated by inline
+  `bowtension{value=>0.9}` (official patterns only; draw-focus listeners
+  removed). New description.
+- `nl:green_thumb` → growth burst (bonemeal) on harvest; hoe-`~onUse`
+  design removed. New description.
+- `nl:prospector` → "Diamond Sense": strong/soft presence ping via
+  `blocktypeinradius` (single-material conditions).
+- `nl:sentinel` → self-centered pulse (per-mob marking used an unverified
+  targeter).
+- `nl:resonance` → two tiers (any piece / full set) with plain conditions.
+- `nl:soulbond` → outfit binding now requires the full set (plain
+  conditions instead of composite chains).
+- `nl:shatter` / `nl:reaping` → one single-tag gate line per block family;
+  lists only inside veinminer.
+- `nl:echo` / `nl:momentum` / `nl:tenacity` / `nl:second_wind` → fixed
+  values instead of level math in fragile contexts.
+- `nl:voidbound` / `nl:reflection` → flat `reducedamage` amounts
+  (`a=1000` + cap) — no damage variable inside metaskills.
+
+### Added
+
+- `docs/testing.md` — full in-game test protocol (per-enchant matrix,
+  architecture checks, known-risk list).
+- Reliability rules section in `docs/development.md`.
+
+### Validation status
+
+- Static validation: **completed**.
+- Runtime validation: **REQUIRED — this is the release that must be
+  field-tested before any enchant is considered working.**
+
 ## [0.2.1] — 2026-09-25
 
 Documentation and localization release — no gameplay changes.

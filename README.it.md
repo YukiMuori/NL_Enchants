@@ -85,7 +85,7 @@ stivali, arco, piccone, zappa, attrezzi.
 
 | ID | Nome | Rarità | Max | Oggetti | Effetto |
 | --- | --- | --- | --- | --- | --- |
-| `nl:hawkeye` | Occhio di Falco | RARE | II | arco | Mira restando fermo per potenziare il prossimo colpo a arco completamente teso. |
+| `nl:hawkeye` | Occhio di Falco | RARE | II | arco | I colpi ad arco completamente teso volano più forti e più veri. |
 | `nl:ricochet` | Rimbalzo | EPIC | I | arco | Una freccia mancata rimbalza una volta verso un nemico vicino. |
 | `nl:recall` | Richiamo | UNCOMMON | I | arco | Le frecce a volte tornano nella tua faretra dopo l'impatto. |
 
@@ -102,14 +102,14 @@ stivali, arco, piccone, zappa, attrezzi.
 | ID | Nome | Rarità | Max | Oggetti | Effetto |
 | --- | --- | --- | --- | --- | --- |
 | `nl:shatter` | Frantuma | RARE | III | piccone | Il tuo piccone a volte frantuma i blocchi adiacenti della stessa famiglia. |
-| `nl:prospector` | Prospezione | RARE | I | piccone | Estrarre un minerale invia un impulso che riecheggia se altro tesoro si nasconde nelle vicinanze. |
+| `nl:prospector` | Prospezione | RARE | I | piccone | Estrarre minerale invia un impulso: se diamanti si nascondono nelle vicinanze, canta. |
 | `nl:conservation` | Conservazione | UNCOMMON | II | attrezzi | I tuoi attrezzi a volte ignorano l'usura. |
 
 ### Agricoltura · `enchantments/farming/`
 
 | ID | Nome | Rarità | Max | Oggetti | Effetto |
 | --- | --- | --- | --- | --- | --- |
-| `nl:green_thumb` | Mano Verde | COMMON | II | zappa | Lavorare il terreno con la zappa a volte incoraggia il raccolto. |
+| `nl:green_thumb` | Mano Verde | COMMON | II | zappa | Raccogliere a volte sparge un'ondata di crescita intorno a te. |
 | `nl:reaping` | Mietitura | RARE | I | zappa | Raccogliere a volte porta via in un colpo solo anche le colture vicine. |
 | `nl:replanter` | Ripiantatore | COMMON | I | zappa | Le colture raccolte vengono immediatamente riseminate. |
 
@@ -180,12 +180,11 @@ convenzioni di commit. Validazione statica:
 python3 tools/validate.py
 ```
 
-> **Stato validazione:** *Validazione statica completata (30 incantesimi, 0
-> errori). La validazione runtime su Paper + MythicMobs + MythicEnchants è
-> ancora richiesta* — inclusi gli elementi RUNTIME-VERIFY segnalati in
-> `docs/enchantments/*.md` e `docs/compatibility.md`. Nulla in questo
-> repository va considerato testato in gioco finché non è verificato sul
-> server live.
+> **Stato validazione:** *la v0.3.0 è una ricostruzione di affidabilità —
+> validazione statica completata; la validazione runtime su Paper +
+> MythicMobs + MythicEnchants è OBBLIGATORIA.* Segui `docs/testing.md`
+> (matrice di test per incantesimo) e riporta gli errori di console.
+> Nulla va considerato funzionante finché non supera quel protocollo.
 
 ## Risoluzione problemi
 

@@ -46,32 +46,32 @@ Availability bands by rarity (Weight / MinCost / MaxCost / AnvilCost):
 | Enchant | Key values |
 | --- | --- |
 | `nl:double_jump` | impulse +0.42 Y · charge 5s · settle 3t · MaxLevel I |
-| `nl:sluggish` | chance 12/16/20% · Slow 2.5s (amp by level) |
-| `nl:bleeding` | chance 12% · 1 dmg/s · 3/4/5s |
-| `nl:staggering` | chance 10/14% · root ~0.3s · conflicts sluggish |
+| `nl:sluggish` | chance 5/10/15% · Slowness I 2.5s |
+| `nl:bleeding` | chance 5/10/15% · 1 dmg/s · 4s |
+| `nl:staggering` | chance 5/10% · root ~0.3s · conflicts sluggish |
 | `nl:executioner` | threshold <30% HP · +1/+2/+3 dmg · marker 3s cd |
 | `nl:predator` | stalk 5s · +2/+3 dmg · consumed on use |
-| `nl:momentum` | stacks max 5 · 5s · Speed I–III · broken by damage |
-| `nl:echo` | 25% · delay 0.3s · 10/20/30% of item_attack · cd 2s |
+| `nl:momentum` | stacks max 5 · 5s · Speed I fixed · broken by damage |
+| `nl:echo` | 25% · delay 0.3s · +1/+2/+3 flat · cd 2s |
 | `nl:mark` | mark 8s · +1.5 dmg on marked · refresh on hit · MaxLevel I |
-| `nl:hawkeye` | focus 2s (braced draw) · release tension >0.9 · +1.5/+3 arrow dmg |
-| `nl:ricochet` | window 4s · nearest hostile ≤10b · 4 flat dmg · 1 bounce |
+| `nl:hawkeye` | +0.75 arrow dmg/level at tension >0.9 (direct lines) |
+| `nl:ricochet` | window 4s · nearest hostile ≤8b · 4 flat dmg · 1 spring |
 | `nl:recall` | miss 35% / hit 20% · 1 arrow · cd 2s |
 | `nl:shadowstep` | 25% on damaged · backward hop · cd 5s · MaxLevel I |
 | `nl:climber` | sprint climb +0.1 Y/tick · jump leap +0.42 Y · climbables only |
-| `nl:shatter` | stone 15/20/25% max 12 · ore 12/16/20% max 8 · 3×3×3 · perblock=2 |
-| `nl:prospector` | 3-tier ping · valuable ores · r=8 · cd 6s |
-| `nl:conservation` | negate 25/35% per durability point |
-| `nl:green_thumb` | chance 15/20% · crop-only · single block |
+| `nl:shatter` | stone 5/10/15% max 12 · ore 4/8/12% max 8 · 3×3×3 · perblock=2 |
+| `nl:prospector` | diamond-sense ping · r=8 · cd 6s |
+| `nl:conservation` | ~15%/level (I), ~20%/level (II) negate chance |
+| `nl:green_thumb` | chance 5/10% · bonemeal burst r=2 on harvest |
 | `nl:reaping` | 35% · 3×3×3 max 8 crops · perblock=2 |
 | `nl:replanter` | instant replant · MaxLevel I · QoL |
 | `nl:grounded` | +20%/+40% KB resistance per piece (stacks across pieces) |
-| `nl:reprisal` | 20% · 2/3/4 thorns dmg · conflicts reflection |
-| `nl:second_wind` | trigger <30% HP · Regen I 3/4s + Speed I 3s · cd 45s |
-| `nl:tenacity` | window 5s · Resistance I 2/3s while chain lives |
+| `nl:reprisal` | 20% · 1/2/3 thorns dmg · conflicts reflection |
+| `nl:second_wind` | trigger <30% HP · Regen I + Speed I 3s · cd 45s |
+| `nl:tenacity` | window 5s · Resistance I 3s while chain lives |
 | `nl:sentinel` | scan / 5s · r=12 · max 4 marked · chime-only |
 | `nl:wayfarer` | moving+outdoor+grounded · Regen II 3s · cd 60s |
-| `nl:resonance` | Regen I 2s → II 8s by exact piece count · pulse / 8s |
+| `nl:resonance` | ANY piece Regen I 3s · FULL set Regen II 8s · pulse / 8s |
 | `nl:voidbound` | lethal negate (totem-aware) + Absorption II 10s · cd 600s |
 | `nl:reflection` | projectile hits halved, half returned · cd 8s · MaxLevel I |
 | `nl:soulbond` | per-item 3 death charges · 2+ pieces bind whole outfit |

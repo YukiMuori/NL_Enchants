@@ -82,7 +82,7 @@ swords+axes, armor = any piece, boots, bow, pickaxe, hoe, tools.
 
 | ID | English | Italian | Rarity | Max | Items | One-sentence effect |
 | --- | --- | --- | --- | --- | --- | --- |
-| `nl:hawkeye` | Hawkeye | Occhio di Falco | RARE | II | bow | Aim while standing still to empower your next fully-drawn shot. |
+| `nl:hawkeye` | Hawkeye | Occhio di Falco | RARE | II | bow | Fully-drawn shots fly harder and truer. |
 | `nl:ricochet` | Ricochet | Rimbalzo | EPIC | I | bow | A missed arrow springs once toward a nearby enemy. |
 | `nl:recall` | Recall | Richiamo | UNCOMMON | I | bow | Arrows sometimes return to your quiver after landing. |
 
@@ -99,14 +99,14 @@ swords+axes, armor = any piece, boots, bow, pickaxe, hoe, tools.
 | ID | English | Italian | Rarity | Max | Items | One-sentence effect |
 | --- | --- | --- | --- | --- | --- | --- |
 | `nl:shatter` | Shatter | Frantuma | RARE | III | pickaxe | Your picks sometimes crack the neighboring blocks of the same family. |
-| `nl:prospector` | Prospector | Prospezione | RARE | I | pickaxe | Mining an ore pings when more treasure hides nearby. |
+| `nl:prospector` | Prospector | Prospezione | RARE | I | pickaxe | Mining ore sends out a pulse — diamonds nearby make it sing. |
 | `nl:conservation` | Conservation | Conservazione | UNCOMMON | II | tools | Your tools sometimes ignore wear. |
 
 ### Farming · `enchantments/farming/`
 
 | ID | English | Italian | Rarity | Max | Items | One-sentence effect |
 | --- | --- | --- | --- | --- | --- | --- |
-| `nl:green_thumb` | Green Thumb | Mano Verde | COMMON | II | hoe | Working the soil with your hoe sometimes encourages the crop. |
+| `nl:green_thumb` | Green Thumb | Mano Verde | COMMON | II | hoe | Harvesting sometimes spreads a burst of growth around you. |
 | `nl:reaping` | Reaping | Mietitura | RARE | I | hoe | Harvesting sometimes sweeps the neighboring crops in one go. |
 | `nl:replanter` | Replanter | Ripiantatore | COMMON | I | hoe | Harvested crops are immediately replanted. |
 
@@ -177,12 +177,11 @@ conventions. Static validation:
 python3 tools/validate.py
 ```
 
-> **Validation status:** *Static validation completed (30 enchants, 0
-> errors). Runtime validation on Paper + MythicMobs + MythicEnchants is
-> still required* — including the per-enchant RUNTIME-VERIFY items flagged
-> in `docs/enchantments/*.md` and `docs/compatibility.md`. Nothing in this
-> repository should be considered in-game tested until verified on the live
-> server.
+> **Validation status:** *v0.3.0 is a reliability rebuild — static
+> validation completed; runtime validation on Paper + MythicMobs +
+> MythicEnchants is REQUIRED.* Follow `docs/testing.md` (per-enchant test
+> matrix) and report console errors. Nothing is considered working until it
+> passes that protocol.
 
 ## Troubleshooting
 
