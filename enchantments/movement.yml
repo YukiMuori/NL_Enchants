@@ -1,0 +1,45 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Movement enchantments
+#
+#  Category: movement
+#  Namespace: nl  (all enchantment IDs are explicitly namespaced as nl:<id>)
+#
+#  Enchantment config reference:
+#    https://wiki.mythiccraft.io/mythicenchants/Enchants/Custom-Enchantments
+#    https://wiki.mythiccraft.io/mythicenchants/Enchants/Enchantment-Config
+#
+#  NOTE: adding or removing enchantments requires a FULL server restart
+#  (datapack registration). Changing the Skills of an existing enchantment
+#  can be applied with /mm reload (or /mench reload).
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ──────────────────────────────────────────────────────────────────────────────
+#  nl:double_jump  ·  "Double Jump" / "Doppio Salto"
+#
+#  One-sentence design:
+#    "After jumping, press the jump key again while airborne to leap a
+#     second time."
+#
+#  Architecture (logic lives in skills/movement/double_jump.yml):
+#    ~onEquip   → NL_ENCHANT_DOUBLEJUMP_EQUIP   (install listener auras)
+#    ~onUnequip → NL_ENCHANT_DOUBLEJUMP_UNEQUIP (remove listener auras)
+#
+#  See docs/enchantments/double_jump.md for the full specification,
+#  design rationale and performance assessment.
+# ──────────────────────────────────────────────────────────────────────────────
+nl:double_jump:
+  Display: '<aqua>Double Jump'
+  Description: '<gray>Press the jump key again while airborne to leap a second time.'
+  Rarity: RARE
+  MaxLevel: 1
+  AnvilCost: 6
+  ValidSlots:
+  - FEET
+  SupportedItems: '#minecraft:enchantable/foot_armor'
+  Enchanting:
+    Weight: 4
+    MinCost: 18
+    MaxCost: 42
+  Skills:
+  - skill{s=NL_ENCHANT_DOUBLEJUMP_EQUIP} @self ~onEquip
+  - skill{s=NL_ENCHANT_DOUBLEJUMP_UNEQUIP} @self ~onUnequip
