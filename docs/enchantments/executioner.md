@@ -10,21 +10,21 @@ Maximum Level:     3
 Supported Items:   #minecraft:enchantable/weapon (Primary: #minecraft:swords)
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onAttack
+Trigger(s):        ~onAttack → metaskills @target
 Cooldown:          marker line 3s internal
 ```
 
 ## Effect
 
-Below 30% health, attacks deal +1/+2/+3 bonus damage (by level). A 3s-gated marker (villager symbol + sound) shows when a target is vulnerable.
+Below 30% health, attacks deal +1/+2/+3 bonus damage (level). A 3s-gated marker shows the target is vulnerable.
 
 ## VFX
 
-Angry-villager symbol above the vulnerable target; crit burst + crit sound on the finishing strike.
+Angry-villager symbol above the target; crit burst on the strike.
 
 ## Balance
 
-Finisher identity; the telegraph (marker) is part of the design so players learn the threshold.
+Finisher identity; the telegraph is part of the design.
 
 ## Notes
 
@@ -34,7 +34,7 @@ Identity: FINISHER.
 
 ```text
 enchantments/combat/executioner.yml
-skills/combat/executioner.yml
-vfx/combat/executioner.yml            (if the enchant has active VFX)
+skills/combat/executioner.yml            (when the logic lives in metaskills)
+vfx/combat/executioner.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

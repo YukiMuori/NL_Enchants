@@ -16,15 +16,15 @@ Cooldown:          one pulse / 8s
 
 ## Effect
 
-Piece-count synergy (exact-count conditions via hasMythicEnchant per slot): 1 piece = Regen I 2s; 2 = Regen I 4s; 3 = Regen II 4s; 4 = Regen II 8s + full ring pulse.
+TWO tiers (v0.3.0 simplification): ANY piece = Regeneration I 3s; FULL set = Regeneration II 8s. Full set is four plain conditions (no composite chains); the any-piece tier uses one documented composite OR.
 
 ## VFX
 
-End-rod rings scaling by tier; amethyst chime; glow ring on the full set.
+End-rod pulse (any) / end-rod + glow ring (full).
 
 ## Balance
 
-Set/synergy identity. Drift-free counting (no stored state — recomputed each pulse from real equipment). Regen is the full effect: modest even at 4 pieces.
+Full-set potion applies first; the weaker any-tier potion respects it (potion force=false default).
 
 ## Notes
 
@@ -34,7 +34,7 @@ Identity: SET / SYNERGY.
 
 ```text
 enchantments/legendary/resonance.yml
-skills/legendary/resonance.yml
-vfx/legendary/resonance.yml            (if the enchant has active VFX)
+skills/legendary/resonance.yml            (when the logic lives in metaskills)
+vfx/legendary/resonance.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

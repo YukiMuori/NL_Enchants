@@ -10,21 +10,21 @@ Maximum Level:     2
 Supported Items:   #minecraft:enchantable/weapon (Primary: #minecraft:swords)
 Valid Slots:       MAINHAND
 Conflicts:         nl:sluggish
-Trigger(s):        ~onAttack
+Trigger(s):        ~onAttack → metaskill @target
 Cooldown:          —
 ```
 
 ## Effect
 
-On hit: 10/14% chance to lift the target slightly and pin it in place for ~0.3s (repeated zero-velocity).
+On hit: 5/10% chance (level × 5%) to lift the target slightly and pin it in place for ~0.3s.
 
 ## VFX
 
-Crit particle burst + iron golem impact sound on the target.
+Crit particle burst + iron golem impact sound.
 
 ## Balance
 
-Physical interruption — no slow, no damage. Conflicts with sluggish (control group). Short root keeps PvP fair.
+Physical interruption — no slow, no damage. Conflicts with sluggish.
 
 ## Notes
 
@@ -34,7 +34,7 @@ Identity: INTERRUPTION / PHYSICAL CONTROL.
 
 ```text
 enchantments/combat/staggering.yml
-skills/combat/staggering.yml
-vfx/combat/staggering.yml            (if the enchant has active VFX)
+skills/combat/staggering.yml            (when the logic lives in metaskills)
+vfx/combat/staggering.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

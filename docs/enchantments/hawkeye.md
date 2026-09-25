@@ -10,31 +10,31 @@ Maximum Level:     2
 Supported Items:   #minecraft:enchantable/bow
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onUse (drawing) + ~onShoot
+Trigger(s):        ~onShoot ?bowtension{value=>0.9} (inline, direct lines)
 Cooldown:          —
 ```
 
 ## Effect
 
-Drawing the bow while braced (on ground) builds a short-lived focus. Releasing a fully-drawn shot (tension > 0.9) with focus adds +1.5/+3 arrow damage (by level) and consumes the focus.
+Fully-drawn shots (tension above 0.9) fly harder: +0.75 arrow damage per level. REDESIGNED v0.3.0: the old draw-focus listeners were replaced by the official arrowbuff-on-shoot pattern with an inline bowtension gate — every piece is a documented example.
 
 ## VFX
 
-Rare end-rod wisp while focusing; crit burst + deep twang on the empowered release.
+Crit burst + deep twang on empowered release.
 
 ## Balance
 
-'Stationary' is approximated as on-ground while drawing. Focus expires in 2s of not drawing, so it cannot be banked.
+Only rewards max-draw shots — patience is the skill expression.
 
 ## Notes
 
-Identity: PRECISION. RUNTIME-VERIFY: ~onUse draw behavior.
+Identity: PRECISION.
 
 ## Files
 
 ```text
 enchantments/ranged/hawkeye.yml
-skills/ranged/hawkeye.yml
-vfx/ranged/hawkeye.yml            (if the enchant has active VFX)
+skills/ranged/hawkeye.yml            (when the logic lives in metaskills)
+vfx/ranged/hawkeye.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

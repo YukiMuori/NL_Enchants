@@ -16,15 +16,15 @@ Cooldown:          per-item 3 charges
 
 ## Effect
 
-Each piece survives your death up to 3 times (charges on the item). With 2+ pieces worn, the bond extends to the whole outfit — every slot is protected (each with its own 3 charges).
+Each piece survives your death up to 3 times. With the FULL set worn, the bond extends to the whole outfit (four plain conditions — no composites).
 
 ## VFX
 
-End-rod + soul motes and a chime when the bond is established on equip.
+End-rod + soul motes and a chime on equip.
 
 ## Balance
 
-Equipment-synergy identity built on the official recoveritem mechanic; charges are persistent PDC on each item. Re-equip after recovery.
+Official recoveritem mechanics; charges persist on each item.
 
 ## Notes
 
@@ -34,7 +34,7 @@ Identity: EQUIPMENT SYNERGY.
 
 ```text
 enchantments/legendary/soulbond.yml
-skills/legendary/soulbond.yml
-vfx/legendary/soulbond.yml            (if the enchant has active VFX)
+skills/legendary/soulbond.yml            (when the logic lives in metaskills)
+vfx/legendary/soulbond.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

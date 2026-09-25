@@ -10,21 +10,21 @@ Maximum Level:     3
 Supported Items:   #minecraft:enchantable/weapon (Primary: #minecraft:swords)
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onAttack
+Trigger(s):        ~onAttack → metaskill @target
 Cooldown:          2s internal
 ```
 
 ## Effect
 
-25% of hits repeat after 0.3s, dealing 10%/20%/30% (by level) of the original attack's damage (item_attack based).
+25% of hits repeat after 0.3s dealing +1/+2/+3 damage (level). (v0.3.0: flat level-scaled instead of item_attack — the attack-damage variable is not guaranteed inside metaskills.)
 
 ## VFX
 
-End-rod burst + evoker whisper at the delayed second impact — clearly distinguishable from the swing.
+End-rod burst + evoker whisper at the delayed impact.
 
 ## Balance
 
-item_attack scales with the weapon, so the echo never outgrows the weapon itself. 2s internal cooldown prevents machine-gun spam.
+Fixed value = predictable and readable. 2s internal cooldown.
 
 ## Notes
 
@@ -34,7 +34,7 @@ Identity: DELAYED HIT.
 
 ```text
 enchantments/combat/echo.yml
-skills/combat/echo.yml
-vfx/combat/echo.yml            (if the enchant has active VFX)
+skills/combat/echo.yml            (when the logic lives in metaskills)
+vfx/combat/echo.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

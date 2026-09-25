@@ -16,7 +16,7 @@ Cooldown:          60s internal
 
 ## Effect
 
-While actively traveling (moving, outdoors, on ground), each minute of honest exploration grants Regeneration II for 3s.
+While actively traveling (moving, outdoors, grounded), each minute grants Regeneration II for 3s.
 
 ## VFX
 
@@ -24,17 +24,17 @@ Happy-villager motes + soft levelup chime.
 
 ## Balance
 
-Rewards the JOURNEY (continuous movement outdoors), not idling or cave time. 60s internal cooldown.
+Rewards the journey, not idling.
 
 ## Notes
 
-Identity: EXPLORATION REWARD. Designed from the intentionally-underspecified master concept.
+Identity: EXPLORATION REWARD.
 
 ## Files
 
 ```text
 enchantments/exploration/wayfarer.yml
-skills/exploration/wayfarer.yml
-vfx/exploration/wayfarer.yml            (if the enchant has active VFX)
+skills/exploration/wayfarer.yml            (when the logic lives in metaskills)
+vfx/exploration/wayfarer.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

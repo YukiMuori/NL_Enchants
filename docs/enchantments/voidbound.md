@@ -16,15 +16,15 @@ Cooldown:          600s internal
 
 ## Effect
 
-When the current damage event would kill you (totem-aware), the event is fully negated (reducedamage cap=1) and you gain Absorption II for 10s.
+When the current damage event would kill you (totem-aware), it is fully negated (reducedamage a=1000, cap=1 — no damage variable needed) and you gain Absorption II for 10s.
 
 ## VFX
 
-Implosion drama: sculk-soul + portal burst, respawn-anchor charge + sculk undertone.
+Implosion drama: sculk-soul + portal burst, anchor charge + sculk undertone.
 
 ## Balance
 
-Last resort: 10-minute cooldown, one charge, totem priority preserved. Never a replacement for skill.
+Last resort: 10-minute cooldown, totem priority preserved.
 
 ## Notes
 
@@ -34,7 +34,7 @@ Identity: LAST RESORT.
 
 ```text
 enchantments/legendary/voidbound.yml
-skills/legendary/voidbound.yml
-vfx/legendary/voidbound.yml            (if the enchant has active VFX)
+skills/legendary/voidbound.yml            (when the logic lives in metaskills)
+vfx/legendary/voidbound.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

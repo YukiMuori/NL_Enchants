@@ -10,31 +10,31 @@ Maximum Level:     2
 Supported Items:   #minecraft:enchantable/hoe
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onUse (hoe use)
+Trigger(s):        ~onBlockBreak on crops (4 gate lines)
 Cooldown:          —
 ```
 
 ## Effect
 
-Using the hoe looking at a crop: 15/20% chance to apply a free bone-meal growth tick to it.
+Harvesting a crop: 5/10% chance (level × 5%) for a burst of growth — bonemeal applied to the blocks around you. REDESIGNED v0.3.0: the hoe-~onUse design relied on unverified behavior.
 
 ## VFX
 
-Composter sparkles + bone-meal sound at the crop.
+Composter sparkles + bone-meal sound.
 
 ## Balance
 
-Modest free growth — single block, crop-only (blocktype gate), modest chance.
+Bonemeal on grass can pop flowers — a fitting vanilla flourish.
 
 ## Notes
 
-Identity: FARMING. RUNTIME-VERIFY: ~onUse on hoe + @TargetBlock behavior.
+Identity: FARMING.
 
 ## Files
 
 ```text
 enchantments/farming/green_thumb.yml
-skills/farming/green_thumb.yml
-vfx/farming/green_thumb.yml            (if the enchant has active VFX)
+skills/farming/green_thumb.yml            (when the logic lives in metaskills)
+vfx/farming/green_thumb.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

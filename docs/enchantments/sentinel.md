@@ -1,4 +1,4 @@
-# Sentinel
+# Sentinella
 
 ```text
 ID:                nl:sentinel
@@ -16,25 +16,25 @@ Cooldown:          one scan / 5s
 
 ## Effect
 
-When hostiles are within 12 blocks, up to 4 of the nearest get a subtle glow mote and you hear a soft amethyst chime.
+When hostiles are within 12 blocks (documented multi-type condition), your helm pulses with glow motes and a soft chime. REDESIGNED v0.3.0: self-centered feedback (per-mob marking used an unverified targeter).
 
 ## VFX
 
-Glow particles above hostiles + quiet chime. Subtle by design.
+Self-centered glow pulse + quiet chime.
 
 ## Balance
 
-Awareness only — no reveal through walls beyond particles, no buffs. Performance: one capped radius check every 5s per wearer.
+Awareness only — no buffs, no marking.
 
 ## Notes
 
-Identity: AWARENESS. RUNTIME-VERIFY: @MobsInRadius types filter + hostile list coverage.
+Identity: AWARENESS.
 
 ## Files
 
 ```text
 enchantments/exploration/sentinel.yml
-skills/exploration/sentinel.yml
-vfx/exploration/sentinel.yml            (if the enchant has active VFX)
+skills/exploration/sentinel.yml            (when the logic lives in metaskills)
+vfx/exploration/sentinel.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

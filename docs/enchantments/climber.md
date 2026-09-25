@@ -10,13 +10,13 @@ Maximum Level:     1
 Supported Items:   #minecraft:enchantable/foot_armor
 Valid Slots:       FEET
 Conflicts:         none
-Trigger(s):        ~onEquip listener auras (Paper OnInput components)
+Trigger(s):        ~onEquip listener auras (OnInput components)
 Cooldown:          —
 ```
 
 ## Effect
 
-On ladders/vines: holding sprint climbs faster (+0.1 Y per input tick); pressing jump leaps off (+0.42 Y).
+On ladders/vines: holding sprint climbs faster; pressing jump leaps off.
 
 ## VFX
 
@@ -24,17 +24,17 @@ Rare cloud wisp while sprint-climbing; soft shoot sound on leap.
 
 ## Balance
 
-Controlled vertical mobility — climbables only (isClimbing gate), no flight. Same listener-aura architecture as double_jump.
+Climbables only (isClimbing gate).
 
 ## Notes
 
-Identity: VERTICAL MOBILITY.
+Identity: VERTICAL MOBILITY. Listener-aura architecture — re-equip after relog.
 
 ## Files
 
 ```text
 enchantments/movement/climber.yml
-skills/movement/climber.yml
-vfx/movement/climber.yml            (if the enchant has active VFX)
+skills/movement/climber.yml            (when the logic lives in metaskills)
+vfx/movement/climber.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

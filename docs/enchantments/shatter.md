@@ -10,31 +10,31 @@ Maximum Level:     3
 Supported Items:   #minecraft:enchantable/pickaxe
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onBlockBreak
+Trigger(s):        ~onBlockBreak (one gate line per vanilla block tag/material)
 Cooldown:          veinminer throttle perblock=2
 ```
 
 ## Effect
 
-Breaking stone-family or ore blocks: 15/20/25% (stone) or 12/16/20% (ores) chance to crack matching neighbors in a 3x3x3 (max 12 stone / 8 ore blocks). Drops use the held tool (Fortune/Silk Touch respected); durability is consumed per block.
+5/10/15% (stone, level×5%) or 4/8/12% (ores, level×4%) chance to crack matching neighbors in a 3×3×3 (max 12 stone / 8 ore). Drops respect the held tool.
 
 ## VFX
 
-Crit crackle + sweep sound at the break.
+Crit crackle + sweep sound at the broken block.
 
 ## Balance
 
- veinminer's built-in re-entrancy guard prevents recursion; maxblocks caps worst case. No auto-chain beyond one cube.
+veinminer's built-in re-entrancy guard prevents recursion; maxblocks caps worst case. Gates are single-tag conditions (verified form); material lists live only in veinminer's own filter (unknown entries skipped by design).
 
 ## Notes
 
-Identity: AREA MINING. Same-material-family scoping documented.
+Identity: AREA MINING.
 
 ## Files
 
 ```text
 enchantments/mining/shatter.yml
-skills/mining/shatter.yml
-vfx/mining/shatter.yml            (if the enchant has active VFX)
+skills/mining/shatter.yml            (when the logic lives in metaskills)
+vfx/mining/shatter.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

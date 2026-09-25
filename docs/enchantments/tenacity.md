@@ -10,31 +10,31 @@ Maximum Level:     2
 Supported Items:   #minecraft:enchantable/armor
 Valid Slots:       HEAD, CHEST, LEGS, FEET
 Conflicts:         none
-Trigger(s):        ~onDamaged
+Trigger(s):        ~onDamaged → metaskills @self
 Cooldown:          1s internal
 ```
 
 ## Effect
 
-The first hit in a window starts a 5s 'hardened' state. Any further hit while hardened grants Resistance I for 2/3s (by level) and refreshes the window.
+First hit in a window starts a 5s hardened state; further hits while hardened grant Resistance I for 3s and refresh it. (v0.3.0: fixed values.)
 
 ## VFX
 
-End-rod pulse + faint bell ring on each hardened hit.
+End-rod pulse + faint bell ring.
 
 ## Balance
 
-Rewards tanking sustained fights, does nothing vs burst. Resistance is short and only while the chain lives.
+Rewards tanking sustained fights; nothing vs burst.
 
 ## Notes
 
-Identity: SUSTAINED DEFENSE (stacks via aura refresh + expiration).
+Identity: SUSTAINED DEFENSE.
 
 ## Files
 
 ```text
 enchantments/defensive/tenacity.yml
-skills/defensive/tenacity.yml
-vfx/defensive/tenacity.yml            (if the enchant has active VFX)
+skills/defensive/tenacity.yml            (when the logic lives in metaskills)
+vfx/defensive/tenacity.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

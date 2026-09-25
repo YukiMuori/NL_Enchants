@@ -10,13 +10,13 @@ Maximum Level:     2
 Supported Items:   #minecraft:enchantable/armor
 Valid Slots:       HEAD, CHEST, LEGS, FEET
 Conflicts:         nl:voidbound
-Trigger(s):        ~onDamaged
+Trigger(s):        ~onDamaged → metaskill @self
 Cooldown:          45s internal
 ```
 
 ## Effect
 
-When a hit drops you below 30% health: Regeneration I for 3/4s (by level) + Speed I for 3s.
+When a hit drops you below 30% health: Regeneration I + Speed I for 3s. (v0.3.0: fixed durations — constants only.)
 
 ## VFX
 
@@ -24,7 +24,7 @@ Heart particles + brewing fizz.
 
 ## Balance
 
-Meaningful 45s cooldown; regen-only healing (no instant heal, no infinite sustain). Conflicts with voidbound (emergency group).
+45s cooldown; regen-only healing.
 
 ## Notes
 
@@ -34,7 +34,7 @@ Identity: EMERGENCY RESPONSE.
 
 ```text
 enchantments/defensive/second_wind.yml
-skills/defensive/second_wind.yml
-vfx/defensive/second_wind.yml            (if the enchant has active VFX)
+skills/defensive/second_wind.yml            (when the logic lives in metaskills)
+vfx/defensive/second_wind.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

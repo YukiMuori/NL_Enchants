@@ -10,21 +10,21 @@ Maximum Level:     1
 Supported Items:   #minecraft:enchantable/hoe
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onBlockBreak
+Trigger(s):        ~onBlockBreak (direct setblock lines, single-material gates)
 Cooldown:          —
 ```
 
 ## Effect
 
-Harvested crops are instantly replanted (setblock back to age 0) — simple and reliable.
+Harvested crops are instantly replanted (age 0).
 
 ## VFX
 
-Tiny composter puff. Quiet by design (QoL).
+Tiny composter puff.
 
 ## Balance
 
-QoL identity; also heals reaping's immature-neighbor edge over time. Works on any crop break (incl. hand) — scoped by material, not tool.
+QoL; reported working — unchanged in v0.3.0.
 
 ## Notes
 
@@ -34,7 +34,7 @@ Identity: QUALITY OF LIFE.
 
 ```text
 enchantments/farming/replanter.yml
-skills/farming/replanter.yml
-vfx/farming/replanter.yml            (if the enchant has active VFX)
+skills/farming/replanter.yml            (when the logic lives in metaskills)
+vfx/farming/replanter.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```

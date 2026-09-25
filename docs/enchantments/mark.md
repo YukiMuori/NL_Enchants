@@ -10,7 +10,7 @@ Maximum Level:     1
 Supported Items:   #minecraft:enchantable/weapon (Primary: #minecraft:swords)
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onAttack
+Trigger(s):        ~onAttack → metaskills @target
 Cooldown:          —
 ```
 
@@ -20,11 +20,11 @@ First hit marks a target for 8s. Subsequent hits on the marked target deal +1.5 
 
 ## VFX
 
-Glow motes on application; end-rod pulse on each rewarded hit.
+Glow motes on application; end-rod pulse per rewarded hit.
 
 ## Balance
 
-Single-target focus state — dueling identity, distinct from predator (reactive) and executioner (threshold). Fixed values, MaxLevel 1.
+Single-target focus state. MaxLevel 1.
 
 ## Notes
 
@@ -34,7 +34,7 @@ Identity: COMBO / TARGET STATE.
 
 ```text
 enchantments/combat/mark.yml
-skills/combat/mark.yml
-vfx/combat/mark.yml            (if the enchant has active VFX)
+skills/combat/mark.yml            (when the logic lives in metaskills)
+vfx/combat/mark.yml               (when the enchant has active VFX)
 resourcepack/assets/minecraft/lang/{en_us,it_it}.json
 ```
