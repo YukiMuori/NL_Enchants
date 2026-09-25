@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "pack_format": 34,
+    "supported_formats": {
+      "min_inclusive": 34,
+      "max_inclusive": 99
+    },
+    "description": "NL_Enchants — Neverland custom enchantments (en_us / it_it)"
+  }
+}
