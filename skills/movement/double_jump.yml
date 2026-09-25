@@ -1,0 +1,85 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Movement skills
+#
+#  Skill IDs in this pack use the prefixes:
+#    NL_ENCHANT_*  → enchantment gameplay logic
+#    NL_VFX_*      → visual/audio feedback (defined in vfx/, never gameplay)
+#
+#  Enchantment: nl:double_jump
+#
+#  Mechanism (all syntax verified against official docs):
+#
+#    ~onEquip
+#      └─ installs two long-lived listener auras:
+#           nl_dj_arm   → onJump mechanic: fires once per real ground jump
+#           nl_dj_input → OnInput aura component (requirejump=true): watches
+#                         the player's jump key input every tick
+#
+#    ground jump (onJump event)
+#      └─ NL_ENCHANT_DOUBLEJUMP_ARM
+#           └─ grants a self-expiring 5s "charge" aura (nl_dj_charge)
+#
+#    jump-key input while airborne (OnInput component)
+#      └─ NL_ENCHANT_DOUBLEJUMP_TRY
+#           ├─ requires: charge aura present + not standing on ground
+#           ├─ consumes the charge (auraremove)
+#           ├─ 3-tick settle delay
+#           └─ NL_ENCHANT_DOUBLEJUMP_APPLY, only if still airborne
+#                ├─ velocity ADD +0.42 Y (same impulse as a vanilla jump)
+#                └─ NL_VFX_DOUBLEJUMP_BURST (vfx/movement/double_jump_vfx.yml)
+#
+#  Paper-only note: onJump and OnInput are Paper-only MythicMobs features.
+#  NL_Enchants already targets Paper (required by MythicEnchants).
+#
+#  Docs:
+#    https://wiki.mythiccraft.io/mythicmobs/skills/mechanics/onjump
+#    https://wiki.mythiccraft.io/mythicmobs/Skills/Mechanics/AuraComponents/OnInput
+#    https://wiki.mythiccraft.io/mythicmobs/skills/mechanics/aura
+#    https://wiki.mythiccraft.io/mythicmobs/skills/mechanics/velocity
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Installed on ~onEquip of nl:double_jump.
+# d=1728000 (24h) — listener lifetime; refreshed on every re-equip
+# (overwriteAll=true prevents duplicates). CancelOnQuit (default true) cleans
+# up on logout; CancelOnDeath=false keeps listeners through respawns.
+NL_ENCHANT_DOUBLEJUMP_EQUIP:
+  Skills:
+  - onJump{oj=NL_ENCHANT_DOUBLEJUMP_ARM;auraname=nl_dj_arm;d=1728000;i=20;overwriteAll=true;CancelOnDeath=false} @self
+  - aura{auraname=nl_dj_input;d=1728000;i=1;overwriteAll=true;CancelOnDeath=false;components=[  - oninput{oi=NL_ENCHANT_DOUBLEJUMP_TRY;requirejump=true} ]} @self
+
+# Installed on ~onUnequip of nl:double_jump. Removes every aura this
+# enchantment can have created — guaranteed cleanup, no orphaned state.
+NL_ENCHANT_DOUBLEJUMP_UNEQUIP:
+  Skills:
+  - auraremove{aura=nl_dj_arm} @self
+  - auraremove{aura=nl_dj_input} @self
+  - auraremove{aura=nl_dj_charge} @self
+
+# Fired by the onJump listener when the wearer performs a real ground jump.
+# The charge aura IS the double-jump token: it self-expires after 100 ticks
+# (5s), so stale charges can never accumulate. maxStacks=1 + overwriteAll
+# keep it a single token per player.
+NL_ENCHANT_DOUBLEJUMP_ARM:
+  Skills:
+  - aura{auraname=nl_dj_charge;d=100;i=20;charges=1;maxStacks=1;overwriteAll=true;CancelOnDeath=false} @self
+
+# Fired by the OnInput component whenever the jump key is pressed/held.
+# The charge aura is consumed immediately, so holding the key cannot queue
+# multiple impulses. The 3-tick settle delay avoids boosting during the
+# first frames of the ground jump; ?!onground cancels the boost if the
+# player already touched ground again.
+NL_ENCHANT_DOUBLEJUMP_TRY:
+  Cooldown: 1
+  Conditions:
+  - onground false
+  - hasaura{aura=nl_dj_charge} true
+  Skills:
+  - auraremove{aura=nl_dj_charge} @self
+  - delay 3
+  - skill{s=NL_ENCHANT_DOUBLEJUMP_APPLY} @self ?!onground
+
+# The second jump itself: one vanilla-strength upward impulse.
+NL_ENCHANT_DOUBLEJUMP_APPLY:
+  Skills:
+  - velocity{m=ADD;x=0;y=0.42;z=0} @self
+  - skill{s=NL_VFX_DOUBLEJUMP_BURST} @self
