@@ -1,0 +1,29 @@
+# ── Server / runtime artifacts ────────────────────────────────────────────────
+*.log
+logs/
+world*/
+*.db
+usercache.json
+ops.json
+whitelist.json
+banned-players.json
+banned-ips.json
+server.properties
+
+# ── Build / packaging artifacts ───────────────────────────────────────────────
+*.zip
+*.tar.gz
+dist/
+out/
+
+# ── IDE / editor metadata ─────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ── Python tooling cache ──────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+.venv/

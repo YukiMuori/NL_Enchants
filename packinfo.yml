@@ -1,0 +1,23 @@
+# NL_Enchants pack metadata.
+#
+# Schema follows the official MythicMobs pack documentation:
+#   https://wiki.mythiccraft.io/mythicmobs/Packs
+#
+# This file is read by MythicMobs when the pack is placed in
+# `plugins/MythicMobs/packs/NL_Enchants/`.
+
+Name: NL_Enchants
+Version: 0.1.0
+Author: Neverland
+Description:
+- Neverland vanilla-friendly custom enchantments.
+- Namespace: nl
+- Requires MythicEnchants + MythicMobs.
+Icon:
+  Material: FEATHER
+
+# The enchantment definitions in this pack are parsed by MythicEnchants.
+# Skip them gracefully when MythicEnchants is not installed, so
+# MythicMobs does not log parse warnings on servers without the plugin.
+FileDependencies:
+- enchantments/* MythicEnchants
