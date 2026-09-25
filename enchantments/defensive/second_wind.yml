@@ -1,0 +1,25 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — defensive enchantment (one file per enchant)
+#  Docs: docs/enchantments/second_wind.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:second_wind:
+  Display: '<aqua>Second Wind'
+  Description: '<gray>At the brink, a burst of vigor carries you a little longer.'
+  Rarity: RARE
+  MaxLevel: 2
+  AnvilCost: 4
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  ConflictingEnchants:
+  - nl:voidbound
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_ENCHANT_SECONDWIND_CHECK} @self ~onDamaged

@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — defensive enchantment (one file per enchant)
+#  Docs: docs/enchantments/grounded.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:grounded:
+  Display: '<white>Grounded'
+  Description: '<gray>You stand firm — a share of knockback slides off you.'
+  Rarity: UNCOMMON
+  MaxLevel: 2
+  AnvilCost: 2
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - enchantattribute{attribute=KNOCKBACK_RESISTANCE;a=<math:0.2*enchant_level>;op=ADD_NUMBER;mode=APPLY} @self ~onEquip
+  - enchantattribute{attribute=KNOCKBACK_RESISTANCE;mode=REMOVE} @self ~onUnequip

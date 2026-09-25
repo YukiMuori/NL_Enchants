@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — defensive enchantment (one file per enchant)
+#  Docs: docs/enchantments/tenacity.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:tenacity:
+  Display: '<aqua>Tenacity'
+  Description: '<gray>Weathering blow after blow hardens you against the next ones.'
+  Rarity: RARE
+  MaxLevel: 2
+  AnvilCost: 4
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_ENCHANT_TENACITY_STACK} @self ~onDamaged
+  - skill{s=NL_ENCHANT_TENACITY_START} @self ~onDamaged
