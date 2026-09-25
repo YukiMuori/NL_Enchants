@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — ranged enchantment (one file per enchant)
+#  Docs: docs/enchantments/ricochet.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:ricochet:
+  Display: '<light_purple>Ricochet'
+  Description: '<gray>A missed arrow springs once toward a nearby enemy.'
+  Rarity: EPIC
+  MaxLevel: 1
+  AnvilCost: 5
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/bow'
+  Enchanting:
+    Weight: 2
+    MinCost: 24
+    MaxCost: 44
+  Skills:
+  - skill{s=NL_ENCHANT_RICOCHET_ARM} @self ~onShoot
+  - skill{s=NL_ENCHANT_RICOCHET_MISS} @self ~onBowMiss

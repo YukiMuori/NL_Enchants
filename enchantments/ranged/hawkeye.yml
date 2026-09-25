@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — ranged enchantment (one file per enchant)
+#  Docs: docs/enchantments/hawkeye.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:hawkeye:
+  Display: '<aqua>Hawkeye'
+  Description: '<gray>Aim while standing still to empower your next fully-drawn shot.'
+  Rarity: RARE
+  MaxLevel: 2
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/bow'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_ENCHANT_HAWKEYE_FOCUS} @self ~onUse
+  - skill{s=NL_ENCHANT_HAWKEYE_RELEASE} @self ~onShoot

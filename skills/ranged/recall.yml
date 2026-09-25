@@ -1,0 +1,18 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — ranged skills for one enchant. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_RECALL_MISS:
+  Cooldown: 2
+  Conditions:
+  - chance{c=0.35}
+  Skills:
+  - dropitem{i=ARROW} @self
+  - skill{s=NL_VFX_RECALL_RETURN} @self
+NL_ENCHANT_RECALL_HIT:
+  Cooldown: 2
+  Conditions:
+  - chance{c=0.2}
+  Skills:
+  - dropitem{i=ARROW} @self
+  - skill{s=NL_VFX_RECALL_RETURN} @self

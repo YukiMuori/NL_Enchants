@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — ranged skills for one enchant. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_HAWKEYE_FOCUS:
+  # ~onUse fires while drawing (per ME projectilepath doc). Braced = on ground.
+  Conditions:
+  - onground
+  - chance{c=0.35}
+  Skills:
+  - aura{auraname=nl_hawk_focus;d=40;i=20;maxStacks=1;overwriteAll=true} @self
+  - skill{s=NL_VFX_HAWKEYE_FOCUS} @self
+NL_ENCHANT_HAWKEYE_RELEASE:
+  Conditions:
+  - bowtension{value=>0.9}
+  - hasaura{aura=nl_hawk_focus} true
+  Skills:
+  - arrowbuff{a=<math:1.5*enchant_level>} @self
+  - auraremove{aura=nl_hawk_focus} @self
+  - skill{s=NL_VFX_HAWKEYE_RELEASE} @self

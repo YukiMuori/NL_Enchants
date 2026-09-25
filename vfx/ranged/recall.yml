@@ -1,0 +1,9 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — ranged VFX for one enchant. Presentation only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_VFX_RECALL_RETURN:
+  Skills:
+  - particles{p=end_rod;a=8;hs=0.4;vs=0.4;y=1} @self
+  - delay 5
+  - sound{s=entity.item.pickup;v=0.7;p=0.9} @self
