@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — movement enchantment (one file per enchant)
+#  Docs: docs/enchantments/shadowstep.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:shadowstep:
+  Display: '<aqua>Shadowstep'
+  Description: '<gray>When struck, you may slip backward leaving a shadow of yourself behind.'
+  Rarity: RARE
+  MaxLevel: 1
+  AnvilCost: 4
+  ValidSlots:
+  - FEET
+  SupportedItems: '#minecraft:enchantable/foot_armor'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_ENCHANT_SHADOWSTEP_DODGE} @self ~onDamaged

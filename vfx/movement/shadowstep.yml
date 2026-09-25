@@ -1,0 +1,9 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — movement VFX for one enchant. Presentation only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_VFX_SHADOWSTEP_AFTERIMAGE:
+  Skills:
+  - particles{p=smoke;a=18;hs=0.3;vs=0.9;y=1} @self
+  - particles{p=soul;a=10;hs=0.3;vs=0.8;y=1} @self
+  - sound{s=entity.enderman.teleport;v=0.4;p=0.6} @self
