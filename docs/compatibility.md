@@ -35,32 +35,25 @@ platform MythicEnchants already requires.
 
 ## Known runtime edge cases (to verify in-game)
 
-Per-enchant RUNTIME-VERIFY flags live in `docs/enchantments/*.md`. The
-consolidated list:
+The authoritative test protocol is `docs/testing.md`. Architecture-level
+checks that gate several enchants:
 
-- **Listener-aura enchants** (`nl:double_jump`, `nl:climber`) after a
-  **relog**: MythicMobs cleans auras on quit; re-equipping the boots
-  restores them unless MythicEnchants re-fires `~onEquip` at login (verify
-  and update the specs accordingly).
-- **`~onUse` draw behavior** (`nl:hawkeye`): frequency of firing while
-  drawing, per the MythicEnchants projectilepath documentation.
-- **`~onUse` on hoes** (`nl:green_thumb`): the `~onUse` trigger is
-  documented for bow drawing; hoe usage needs in-game confirmation, with
-  `@TargetBlock` resolving to the looked-at crop.
-- **`@MobsInRadius{types=...}`** (`nl:sentinel`): confirm vanilla entity
-  type names are accepted by the targeter's types filter, and review the
-  hostile list against the server's custom mobs.
-- **`triggerblocktype` with material lists** (`nl:shatter`, `nl:reaping`,
-  `nl:replanter`): confirm comma lists behave like the documented single
-  tag/material form.
-- **`unbreaking{c=...}` on `~onItem_damage`** (`nl:conservation`): confirm
-  the item-damage trigger also fires for tool-wear from block breaking.
-- **`recoveritem` re-equip** (`nl:soulbond`): confirm `reequip=true` restores
-  armor to the correct slot after death recovery.
+- **Listener-aura enchants** (`nl:double_jump`, `nl:climber`,
+  `nl:sentinel`, `nl:wayfarer`, `nl:resonance`) after a **relog**: MythicMobs
+  cleans auras on quit; re-equipping restores them unless MythicEnchants
+  re-fires `~onEquip` at login (verify and update the specs accordingly).
+- **`<skill.var.enchant-level>` inside metaskills**: any console error
+  naming the variable invalidates rule R1 — report immediately.
+- **`~onBlockBreak` gates** (`triggerblocktype` with vanilla block tags):
+  confirm tag form behaves like the documented tag/material form.
+- **`unbreaking{c=...}` per-level semantics** (`nl:conservation`): confirm
+  the effective negate rates and retune if needed.
+- **`recoveritem` re-equip** (`nl:soulbond`): confirm `reequip=true`
+  restores armor to the correct slot after death recovery.
 - **`nl:grounded` set stacking**: 4× II pieces reach 80% knockback
-  resistance — verify feel in PvP and retune if it reads as oppressive.
-- **`projectile` spring** (`nl:ricochet`): confirm the spawned meta-projectile
-  visuals/damage feel right and that `oH` damage honors protection plugins.
+  resistance — verify feel in PvP.
+- **`nl:ricochet`** spawned meta-projectile: confirm visuals, damage and
+  protection-plugin compatibility (EXPERIMENTAL flag in spec).
 
 ## Datapack & resource pack interplay
 

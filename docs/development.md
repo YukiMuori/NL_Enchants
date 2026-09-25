@@ -116,6 +116,38 @@ MythicCrucible.
 - VFX budgets: particle count and sound count are stated in every VFX file.
 - No recursive skill chains without a hard depth or consumption guard.
 
+## Reliability rules (v0.3.0 — learned from the 0.2.0 field failure)
+
+The 0.2.0 catalog largely failed in-game. Root cause analysis and the rules
+now enforced for every line of this pack:
+
+- **R1 — Variable forms are context-dependent.** `<skill.var.enchant-level>`
+  is the documented form inside metaskills (MythicEnchants injects it into
+  the skill tree). The bare `<math:enchant_level>` form is documented only
+  in the enchantment's DIRECT skill lines. 0.2.0 used the bare form inside
+  metaskills → unresolvable → the line errored → the whole metaskill
+  aborted. Rule: metaskills use `<skill.var.enchant-level>`; direct lines
+  may use `<math:...>`; **aura tick/delayed skills use constants only**
+  (variables are not guaranteed to survive into later execution contexts).
+- **R2 — Dispatch lines mirror official examples.** `~onAttack → @target`,
+  `~onDamaged → @self` (wearer effects) or `@trigger` (attacker effects),
+  `~onBlockBreak → @self` (veinminer semantics) or `@origin` (setblock),
+  `~onShoot → @self`.
+- **R3 — Metaskill mechanics inherit.** Mechanics without a targeter
+  inherit the dispatch targeter (documented Metaskills behavior). Explicit
+  `@target`/`@self` only where an override is intended.
+- **R4 — One condition per line.** No comma lists inside conditions (the
+  documented forms show single tags/materials). Material lists are allowed
+  ONLY inside mechanics that document list handling themselves (veinminer
+  skips unknown entries by design).
+- **R5 — `CancelIfNoTargets: false`** on utility metaskills that are not
+  guaranteed a target (default is `true`, which silently cancels).
+- **R6 — Only documented mechanics.** Every mechanic/condition/targeter
+  must exist on its own wiki page or in an official example. Anything else
+  is marked EXPERIMENTAL in the spec and testing docs.
+- **R7 — Prefer boring.** A simpler enchant that always works beats a
+  clever one that sometimes works.
+
 ## Validation
 
 `tools/validate.py` performs static validation:
