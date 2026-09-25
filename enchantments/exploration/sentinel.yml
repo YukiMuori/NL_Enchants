@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — exploration enchantment (one file per enchant)
+#  Docs: docs/enchantments/sentinel.md   ·   https://wiki.mythiccraft.io/mythicenchants
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:sentinel:
+  Display: '<aqua>Sentinel'
+  Description: '<gray>Your helm quietly stirs when hostile eyes watch you.'
+  Rarity: RARE
+  MaxLevel: 1
+  AnvilCost: 4
+  ValidSlots:
+  - HEAD
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_ENCHANT_SENTINEL_EQUIP} @self ~onEquip
+  - skill{s=NL_ENCHANT_SENTINEL_UNEQUIP} @self ~onUnequip

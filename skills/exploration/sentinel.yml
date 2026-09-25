@@ -1,0 +1,19 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — sentinel skills. Gameplay logic only.
+#  One 5s heartbeat per wearer; single radius check when it fires.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_SENTINEL_EQUIP:
+  Skills:
+  - aura{auraname=nl_sentinel_watch;d=1728000;i=100;overwriteAll=true;CancelOnDeath=false;ot=NL_ENCHANT_SENTINEL_PULSE} @self
+
+NL_ENCHANT_SENTINEL_UNEQUIP:
+  Skills:
+  - auraremove{aura=nl_sentinel_watch} @self
+
+NL_ENCHANT_SENTINEL_PULSE:
+  Conditions:
+  - mobsinradius{types=ZOMBIE,SKELETON,SPIDER,CAVE_SPIDER,CREEPER,DROWNED,HUSK,STRAY,PILLAGER,VEX,VINDICATOR,WITCH,ENDERMAN,PIGLIN,ZOMBIFIED_PIGLIN,WITHER_SKELETON,BLAZE,PHANTOM,SILVERFISH;amount=1to999;radius=12}
+  Skills:
+  - particles{p=glow;a=5;hs=0.3;vs=0.6;y=1} @MobsInRadius{r=12;limit=4;types=ZOMBIE,SKELETON,SPIDER,CAVE_SPIDER,CREEPER,DROWNED,HUSK,STRAY,PILLAGER,VEX,VINDICATOR,WITCH,ENDERMAN,PIGLIN,ZOMBIFIED_PIGLIN,WITHER_SKELETON,BLAZE,PHANTOM,SILVERFISH;sort=NEAREST}
+  - skill{s=NL_VFX_SENTINEL_PING} @self

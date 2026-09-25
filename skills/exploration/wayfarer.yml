@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — wayfarer skills. Gameplay logic only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_ENCHANT_WAYFARER_EQUIP:
+  Skills:
+  - aura{auraname=nl_wayfarer_road;d=1728000;i=100;overwriteAll=true;CancelOnDeath=false;ot=NL_ENCHANT_WAYFARER_TICK} @self
+
+NL_ENCHANT_WAYFARER_UNEQUIP:
+  Skills:
+  - auraremove{aura=nl_wayfarer_road} @self
+
+NL_ENCHANT_WAYFARER_TICK:
+  Cooldown: 60
+  Conditions:
+  - moving
+  - outside
+  - onground
+  Skills:
+  - potion{type=REGENERATION;d=60;l=1;hasParticles=false} @self
+  - skill{s=NL_VFX_WAYFARER_VIGOR} @self
