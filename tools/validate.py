@@ -88,6 +88,13 @@ def main() -> int:
             for field in ("Display", "MaxLevel", "ValidSlots", "SupportedItems", "Skills"):
                 if field not in cfg:
                     err(f"{label}: missing required field '{field}'")
+            # R11 (field 0.5.0): a multi-entry SupportedItems list is serialized
+            # by the ME datapack writer as one "#[...]" string → invalid resource
+            # location → datapack fails to load → the server refuses to boot.
+            si = cfg.get("SupportedItems")
+            if isinstance(si, list):
+                err(f"{label}: SupportedItems must be a single string "
+                    f"(a '#tag' or 'minecraft:item') — lists crash the ME datapack (R11)")
             skills = cfg.get("Skills")
             if isinstance(skills, list):
                 for line in skills:

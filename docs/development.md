@@ -163,6 +163,16 @@ now enforced for every line of this pack:
   SKIPS the enchantment from the datapack (field-verified 0.3.1:
   pickaxe/hoe tags do not exist). Valid tags are whitelisted in the
   validator; narrow scoping is done with PrimaryItems material keys.
+- **R11 — SupportedItems is a single string, never a list.** The ME
+  datapack writer serializes a multi-entry list as ONE string
+  (`#[#tag1, #tag2, …]`) → invalid resource location → the generated
+  datapack fails registry loading and **the server refuses to boot**
+  (field-verified 0.5.0 on Purpur 26.2: "Failed to load datapacks, can't
+  proceed with server load"). `PrimaryItems` in list form is fine
+  (37 enchants registered while Thor failed). Cross-item-family enchants
+  must pick one tag or ship separate IDs. Recovery on a hit server:
+  delete `world/datapacks/MythicEnchants/`, reinstall the pack, restart.
+  The static validator enforces this.
 - **R8 — MythicEnchants conditions only in enchantment files.**
   `hasMythicEnchant` (and friends) FAIL TO LOAD inside plain MythicMobs
   skill files (field-verified 0.3.0: "Failed to load custom condition").

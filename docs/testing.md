@@ -20,7 +20,7 @@ lines (if any) + one sentence about the feel (too strong/weak/often).
 
 | Enchant | Test | Expected |
 | --- | --- | --- |
-| `nl:thor` | L1–L3, hit mobs ~30×; also with a bow | occasional real lightning (level damage); no fire grief (does it ignite? verify) |
+| `nl:thor` | L1–L3, hit mobs ~30× with a sword | occasional real lightning (level damage); no fire grief (does it ignite? verify) |
 | `nl:drain` | hit ~10× | heals on ~12% of hits; no overheal beyond max |
 | `nl:arctic_freeze` | hit ~15× | Slowness + 1/s bleed for 3s on proc; snowflakes |
 | `nl:blackout` | hit ~20× L1 vs L5 | brief blindness, freq scales with level |

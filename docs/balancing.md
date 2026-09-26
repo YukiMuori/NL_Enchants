@@ -15,7 +15,7 @@ require a version bump and a CHANGELOG entry.
 
 | Enchant | Levels | Core numbers |
 | --- | --- | --- |
-| `nl:thor` | 3 | 5+5%/lvl chance, level dmg |
+| `nl:thor` | 3 | 5+5%/lvl chance, level dmg — swords/melee only (R11) |
 | `nl:drain` | 7 | 12% chance; level+1 dmg, level heal |
 | `nl:arctic_freeze` | 3 | 5+5%/lvl; Slow 3s + 3×1 bleed |
 | `nl:blackout` | 5 | 4+4%/lvl; Blind 2s |

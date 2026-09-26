@@ -46,6 +46,9 @@ skills/docs/lang entries. Know-how lives on in `docs/development.md`.
 ### Notes
 - `nl:end_affinity` / `nl:nether_affinity` need your server's world names
   in their `?world{w=...}` gates (see SETUP.md).
+- Thor is melee-only: a multi-tag `SupportedItems` list crashes the ME
+  datapack at registry load (server won't boot) — rule R11, enforced
+  statically by `tools/validate.py`.
 - Runtime validation on Paper + MythicMobs + MythicEnchants still required
   (`docs/testing.md`).
 

@@ -94,3 +94,10 @@ apply it manually.
   names exactly as shipped in this repository.
 - **First start errors about the datapack** — expected on a brand-new
   install; MythicEnchants regenerates and activates it on the second start.
+- **Server refuses to boot with registry/datapack errors** (`Failed to
+  load datapacks, can't proceed with server load`, or
+  `Failed to parse nl:<id> from pack file`) — a generated datapack from a
+  broken build is still in `world/datapacks/MythicEnchants/`. Update the
+  pack folder, DELETE `world/datapacks/MythicEnchants/`, restart. If the
+  error names an `nl:` enchant, report it — do not hand-edit the generated
+  datapack (it is overwritten).

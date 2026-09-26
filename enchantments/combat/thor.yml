@@ -3,6 +3,11 @@
 #  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
 # ══════════════════════════════════════════════════════════════════════════════
 
+#  ME datapack serializes a multi-tag LIST as one "#[...]" string → the
+#  generated datapack fails and the server refuses to boot (R11, field 0.5.0).
+#  Thor is therefore melee-only: no single valid tag spans weapon+bow+trident.
+# ══════════════════════════════════════════════════════════════════════════════
+
 nl:thor:
   Display: '<white>Thor'
   Description: '<gray>Chance to strike lightning at your opponent.'
@@ -11,15 +16,12 @@ nl:thor:
   AnvilCost: 4
   ValidSlots:
   - MAINHAND
-  SupportedItems:
-  - '#minecraft:enchantable/weapon'
-  - '#minecraft:enchantable/bow'
-  - '#minecraft:enchantable/crossbow'
-  - '#minecraft:enchantable/trident'
+  SupportedItems: '#minecraft:enchantable/weapon'
+  PrimaryItems:
+  - '#minecraft:swords'
   Enchanting:
     Weight: 3
     MinCost: 16
     MaxCost: 38
   Skills:
   - skill{s=NL_THOR_STRIKE} @target ~onAttack ?chance{c=<math:0.05+0.05*enchant_level>}
-  - skill{s=NL_THOR_STRIKE} @trigger ~onBowHit ?chance{c=<math:0.05+0.05*enchant_level>}
