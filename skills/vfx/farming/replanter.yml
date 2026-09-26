@@ -1,7 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — farming VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_REPLANTER_PUFF:
-  Skills:
-  - particles{p=composter;a=4;hs=0.2;vs=0.2;y=0.4} @self

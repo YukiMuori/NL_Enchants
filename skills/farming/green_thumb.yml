@@ -1,12 +1,18 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — green thumb skills. Gameplay logic only.
-#  BlocksInRadius around the inherited target (the player); bonemeal on
-#  grass blocks grows flowers — a fitting vanilla-style burst.
+#  NL_Enchants — bloom skills. Pure MythicMobs only (R8).
+#  Expanding wave: three bonemeal rings pulse outward (4 ticks apart).
+#  BlocksInRadius wraps the caster; bonemeal grows what it touches.
 # ══════════════════════════════════════════════════════════════════════════════
 
-NL_ENCHANT_GREENTHUMB_BURST:
+NL_ENCHANT_BLOOM_WAVE:
   Conditions:
   - chance{c=<skill.var.enchant-level>*0.05}
   Skills:
   - bonemeal @BlocksInRadius{r=2;ry=1;noair=true}
-  - skill{s=NL_VFX_GREENTHUMB_SPARKLE} @self
+  - particles{p=composter;a=6;hs=0.8;vs=0.3;y=0.4} @self
+  - delay 4
+  - bonemeal @BlocksInRadius{r=3;ry=1;noair=true}
+  - particles{p=composter;a=8;hs=1.2;vs=0.3;y=0.4} @self
+  - delay 4
+  - bonemeal @BlocksInRadius{r=4;ry=1;noair=true}
+  - skill{s=NL_VFX_BLOOM_WAVE} @self

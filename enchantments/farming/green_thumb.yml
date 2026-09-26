@@ -1,19 +1,17 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — green_thumb (one file per enchant)
-#  Docs: docs/enchantments/green_thumb.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#  NL_Enchants — BLOOM  (ID: nl:green_thumb, kept for item compatibility)
+#  Docs: docs/enchantments/green_thumb.md
 #
-#  RELIABILITY RULES (v0.3.0):
-#   · dispatch lines mirror official MythicEnchants examples exactly
-#   · direct enchant lines may use <math:...> (Enchantment-Config form)
-#   · one condition per line; no comma lists inside conditions
+#  Harvesting a crop may release an expanding natural wave: three growth
+#  rings (r=2 → 3 → 4) pulse outward around you, encouraging every plant
+#  they touch. Chance scales with level (5/10/15%).
 # ══════════════════════════════════════════════════════════════════════════════
-#  REDESIGNED v0.3.0: growth burst on harvest (bonemeal around the player).
-#  The old hoe-~onUse/@TargetBlock design relied on unverified behavior.
+
 nl:green_thumb:
-  Display: '<white>Green Thumb'
-  Description: '<gray>Harvesting sometimes spreads a burst of growth around you.'
+  Display: '<white>Bloom'
+  Description: '<gray>Harvesting may send a wave of growth rippling outward.'
   Rarity: COMMON
-  MaxLevel: 2
+  MaxLevel: 3
   AnvilCost: 1
   ValidSlots:
   - MAINHAND
@@ -30,7 +28,9 @@ nl:green_thumb:
     MinCost: 4
     MaxCost: 24
   Skills:
-  - skill{s=NL_ENCHANT_GREENTHUMB_BURST} @self ~onBlockBreak ?triggerblocktype{t=WHEAT}
-  - skill{s=NL_ENCHANT_GREENTHUMB_BURST} @self ~onBlockBreak ?triggerblocktype{t=CARROTS}
-  - skill{s=NL_ENCHANT_GREENTHUMB_BURST} @self ~onBlockBreak ?triggerblocktype{t=POTATOES}
-  - skill{s=NL_ENCHANT_GREENTHUMB_BURST} @self ~onBlockBreak ?triggerblocktype{t=BEETROOTS}
+  - skill{s=NL_ENCHANT_BLOOM_WAVE} @self ~onBlockBreak ?triggerblocktype{t=WHEAT}
+  - skill{s=NL_ENCHANT_BLOOM_WAVE} @self ~onBlockBreak ?triggerblocktype{t=CARROTS}
+  - skill{s=NL_ENCHANT_BLOOM_WAVE} @self ~onBlockBreak ?triggerblocktype{t=POTATOES}
+  - skill{s=NL_ENCHANT_BLOOM_WAVE} @self ~onBlockBreak ?triggerblocktype{t=BEETROOTS}
+  - skill{s=NL_ENCHANT_BLOOM_WAVE} @self ~onBlockBreak ?triggerblocktype{t=MELON}
+  - skill{s=NL_ENCHANT_BLOOM_WAVE} @self ~onBlockBreak ?triggerblocktype{t=PUMPKIN}

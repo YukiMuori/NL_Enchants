@@ -1,14 +1,13 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — replanter (one file per enchant)
-#  Docs: docs/enchantments/replanter.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#  NL_Enchants — REPLANTER (v0.4.0 rewrite)
+#  Docs: docs/enchantments/replanter.md
 #
-#  RELIABILITY RULES (v0.3.0):
-#   · dispatch lines mirror official MythicEnchants examples exactly
-#   · direct enchant lines may use <math:...> (Enchantment-Config form)
-#   · one condition per line; no comma lists inside conditions
+#  The direct setblock lines did not fire in the field. Rewritten on the
+#  officially documented OnBlockBreak aura component (blocktypes filter +
+#  @targetlocation = the broken block): listeners installed while the hoe
+#  is held, removed on unequip. Re-equip after relog (listener architecture).
 # ══════════════════════════════════════════════════════════════════════════════
-#  Unchanged: direct setblock lines with single-material inline gates —
-#  verified pattern, reported working.
+
 nl:replanter:
   Display: '<white>Replanter'
   Description: '<gray>Harvested crops are immediately replanted.'
@@ -30,11 +29,5 @@ nl:replanter:
     MinCost: 4
     MaxCost: 24
   Skills:
-  - setblock{m=WHEAT} @origin ~onBlockBreak ?triggerblocktype{t=WHEAT}
-  - setblock{m=CARROTS} @origin ~onBlockBreak ?triggerblocktype{t=CARROTS}
-  - setblock{m=POTATOES} @origin ~onBlockBreak ?triggerblocktype{t=POTATOES}
-  - setblock{m=BEETROOTS} @origin ~onBlockBreak ?triggerblocktype{t=BEETROOTS}
-  - skill{s=NL_VFX_REPLANTER_PUFF} @origin ~onBlockBreak ?triggerblocktype{t=WHEAT}
-  - skill{s=NL_VFX_REPLANTER_PUFF} @origin ~onBlockBreak ?triggerblocktype{t=CARROTS}
-  - skill{s=NL_VFX_REPLANTER_PUFF} @origin ~onBlockBreak ?triggerblocktype{t=POTATOES}
-  - skill{s=NL_VFX_REPLANTER_PUFF} @origin ~onBlockBreak ?triggerblocktype{t=BEETROOTS}
+  - skill{s=NL_ENCHANT_REPLANTER_EQUIP} @self ~onEquip
+  - skill{s=NL_ENCHANT_REPLANTER_UNEQUIP} @self ~onUnequip

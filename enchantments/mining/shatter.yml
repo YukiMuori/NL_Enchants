@@ -9,8 +9,8 @@
 # ══════════════════════════════════════════════════════════════════════════════
 
 nl:shatter:
-  Display: '<aqua>Shatter'
-  Description: '<gray>Your picks sometimes crack the neighboring blocks of the same family.'
+  Display: '<aqua>Earthshatter'
+  Description: '<gray>Your picks send cracks rippling through the same stone family.'
   Rarity: RARE
   MaxLevel: 3
   AnvilCost: 4
