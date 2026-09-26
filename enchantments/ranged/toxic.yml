@@ -1,0 +1,22 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Toxic — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  Bow ONLY: bow+crossbow would need two SupportedItems tags — illegal (R11).
+#  Undead are immune via the metaskill's entitytype gate.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:toxic:
+  Display: '<white>Toxic'
+  Description: '<gray>Your arrows poison the victim.'
+  Rarity: UNCOMMON
+  MaxLevel: 1
+  AnvilCost: 2
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/bow'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - skill{s=NL_TOXIC_HIT} @trigger ~onBowHit

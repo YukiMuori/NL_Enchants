@@ -1,0 +1,27 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Breeze Burst — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  ADAPTATION (documented): the original spawns a wind charge when the arrow hits a BLOCK;
+#  no projectile-block-impact trigger exists in ME (triggers list verified). Fires on ENTITY impact:
+#  wind burst + a collectible Wind Charge item (the renewable part of the spec).
+#  windburst is a MythicEnchants mechanic → DIRECT line only (R8).
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:breeze_burst:
+  Display: '<white>Breeze Burst'
+  Description: '<gray>Your arrows burst with wind on impact.'
+  Rarity: RARE
+  MaxLevel: 1
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/bow'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - windburst{} @trigger ~onBowHit
+  - dropitem{i=WIND_CHARGE} @trigger ~onBowHit
+  - particles{p=gust;a=3;hs=0.3;vs=0.3;y=0.5} @trigger ~onBowHit
+  - sound{s=entity.breeze.charge;v=0.6;p=1.2} @trigger ~onBowHit
