@@ -1,0 +1,23 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Kinetic Protection — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  RUNTIME-VERIFY: damage cause name FLY_INTO_WALL (Bukkit kinetic damage).
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:kinetic_protection:
+  Display: '<white>Kinetic Protection'
+  Description: '<gray>Protects you from elytra kinetic damage.'
+  Rarity: UNCOMMON
+  MaxLevel: 4
+  AnvilCost: 2
+  ValidSlots:
+  - HEAD
+  SupportedItems: '#minecraft:enchantable/head_armor'
+  PrimaryItems:
+  - '#minecraft:head_armor'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - reducedamage{a=1000;cap=<math:0.25*enchant_level>} @self ~onDamaged ?lastdamagecause{c=FLY_INTO_WALL}

@@ -1,0 +1,23 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Skyguard — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  4%/lvl all-damage reduction (Protection-like) while worn.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:skyguard:
+  Display: '<white>Skyguard'
+  Description: '<gray>A protective enchantment for your elytra.'
+  Rarity: RARE
+  MaxLevel: 4
+  AnvilCost: 4
+  ValidSlots:
+  - CHEST
+  SupportedItems: '#minecraft:enchantable/equippable'
+  PrimaryItems:
+  - 'minecraft:elytra'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - reducedamage{a=1000;cap=<math:0.04*enchant_level>} @self ~onDamaged

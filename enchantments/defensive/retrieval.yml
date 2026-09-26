@@ -1,0 +1,25 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Retrieval — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  20/40/60/80%. ADAPTATION: the hitting arrow's own drop is untouched — the enchant
+#  adds a retrieved arrow to your inventory (giveitem, fakeLooting animation).
+#  Tipped-arrow effects: not replicated (documented).
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:retrieval:
+  Display: '<white>Retrieval'
+  Description: '<gray>Arrows shot at you have a chance to be retrieved.'
+  Rarity: UNCOMMON
+  MaxLevel: 4
+  AnvilCost: 2
+  ValidSlots:
+  - CHEST
+  SupportedItems: '#minecraft:enchantable/chest_armor'
+  PrimaryItems:
+  - '#minecraft:chest_armor'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - giveitem{i=arrow 1;fakeLooting=true} @self ~onDamaged ?lastdamagecause{c=PROJECTILE} ?chance{c=<math:0.2*enchant_level>}
