@@ -1,0 +1,6 @@
+NL_ESCAPE_BURST:
+  Cooldown: 8
+  Skills:
+  - potion{type=SPEED;d=60;l=0;hasParticles=false} @self
+  - particles{p=cloud;a=8;hs=0.3;vs=0.3;y=0.3} @self
+  - sound{s=entity.experience_orb.pickup;v=0.4;p=1.4} @self

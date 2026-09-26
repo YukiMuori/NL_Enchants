@@ -1,0 +1,22 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Feather Step — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+#  Cosmetic line rolls its own chance — may puff without a cancel (documented).
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:feather_step:
+  Display: '<white>Feather Step'
+  Description: '<gray>Chance to cancel fall damage.'
+  Rarity: RARE
+  MaxLevel: 5
+  AnvilCost: 4
+  ValidSlots:
+  - FEET
+  SupportedItems: '#minecraft:enchantable/foot_armor'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - reducedamage{a=1000;cap=1} @self ~onDamaged ?lastdamagecause{c=FALL} ?chance{c=<math:0.2+0.16*enchant_level>}
+  - particles{p=cloud;a=6;hs=0.4;vs=0.2;y=-0.5} @self ~onDamaged ?lastdamagecause{c=FALL}

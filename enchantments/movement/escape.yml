@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Escape — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:escape:
+  Display: '<white>Escape'
+  Description: '<gray>Gain a short burst of speed after taking damage.'
+  Rarity: COMMON
+  MaxLevel: 2
+  AnvilCost: 1
+  ValidSlots:
+  - FEET
+  SupportedItems: '#minecraft:enchantable/foot_armor'
+  Enchanting:
+    Weight: 6
+    MinCost: 4
+    MaxCost: 24
+  Skills:
+  - skill{s=NL_ESCAPE_BURST} @self ~onDamaged ?chance{c=0.3}
