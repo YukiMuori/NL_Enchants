@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Blaze Reaper — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:blaze_reaper:
+  Display: '<white>Blaze Reaper'
+  Description: '<gray>Boosts damage against Nether creatures.'
+  Rarity: RARE
+  MaxLevel: 3
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/weapon'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - damage{a=<math:1+enchant_level>} @target ~onAttack ?entitytype{type=BLAZE,GHAST,HOGLIN,ZOGLIN,PIGLIN,PIGLIN_BRUTE,ZOMBIFIED_PIGLIN,WITHER_SKELETON,MAGMA_CUBE,WITHER}
+  - particles{p=flame;a=8;hs=0.3;vs=0.4;y=1} @target ~onAttack ?entitytype{type=BLAZE,GHAST,HOGLIN,ZOGLIN,PIGLIN,PIGLIN_BRUTE,ZOMBIFIED_PIGLIN,WITHER_SKELETON,MAGMA_CUBE,WITHER}

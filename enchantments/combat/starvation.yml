@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Starvation — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:starvation:
+  Display: '<white>Starvation'
+  Description: '<gray>A chance to inflict hunger on your opponent.'
+  Rarity: COMMON
+  MaxLevel: 3
+  AnvilCost: 1
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/weapon'
+  Enchanting:
+    Weight: 6
+    MinCost: 4
+    MaxCost: 24
+  Skills:
+  - potion{type=HUNGER;d=100;l=0;hasParticles=false} @target ~onAttack ?chance{c=<math:0.08+0.08*enchant_level>}

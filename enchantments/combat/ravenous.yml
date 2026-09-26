@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Ravenous — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:ravenous:
+  Display: '<white>Ravenous'
+  Description: '<gray>Chance to regain hunger while fighting.'
+  Rarity: UNCOMMON
+  MaxLevel: 4
+  AnvilCost: 2
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/weapon'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - skill{s=NL_RAVENOUS_BITE} @self ~onAttack ?chance{c=<math:0.1+0.1*enchant_level>}

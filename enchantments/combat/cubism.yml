@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Cubism — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:cubism:
+  Display: '<white>Cubism'
+  Description: '<gray>Deal more damage to Slimes and Magma Cubes.'
+  Rarity: UNCOMMON
+  MaxLevel: 3
+  AnvilCost: 2
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/weapon'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - damage{a=<math:1+enchant_level>} @target ~onAttack ?entitytype{type=SLIME,MAGMA_CUBE}
+  - particles{p=block;m=SLIME_BLOCK;a=6;hs=0.3;vs=0.4;y=1} @target ~onAttack ?entitytype{type=SLIME,MAGMA_CUBE}

@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Finishing — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:finishing:
+  Display: '<white>Finishing'
+  Description: '<gray>Increases damage dealt to low-health enemies.'
+  Rarity: UNCOMMON
+  MaxLevel: 3
+  AnvilCost: 2
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/weapon'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - damage{a=<math:1+enchant_level>} @target ~onAttack ?healthpercent{p=<30%}
+  - particles{p=crit;a=4;hs=0.2;vs=0.3;y=1} @target ~onAttack ?healthpercent{p=<30%}

@@ -1,0 +1,25 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Ninja — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+#  Sneak state via the verified OnInput component (requiresneak).
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:ninja:
+  Display: '<white>Ninja'
+  Description: '<gray>Chance to deal more damage while sneaking.'
+  Rarity: RARE
+  MaxLevel: 3
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/weapon'
+  PrimaryItems:
+  - '#minecraft:swords'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_NINJA_INSTALL} @self ~onEquip
+  - skill{s=NL_NINJA_REMOVE} @self ~onUnequip
+  - skill{s=NL_NINJA_HIT} @target ~onAttack

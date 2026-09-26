@@ -1,0 +1,25 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Thor — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:thor:
+  Display: '<white>Thor'
+  Description: '<gray>Chance to strike lightning at your opponent.'
+  Rarity: RARE
+  MaxLevel: 3
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems:
+  - '#minecraft:enchantable/weapon'
+  - '#minecraft:enchantable/bow'
+  - '#minecraft:enchantable/crossbow'
+  - '#minecraft:enchantable/trident'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_THOR_STRIKE} @target ~onAttack ?chance{c=<math:0.05+0.05*enchant_level>}
+  - skill{s=NL_THOR_STRIKE} @trigger ~onBowHit ?chance{c=<math:0.05+0.05*enchant_level>}

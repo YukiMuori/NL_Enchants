@@ -1,0 +1,22 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Postpone — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:postpone:
+  Display: '<white>Postpone'
+  Description: '<gray>Chance to cause no knockback to your target.'
+  Rarity: COMMON
+  MaxLevel: 3
+  AnvilCost: 1
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/weapon'
+  PrimaryItems:
+  - '#minecraft:swords'
+  Enchanting:
+    Weight: 6
+    MinCost: 4
+    MaxCost: 24
+  Skills:
+  - velocity{m=SET;x=0;y=0;z=0} @target ~onAttack ?chance{c=<math:0.1+0.1*enchant_level>}

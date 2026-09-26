@@ -1,0 +1,22 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Drain — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:drain:
+  Display: '<white>Drain'
+  Description: '<gray>Cause your opponent to drain, feeding you.'
+  Rarity: RARE
+  MaxLevel: 7
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/weapon'
+  PrimaryItems:
+  - '#minecraft:swords'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_DRAIN_SIPHON} @target ~onAttack ?chance{c=0.12}

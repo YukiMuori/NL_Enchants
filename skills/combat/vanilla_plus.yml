@@ -1,0 +1,65 @@
+NL_ARCTIC_HIT:
+  Skills:
+  - potion{type=SLOW;d=60;l=0;hasParticles=false}
+  - aura{auraname=nl_arctic;d=60;i=20;maxStacks=1;overwriteAll=true;ot=NL_ARCTIC_TICK}
+  - particles{p=snowflake;a=6;hs=0.3;vs=0.4;y=1}
+
+NL_ARCTIC_TICK:
+  Skills:
+  - damage{a=1} @self
+  - particles{p=snowflake;a=2;hs=0.3;vs=0.4;y=1} @self
+
+NL_BLACKOUT_HIT:
+  Skills:
+  - potion{type=BLINDNESS;d=40;l=0;hasParticles=false}
+  - particles{p=smoke;a=5;hs=0.3;vs=0.4;y=1}
+
+NL_DOUBLEBLOW_HIT:
+  Skills:
+  - damage{a=<skill.var.enchant-level+2>}
+  - particles{p=crit;a=8;hs=0.3;vs=0.4;y=1}
+  - sound{s=entity.player.attack.crit;v=0.6;p=1}
+
+NL_DRAIN_SIPHON:
+  Skills:
+  - consume{d=<skill.var.enchant-level+1>;h=<skill.var.enchant-level>}
+  - particles{p=damage_indicator;a=4;hs=0.3;vs=0.4;y=1}
+  - particles{p=heart;a=2;hs=0.3;vs=0.4;y=1.5} @self
+
+NL_REPEL_HIT:
+  Skills:
+  - velocity{m=ADD;x=0;y=0.4;z=-0.6;r=true}
+  - sound{s=entity.goat.ram_impact;v=0.5;p=1.1}
+
+NL_THOR_STRIKE:
+  Skills:
+  - lightning{d=<skill.var.enchant-level>}
+
+NL_NINJA_INSTALL:
+  CancelIfNoTargets: false
+  Skills:
+  - aura{auraname=nl_ninja_watch;d=1728000;i=1;overwriteAll=true;CancelOnDeath=false;components=[  - oninput{oi=NL_NINJA_TOKEN;requiresneak=true} ]} @self
+
+NL_NINJA_TOKEN:
+  CancelIfNoTargets: false
+  Skills:
+  - aura{auraname=nl_ninja_sneak;d=40;i=20;maxStacks=1;overwriteAll=true} @self
+
+NL_NINJA_REMOVE:
+  Skills:
+  - auraremove{aura=nl_ninja_watch} @self
+  - auraremove{aura=nl_ninja_sneak} @self
+
+NL_NINJA_HIT:
+  Conditions:
+  - hasaura{aura=nl_ninja_sneak} true
+  Skills:
+  - damage{a=<skill.var.enchant-level+1>}
+  - particles{p=smoke;a=6;hs=0.3;vs=0.5;y=1}
+  - sound{s=entity.fox.sniff;v=0.5;p=0.8}
+
+NL_RAVENOUS_BITE:
+  Skills:
+  - feed{amount=<skill.var.enchant-level+1>;saturation=1} @self
+  - particles{p=happy_villager;a=3;hs=0.3;vs=0.3;y=1} @self
+  - sound{s=entity.player.burp;v=0.3;p=1.2} @self
