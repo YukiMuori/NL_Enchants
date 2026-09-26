@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Ice Aspect — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  L1 10% / L2 20%, 3s freeze. AE-spec lists incompatibilities (Fire Aspect, Websnare):
+#  ME has no verified incompatibility option — documented only (see balancing).
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:ice_aspect:
+  Display: '<white>Ice Aspect'
+  Description: '<gray>Chance to freeze your enemies solid.'
+  Rarity: RARE
+  MaxLevel: 2
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/sharp_weapon'
+  PrimaryItems:
+  - '#minecraft:swords'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - freeze{ticks=60} @target ~onAttack ?chance{c=<math:0.1*enchant_level>}

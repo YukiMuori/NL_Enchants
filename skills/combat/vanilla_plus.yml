@@ -1,0 +1,17 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  Vanilla+ utility skills — MythicMobs mechanics only (R8). Constants/skill.var only (R1).
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_WEB_SNARE:
+  Skills:
+  - setblock{m=COBWEB} @targetlocation
+  - sound{s=block.cobweb.step;v=0.8;p=0.7}
+
+NL_TOXIC_HIT:
+  Conditions:
+  - entitytype{type=ZOMBIE,HUSK,DROWNED,ZOMBIE_VILLAGER,ZOMBIFIED_PIGLIN,SKELETON,STRAY,BOGGED,WITHER_SKELETON,WITHER,PHANTOM,SKELETON_HORSE,ZOMBIE_HORSE} false
+  Skills:
+  - potion{type=POISON;d=220;l=0;hasParticles=false}
+  - particles{p=effect;a=8;hs=0.3;vs=0.4;y=1}
+  - sound{s=entity.wither.shoot;v=0.2;p=1.6}
+

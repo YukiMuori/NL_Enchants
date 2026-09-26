@@ -1,0 +1,22 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Websnare — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:websnare:
+  Display: '<white>Websnare'
+  Description: '<gray>Chance to trap your victim in a cobweb.'
+  Rarity: UNCOMMON
+  MaxLevel: 2
+  AnvilCost: 2
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/sharp_weapon'
+  PrimaryItems:
+  - '#minecraft:swords'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - skill{s=NL_WEB_SNARE} @target ~onAttack ?chance{c=<math:0.08+0.08*enchant_level>}
