@@ -63,78 +63,78 @@ NL_Enchants/
 
 ## Catalogo incantesimi
 
-38 incantesimi in 6 categorie, portati dalla lista "Vanilla+" di AdvancedEnchantments.
-Le note di design di ogni incantesimo sono in `docs/enchantments/<id>.md`; cosa è stato scartato e perché è in `docs/enchantments/_skipped-from-ae-list.md`.
+38 incantesimi in 6 categorie, portati dalla lista "Vanilla+" di AdvancedEnchantments. Le probabilità scalano col livello se non indicato.
+Le note di design di ogni incantesimo sono in `docs/enchantments/<id>.md`; i numeri completi sono in `docs/balancing.md`; cosa è stato scartato e perché è in `docs/enchantments/_skipped-from-ae-list.md`.
 
-> Tooltip: vanilla Minecraft mostra solo il nome — per la riga descrizione serve il mod client "Enchantment Descriptions" (vedi SETUP.md).
+> Nota tooltip: in vanilla si vede solo il nome — la riga descrizione richiede il mod client "Enchantment Descriptions" (vedi SETUP.md). Questa tabella è il riferimento.
 
 ### Combat
 
-| Incantesimo | ID | Max | Rarità | Effetto |
+| Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Gelo Artico | `nl:arctic_freeze` | 3 | UNCOMMON | Possibilità di gelare il bersaglio fino alle ossa. |
-| Blackout | `nl:blackout` | 5 | UNCOMMON | Acceca l'avversario. |
-| Colpo Doppio | `nl:double_blow` | 4 | RARE | Possibilità di colpire due volte col tridente. |
-| Drenaggio | `nl:drain` | 7 | RARE | Drena il tuo avversario, nutrendoti. |
-| Flagello dell'Ender | `nl:enderbane` | 5 | RARE | Aumenta i danni alle creature dell'End. |
-| Frantumazombie | `nl:zombie_crusher` | 3 | UNCOMMON | Aumenta i danni inflitti agli zombie. |
-| Frantumateschi | `nl:skullcrusher` | 3 | UNCOMMON | Aumenta i danni inflitti agli scheletri. |
-| Incenerisci | `nl:incinerate` | 3 | UNCOMMON | Aumenta i danni inflitti ai ragni. |
-| Mietifuoco | `nl:blaze_reaper` | 3 | RARE | Aumenta i danni alle creature del Nether. |
-| Cubismo | `nl:cubism` | 3 | UNCOMMON | Più danni a Slime e Cubi di Magma. |
-| Primo Colpo | `nl:first_strike` | 3 | UNCOMMON | Più danni ai nemici a vita piena. |
-| Colpo di Grazia | `nl:finishing` | 3 | UNCOMMON | Aumenta i danni ai nemici a bassa vita. |
-| Rinvio | `nl:postpone` | 3 | COMMON | Possibilità di non causare knockback al bersaglio. |
-| Rinculo | `nl:repel` | 3 | COMMON | Possibilità di scagliare indietro l'avversario. |
-| Fame Nera | `nl:starvation` | 3 | COMMON | Possibilità di infliggere fame all'avversario. |
-| Thor | `nl:thor` | 3 | RARE | Possibilità di fulminare l'avversario. |
-| Ninja | `nl:ninja` | 3 | RARE | Più danni colpendo furtivamente. |
-| Fame da Lupo | `nl:ravenous` | 4 | UNCOMMON | Possibilità di recuperare fame combattendo. |
+| Gelo Artico | `nl:arctic_freeze` | 3 | UNCOMMON | 5+5%/livello: Lentezza I 3s + brivido di 1 danno/s per 3s |
+| Blackout | `nl:blackout` | 5 | UNCOMMON | 4+4%/livello: Cecità 2s al colpo |
+| Colpo Doppio | `nl:double_blow` | 4 | RARE | 10+5%/livello: colpo extra di danno livello+2 (tridente) |
+| Drenaggio | `nl:drain` | 7 | RARE | 12%: danno livello+1 e ti cura di livello PV |
+| Flagello dell'Ender | `nl:enderbane` | 5 | RARE | +1+livello danni ad Enderman, Endermite, Shulker, Drago dell'End |
+| Frantumazombie | `nl:zombie_crusher` | 3 | UNCOMMON | +livello danni a zombie e varianti |
+| Frantumateschi | `nl:skullcrusher` | 3 | UNCOMMON | +livello danni a scheletri e varianti |
+| Incenerisci | `nl:incinerate` | 3 | UNCOMMON | +1+livello danni + fiamme ai ragni |
+| Mietifuoco | `nl:blaze_reaper` | 3 | RARE | +1+livello danni alle creature del Nether |
+| Cubismo | `nl:cubism` | 3 | UNCOMMON | +1+livello danni a Slime e Cubi di Magma |
+| Primo Colpo | `nl:first_strike` | 3 | UNCOMMON | +1+livello danni finché il bersaglio è sopra il 95% di vita |
+| Colpo di Grazia | `nl:finishing` | 3 | UNCOMMON | +1+livello danni quando il bersaglio è sotto il 30% di vita |
+| Rinvio | `nl:postpone` | 3 | COMMON | 10+10%/livello: il colpo non causa knockback |
+| Rinculo | `nl:repel` | 3 | COMMON | 8+8%/livello: scaglia il bersaglio in alto e all'indietro |
+| Fame Nera | `nl:starvation` | 3 | COMMON | 8+8%/livello: Fame I per 5s |
+| Thor | `nl:thor` | 3 | RARE | 5+5%/livello: fulmine vero che infligge livello danni (armi melee) |
+| Ninja | `nl:ninja` | 3 | RARE | i colpi in sneak infliggono +1+livello danni |
+| Fame da Lupo | `nl:ravenous` | 4 | UNCOMMON | 10+10%/livello: recupera livello+1 cibo e saturazione combattendo |
 
 ### Arci e Balestre
 
-| Incantesimo | ID | Max | Rarità | Effetto |
+| Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Raffica | `nl:multi_shot` | 3 | RARE | Fa piovere frecce sul tuo avversario. |
-| Flashbang | `nl:flashbang` | 3 | UNCOMMON | Acceca l'avversario al colpo. |
-| Gelo | `nl:frost` | 3 | UNCOMMON | Possibilità di congelare l'avversario. |
-| Esplosiva | `nl:explosive` | 5 | RARE | Possibilità che le frecce esplodano. |
+| Raffica | `nl:multi_shot` | 3 | RARE | 25%: scocca una raffica di 1+livello frecce sul bersaglio |
+| Flashbang | `nl:flashbang` | 3 | UNCOMMON | 15+15%/livello: Cecità 3s al colpo |
+| Gelo | `nl:frost` | 3 | UNCOMMON | 10+10%/livello: congelamento neve in polvere per 1,5s + livello×1s |
+| Esplosiva | `nl:explosive` | 5 | RARE | 8+8%/livello: esplosione visiva + danno livello+1 (non rompe mai blocchi) |
 
 ### Miniera
 
-| Incantesimo | ID | Max | Rarità | Effetto |
+| Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Estrazione a Blast | `nl:blast_mining` | 3 | RARE | Estrae i blocchi in un'area 3x3. |
-| Esperienza | `nl:experience` | 5 | UNCOMMON | Possibilità di ottenere più esperienza dai minerali. |
-| Raccolta | `nl:foraging` | 3 | COMMON | Possibilità di moltiplicare il bottino delle foglie. |
-| Prospezione dell'Nether | `nl:nether_prospector` | 3 | UNCOMMON | Possibilità di moltiplicare l'Antico Detrito. |
-| Celerità | `nl:haste` | 3 | RARE | Usa i tuoi attrezzi più velocemente. |
+| Estrazione a Blast | `nl:blast_mining` | 3 | RARE | 34%/livello: rompe un'area 3×3×3 (max 2+2×livello blocchi, usura attrezzo applicata) |
+| Esperienza | `nl:experience` | 5 | UNCOMMON | 10+10%/livello: bottiglia d'XP extra dai minerali estratti |
+| Raccolta | `nl:foraging` | 3 | COMMON | 15+15%/livello: bastone e arboscello extra dalle foglie |
+| Prospezione dell'Nether | `nl:nether_prospector` | 3 | UNCOMMON | 10+10%/livello: Antico Detrito extra |
+| Celerità | `nl:haste` | 3 | RARE | Celerità I mentre l'attrezzo è in mano |
 
 ### Difesa
 
-| Incantesimo | ID | Max | Rarità | Effetto |
+| Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Adrenalina | `nl:adrenaline` | 3 | UNCOMMON | Ottieni Forza difendendoti dagli attacchi dei mob. |
-| Affinità dell'End | `nl:end_affinity` | 3 | UNCOMMON | Riduce i danni subiti nell'End. |
-| Affinità del Nether | `nl:nether_affinity` | 3 | UNCOMMON | Riduce i danni subiti nel Nether. |
-| Rimbalzo | `nl:rebounding` | 3 | RARE | Rimanda il danno melee all'attaccante. |
-| Scuotimento | `nl:rumble` | 3 | UNCOMMON | Contrattacca le entità intorno a te quando colpito. |
-| Ardente | `nl:scorching` | 3 | COMMON | Possibilità di incendiare chi ti attacca. |
-| Svanire | `nl:vanish` | 3 | UNCOMMON | Sparisci per 3 secondi dopo aver subito un colpo. |
-| Acquatica | `nl:waterborne` | 1 | UNCOMMON | Respira sott'acqua. |
+| Adrenalina | `nl:adrenaline` | 3 | UNCOMMON | 15+15%/livello: Forza I 4s quando un mob ostile ti colpisce |
+| Affinità dell'End | `nl:end_affinity` | 3 | UNCOMMON | -15%/livello danni subiti nell'End (max 50%) |
+| Affinità del Nether | `nl:nether_affinity` | 3 | UNCOMMON | -15%/livello danni subiti nel Nether (max 50%) |
+| Rimbalzo | `nl:rebounding` | 3 | RARE | danno melee subito -10%/livello (max 30%), ne riflette il 20%/livello |
+| Scuotimento | `nl:rumble` | 3 | UNCOMMON | 10+10%/livello: danno livello+1 a tutti i mob entro 3 blocchi quando colpito |
+| Ardente | `nl:scorching` | 3 | COMMON | 15%: incendiato l'attaccante per 1s + livello×1s |
+| Svanire | `nl:vanish` | 3 | UNCOMMON | 4+4%/livello (attesa 10s): Invisibilità 3s dopo un colpo subito |
+| Acquatica | `nl:waterborne` | 1 | UNCOMMON | Apnea mentre l'elmo è indossato |
 
 ### Movimento
 
-| Incantesimo | ID | Max | Rarità | Effetto |
+| Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Fuga | `nl:escape` | 2 | COMMON | Uno scatto di velocità dopo aver subito un danno. |
-| Passo di Piuma | `nl:feather_step` | 5 | RARE | Possibilità di annullare i danni da caduta. |
+| Fuga | `nl:escape` | 2 | COMMON | 30% (attesa 8s): Velocità I 3s dopo un colpo subito |
+| Passo di Piuma | `nl:feather_step` | 5 | RARE | 20+16%/livello: annulla completamente i danni da caduta |
 
 ### Agricoltura
 
-| Incantesimo | ID | Max | Rarità | Effetto |
+| Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Risema | `nl:replenish` | 1 | COMMON | Risema le colture quando le rompi. |
+| Risema | `nl:replenish` | 1 | COMMON | i raccolti maturi si riseminano istantaneamente; quelli giovani non vengono toccati |
 
 ## Rarità
 

@@ -60,78 +60,78 @@ NL_Enchants/
 
 ## Enchantment catalog
 
-38 enchants across 6 categories, ported from the AdvancedEnchantments "Vanilla+" list.
-Per-enchant design notes live in `docs/enchantments/<id>.md`; what was skipped and why is in `docs/enchantments/_skipped-from-ae-list.md`.
+38 enchants across 6 categories, ported from the AdvancedEnchantments "Vanilla+" list. Chances scale with level unless stated.
+Per-enchant design notes live in `docs/enchantments/<id>.md`; full numbers live in `docs/balancing.md`; what was skipped and why is in `docs/enchantments/_skipped-from-ae-list.md`.
 
-> Tooltips: vanilla Minecraft shows only the name — the description line needs the client mod "Enchantment Descriptions" (see SETUP.md).
+> Tooltip note: vanilla shows only the name — the description line needs the client mod "Enchantment Descriptions" (see SETUP.md). This table is the reference.
 
 ### Combat
 
-| Enchantment | ID | Max | Rarity | Effect |
+| Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Arctic Freeze | `nl:arctic_freeze` | 3 | UNCOMMON | Chance to chill your target to the bone. |
-| Blackout | `nl:blackout` | 5 | UNCOMMON | Blind your opponent. |
-| Double Blow | `nl:double_blow` | 4 | RARE | Chance to strike twice with your trident. |
-| Drain | `nl:drain` | 7 | RARE | Drain your opponent, feeding you. |
-| Enderbane | `nl:enderbane` | 5 | RARE | Increases damage dealt to Ender creatures. |
-| Zombie Crusher | `nl:zombie_crusher` | 3 | UNCOMMON | Boosts damage inflicted on Zombies. |
-| Skullcrusher | `nl:skullcrusher` | 3 | UNCOMMON | Boosts damage inflicted on Skeletons. |
-| Incinerate | `nl:incinerate` | 3 | UNCOMMON | Boosts damage inflicted on Spiders. |
-| Blaze Reaper | `nl:blaze_reaper` | 3 | RARE | Boosts damage against Nether creatures. |
-| Cubism | `nl:cubism` | 3 | UNCOMMON | Deal more damage to Slimes and Magma Cubes. |
-| First Strike | `nl:first_strike` | 3 | UNCOMMON | Deal more damage to enemies at full health. |
-| Finishing | `nl:finishing` | 3 | UNCOMMON | Increases damage dealt to low-health enemies. |
-| Postpone | `nl:postpone` | 3 | COMMON | Chance to cause no knockback to your target. |
-| Repel | `nl:repel` | 3 | COMMON | Chance to drive your opponent backward. |
-| Starvation | `nl:starvation` | 3 | COMMON | A chance to inflict hunger on your opponent. |
-| Thor | `nl:thor` | 3 | RARE | Chance to strike lightning at your opponent. |
-| Ninja | `nl:ninja` | 3 | RARE | Chance to deal more damage while sneaking. |
-| Ravenous | `nl:ravenous` | 4 | UNCOMMON | Chance to regain hunger while fighting. |
+| Arctic Freeze | `nl:arctic_freeze` | 3 | UNCOMMON | 5+5%/lvl: Slowness I 3s + a 1 dmg/s chill for 3s |
+| Blackout | `nl:blackout` | 5 | UNCOMMON | 4+4%/lvl: Blindness 2s on hit |
+| Double Blow | `nl:double_blow` | 4 | RARE | 10+5%/lvl: extra hit dealing level+2 damage (trident) |
+| Drain | `nl:drain` | 7 | RARE | 12%: level+1 damage, heals you for level HP |
+| Enderbane | `nl:enderbane` | 5 | RARE | +1+lvl damage vs Enderman, Endermite, Shulker, Ender Dragon |
+| Zombie Crusher | `nl:zombie_crusher` | 3 | UNCOMMON | +lvl damage vs zombies and variants |
+| Skullcrusher | `nl:skullcrusher` | 3 | UNCOMMON | +lvl damage vs skeletons and variants |
+| Incinerate | `nl:incinerate` | 3 | UNCOMMON | +1+lvl damage + flames vs spiders |
+| Blaze Reaper | `nl:blaze_reaper` | 3 | RARE | +1+lvl damage vs Nether creatures |
+| Cubism | `nl:cubism` | 3 | UNCOMMON | +1+lvl damage vs Slimes and Magma Cubes |
+| First Strike | `nl:first_strike` | 3 | UNCOMMON | +1+lvl damage while the target is above 95% health |
+| Finishing | `nl:finishing` | 3 | UNCOMMON | +1+lvl damage when the target is below 30% health |
+| Postpone | `nl:postpone` | 3 | COMMON | 10+10%/lvl: the hit deals no knockback |
+| Repel | `nl:repel` | 3 | COMMON | 8+8%/lvl: hurls the target up and backward |
+| Starvation | `nl:starvation` | 3 | COMMON | 8+8%/lvl: Hunger I for 5s |
+| Thor | `nl:thor` | 3 | RARE | 5+5%/lvl: real lightning dealing level damage (melee weapons) |
+| Ninja | `nl:ninja` | 3 | RARE | hits while sneaking deal +1+lvl damage |
+| Ravenous | `nl:ravenous` | 4 | UNCOMMON | 10+10%/lvl: restore level+1 food + saturation while fighting |
 
 ### Arci e Balestre
 
-| Enchantment | ID | Max | Rarity | Effect |
+| Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Multi-Shot | `nl:multi_shot` | 3 | RARE | Rain arrows over your opponent. |
-| Flashbang | `nl:flashbang` | 3 | UNCOMMON | Blind your opponent on hit. |
-| Frost | `nl:frost` | 3 | UNCOMMON | Chance to freeze your opponent. |
-| Explosive | `nl:explosive` | 5 | RARE | Chance for arrows to explode. |
+| Multi-Shot | `nl:multi_shot` | 3 | RARE | 25%: fires a volley of 1+level arrows at the target |
+| Flashbang | `nl:flashbang` | 3 | UNCOMMON | 15+15%/lvl: Blindness 3s on hit |
+| Frost | `nl:frost` | 3 | UNCOMMON | 10+10%/lvl: powder-snow freeze for 1.5s + level×1s |
+| Explosive | `nl:explosive` | 5 | RARE | 8+8%/lvl: visual explosion + level+1 damage (never breaks blocks) |
 
 ### Miniera
 
-| Enchantment | ID | Max | Rarity | Effect |
+| Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Blast Mining | `nl:blast_mining` | 3 | RARE | Mine blocks in a 3x3 area. |
-| Experience | `nl:experience` | 5 | UNCOMMON | Chance to get more experience from ores. |
-| Foraging | `nl:foraging` | 3 | COMMON | Chance to multiply drops from leaves. |
-| Nether Prospector | `nl:nether_prospector` | 3 | UNCOMMON | Chance to multiply Ancient Debris drops. |
-| Haste | `nl:haste` | 3 | RARE | Swing your tools faster while held. |
+| Blast Mining | `nl:blast_mining` | 3 | RARE | 34%/lvl: breaks a 3×3×3 area (cap 2+2×level blocks, tool damage applies) |
+| Experience | `nl:experience` | 5 | UNCOMMON | 10+10%/lvl: extra XP bottle from mined ores |
+| Foraging | `nl:foraging` | 3 | COMMON | 15+15%/lvl: extra stick + sapling from broken leaves |
+| Nether Prospector | `nl:nether_prospector` | 3 | UNCOMMON | 10+10%/lvl: extra Ancient Debris |
+| Haste | `nl:haste` | 3 | RARE | Haste I while the tool is held |
 
 ### Difesa
 
-| Enchantment | ID | Max | Rarity | Effect |
+| Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Adrenaline | `nl:adrenaline` | 3 | UNCOMMON | Gain Strength when defending mob attacks. |
-| End Affinity | `nl:end_affinity` | 3 | UNCOMMON | Reduces damage taken in the End. |
-| Nether Affinity | `nl:nether_affinity` | 3 | UNCOMMON | Reduces damage received in the Nether. |
-| Rebounding | `nl:rebounding` | 3 | RARE | Rebounds incoming melee damage back at your attacker. |
-| Rumble | `nl:rumble` | 3 | UNCOMMON | Chance to damage back all entities around you when hit. |
-| Scorching | `nl:scorching` | 3 | COMMON | Chance to ignite the attacker in flames. |
-| Vanish | `nl:vanish` | 3 | UNCOMMON | Chance to disappear for 3 seconds after taking damage. |
-| Waterborne | `nl:waterborne` | 1 | UNCOMMON | Breathe underwater. |
+| Adrenaline | `nl:adrenaline` | 3 | UNCOMMON | 15+15%/lvl: Strength I 4s when a hostile mob hits you |
+| End Affinity | `nl:end_affinity` | 3 | UNCOMMON | -15%/lvl damage taken in the End (cap 50%) |
+| Nether Affinity | `nl:nether_affinity` | 3 | UNCOMMON | -15%/lvl damage taken in the Nether (cap 50%) |
+| Rebounding | `nl:rebounding` | 3 | RARE | melee damage taken -10%/lvl (cap 30%), reflects 20%/lvl back |
+| Rumble | `nl:rumble` | 3 | UNCOMMON | 10+10%/lvl: level+1 damage to all mobs within 3 blocks when hit |
+| Scorching | `nl:scorching` | 3 | COMMON | 15%: ignites the attacker for 1s + level×1s |
+| Vanish | `nl:vanish` | 3 | UNCOMMON | 4+4%/lvl (10s cooldown): Invisibility 3s after taking damage |
+| Waterborne | `nl:waterborne` | 1 | UNCOMMON | Water Breathing while the helmet is worn |
 
 ### Movimento
 
-| Enchantment | ID | Max | Rarity | Effect |
+| Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Escape | `nl:escape` | 2 | COMMON | Gain a short burst of speed after taking damage. |
-| Feather Step | `nl:feather_step` | 5 | RARE | Chance to cancel fall damage. |
+| Escape | `nl:escape` | 2 | COMMON | 30% (8s cooldown): Speed I 3s after taking damage |
+| Feather Step | `nl:feather_step` | 5 | RARE | 20+16%/lvl: cancels fall damage completely |
 
 ### Agricoltura
 
-| Enchantment | ID | Max | Rarity | Effect |
+| Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Replenish | `nl:replenish` | 1 | COMMON | Restores crops back when you break them. |
+| Replenish | `nl:replenish` | 1 | COMMON | mature crops replant instantly when broken; young crops are never touched |
 
 ## Rarity
 
