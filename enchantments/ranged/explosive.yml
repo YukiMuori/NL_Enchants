@@ -1,0 +1,21 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Explosive — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+#  Visual explosion + own damage — never block damage.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:explosive:
+  Display: '<white>Explosive'
+  Description: '<gray>Chance for arrows to explode.'
+  Rarity: RARE
+  MaxLevel: 5
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/bow'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_EXPLOSIVE_SHOT} @trigger ~onBowHit ?chance{c=<math:0.08+0.08*enchant_level>}

@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Frost — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:frost:
+  Display: '<white>Frost'
+  Description: '<gray>Chance to freeze your opponent.'
+  Rarity: UNCOMMON
+  MaxLevel: 3
+  AnvilCost: 2
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/bow'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - skill{s=NL_FROST_HIT} @trigger ~onBowHit ?chance{c=<math:0.1+0.1*enchant_level>}
