@@ -1,10 +1,10 @@
 {
-  "enchantment.nl.double_jump": "Double Jump",
-  "enchantment.nl.double_jump.desc": "Press the jump key again while airborne to leap a second time.",
+  "enchantment.nl.double_jump": "Winged Leap",
+  "enchantment.nl.double_jump.desc": "Press jump again mid-air to ride the wind — again and again.",
   "enchantment.nl.sluggish": "Sluggish",
   "enchantment.nl.sluggish.desc": "Your strikes can bog the target down in a viscous haze.",
-  "enchantment.nl.bleeding": "Bleeding",
-  "enchantment.nl.bleeding.desc": "Your strikes can open wounds that keep hurting.",
+  "enchantment.nl.bleeding": "Hemorrhage",
+  "enchantment.nl.bleeding.desc": "Consecutive strikes open wounds that finally burst.",
   "enchantment.nl.staggering": "Staggering",
   "enchantment.nl.staggering.desc": "Your strikes can briefly knock the target off balance.",
   "enchantment.nl.executioner": "Executioner",
@@ -58,5 +58,7 @@
   "enchantment.nl.reflection": "Reflection",
   "enchantment.nl.reflection.desc": "Airborne steel turns against its archer.",
   "enchantment.nl.soulbond": "Soulbond",
-  "enchantment.nl.soulbond.desc": "Each bonded piece refuses to leave you — up to three times."
+  "enchantment.nl.soulbond.desc": "Each bonded piece refuses to leave you — up to three times.",
+  "enchantment.nl.combo": "Combo",
+  "enchantment.nl.combo.desc": "Keep striking to build a combo — the fourth hit finishes."
 }

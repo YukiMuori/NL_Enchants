@@ -1,10 +1,10 @@
 {
-  "enchantment.nl.double_jump": "Doppio Salto",
-  "enchantment.nl.double_jump.desc": "Premi di nuovo il tasto di salto mentre sei in aria per eseguire un secondo balzo.",
+  "enchantment.nl.double_jump": "Balzo Alato",
+  "enchantment.nl.double_jump.desc": "Premi di nuovo salto in aria per cavalcare il vento — ancora e ancora.",
   "enchantment.nl.sluggish": "Sbavato",
   "enchantment.nl.sluggish.desc": "I tuoi colpi possono intrappolare il bersaglio in una nebbia vischiosa.",
-  "enchantment.nl.bleeding": "Sanguinante",
-  "enchantment.nl.bleeding.desc": "I tuoi colpi possono aprire ferite che continuano a sanguinare.",
+  "enchantment.nl.bleeding": "Emorragia",
+  "enchantment.nl.bleeding.desc": "I colpi consecutivi aprono ferite che alla fine esplodono.",
   "enchantment.nl.staggering": "Barcollante",
   "enchantment.nl.staggering.desc": "I tuoi colpi possono far perdere l'equilibrio al bersaglio per un istante.",
   "enchantment.nl.executioner": "Esecutore",
@@ -58,5 +58,7 @@
   "enchantment.nl.reflection": "Riflesso Speculare",
   "enchantment.nl.reflection.desc": "L'acciaio in volo si rivolta contro il suo arciere.",
   "enchantment.nl.soulbond": "Anima Gemella",
-  "enchantment.nl.soulbond.desc": "Ogni pezzo legato rifiuta di lasciarti — fino a tre volte."
+  "enchantment.nl.soulbond.desc": "Ogni pezzo legato rifiuta di lasciarti — fino a tre volte.",
+  "enchantment.nl.combo": "Combo",
+  "enchantment.nl.combo.desc": "Continua a colpire per costruire una combo — il quarto colpo conclude."
 }
