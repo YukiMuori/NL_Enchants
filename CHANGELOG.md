@@ -5,6 +5,52 @@ Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning:
 [SemVer](https://semver.org/) — MAJOR breaking · MINOR enchant/feature ·
 PATCH fix/balance. Gameplay values are never changed silently.
 
+## [0.4.0] — 2026-09-26
+
+**Neverland rework — Phase 1.** Philosophy shift: fewer banal procs,
+recognizable abilities with strong feedback. A reusable VFX core library
+(`skills/core/`) now feeds every effect.
+
+### Redesigned (Phase 1)
+
+- **`nl:double_jump` → Winged Leap** (display rename; ID kept for item
+  compatibility): directional multi air-jump — levels I/II/III grant
+  1/2/5 extra leaps (up + forward, facing-aware). Charge-aura token chain,
+  flap VFX per leap, distinct finisher VFX on the last one. EPIC now.
+- **`nl:bleeding` → Hemorrhage**: consecutive hits build three wound marks
+  (4s decay); the third hit bursts into a DoT + final tear with blood
+  feedback.
+- **`nl:shatter` → Earthshatter**: same protected-safe veinminer core,
+  upgraded shockwave identity (crack spray, deep boom, ground ring).
+- **`nl:green_thumb` → Bloom**: harvesting may release an expanding wave —
+  three bonemeal growth rings (r=2/3/4) with riding motes; also triggers
+  on melons/pumpkins; chance 5/10/15%.
+- **`nl:shadowstep`**: MaxLevel II (proc 20/30%), dash + 1s Resistance +
+  multi-beat afterimage, 4s cooldown.
+- **`nl:replanter`**: REWRITTEN on the documented OnBlockBreak aura
+  component (the direct setblock lines never fired in the field); one
+  listener per crop, replants at the broken block.
+- **`nl:sentinel`**: full rework per design review — being hit while
+  hostiles are within 10 blocks pins a 5s glowing outline on up to 12
+  nearby hostiles (RUNTIME-VERIFY flagged, verified fallback documented).
+
+### Added
+
+- **`nl:combo`** (RARE, sword III): hits within 4s build a combo with
+  escalating feedback; the 4th hit is a level-scaled finisher and resets
+  the chain. Counter driven entirely on direct enchant lines.
+- **VFX core library** `skills/core/`: bursts/impacts, rings/pulses/
+  shockwaves/bloom-wave, winged-leap flap+finish, shadow dash, blood hit.
+
+### Deferred (documented, not invented)
+
+- ItemDisplay wing animation for Winged Leap: summon/cleanup syntax
+  unverified — particle arcs carry the identity.
+- **Phases 2–4** (Sundering, Execution, Stormshot, Volley, Veinfinder,
+  Bulwark, Berserker, Reaper, Retaliation, Seeker-eval, Phoenix,
+  Voidwalker/voidbound rework) ship AFTER Phase 1 field testing, per the
+  phase-stability rule.
+
 ## [0.3.2] — 2026-09-26
 
 Second field-log release. Three error classes found and fixed.

@@ -1,4 +1,4 @@
-# Sentinella
+# Sentinel
 
 ```text
 ID:                nl:sentinel
@@ -10,31 +10,39 @@ Maximum Level:     1
 Supported Items:   #minecraft:enchantable/armor
 Valid Slots:       HEAD
 Conflicts:         none
-Trigger(s):        ~onEquip listener aura (5s heartbeat)
-Cooldown:          one scan / 5s
+Trigger(s):        ~onDamaged → hostile-presence gated glow ping
+Cooldown:          5s internal
 ```
 
 ## Effect
 
-When hostiles are within 12 blocks (documented multi-type condition), your helm pulses with glow motes and a soft chime. REDESIGNED v0.3.0: self-centered feedback (per-mob marking used an unverified targeter).
+When you are hit **and** hostiles lurk within 10 blocks, every nearby
+hostile (up to 12) is pinned with a **glowing outline for 5 seconds** —
+the dark cannot hide what struck you. Soft amethyst chime marks the pulse.
 
 ## VFX
 
-Self-centered glow pulse + quiet chime.
+Vanilla glow outline on each marked hostile (readable through the fray),
+single quiet chime. No particle spam.
 
 ## Balance
 
-Awareness only — no buffs, no marking.
+Identity: awareness/reveal on being attacked — defensive information,
+no buffs. 5s cooldown aligns with the glow duration (near-continuous
+revelation during sustained fights, nothing while exploring peacefully).
 
 ## Notes
 
-Identity: AWARENESS.
+RUNTIME-VERIFY (flagged): the `@MobsInRadius` types filter and the plain
+`glow` aura component are documented but unproven in this exact context.
+**Verified fallback** (if the targeter filter misbehaves): keep the
+verified `mobsinradius` condition gate and replace the marking with a
+self-centered pulse (`glow` motes + chime). Report which one the server
+uses.
 
 ## Files
 
 ```text
 enchantments/exploration/sentinel.yml
-skills/exploration/sentinel.yml            (when the logic lives in metaskills)
-vfx/exploration/sentinel.yml               (when the enchant has active VFX)
-resourcepack/assets/minecraft/lang/{en_us,it_it}.json
+skills/exploration/sentinel.yml
 ```

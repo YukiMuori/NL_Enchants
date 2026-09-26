@@ -7,34 +7,32 @@ English name:      Replanter
 Category:          farming
 Rarity:            COMMON
 Maximum Level:     1
-Supported Items:   #minecraft:enchantable/hoe
+Supported Items:   #minecraft:enchantable/mining (Primary: hoes)
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onBlockBreak (direct setblock lines, single-material gates)
-Cooldown:          —
+Trigger(s):        ~onEquip listeners (OnBlockBreak aura components)
+Cooldown:          none — QoL
 ```
 
 ## Effect
 
-Harvested crops are instantly replanted (age 0).
+Harvested crops are instantly replanted (age 0). One documented
+`OnBlockBreak` aura component per crop (wheat, carrots, potatoes,
+beetroots): the component's blocktypes filter does the gating and
+`@targetlocation` is the broken block — the exact semantics of the
+official example. Drops still pop (component `dropitem` default true).
 
-## VFX
+## Balance / Notes
 
-Tiny composter puff.
-
-## Balance
-
-QoL; reported working — unchanged in v0.3.0.
-
-## Notes
-
-Identity: QUALITY OF LIFE.
+- v0.4.0 rewrite: the previous direct `setblock` + `triggerblocktype`
+  lines never fired in the field; this version uses only documented
+  component behavior.
+- Listener architecture: active while the hoe is held; re-equip after
+  relog (RUNTIME-VERIFY).
 
 ## Files
 
 ```text
 enchantments/farming/replanter.yml
-skills/farming/replanter.yml            (when the logic lives in metaskills)
-vfx/farming/replanter.yml               (when the enchant has active VFX)
-resourcepack/assets/minecraft/lang/{en_us,it_it}.json
+skills/farming/replanter.yml
 ```

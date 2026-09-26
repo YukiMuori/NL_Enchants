@@ -6,35 +6,34 @@ Italian name:      Passo d'Ombra
 English name:      Shadowstep
 Category:          movement
 Rarity:            RARE
-Maximum Level:     1
+Maximum Level:     2
 Supported Items:   #minecraft:enchantable/foot_armor
 Valid Slots:       FEET
 Conflicts:         none
-Trigger(s):        ~onDamaged → metaskill @self
-Cooldown:          5s internal
+Trigger(s):        ~onDamaged (inline chance gate on the direct line)
+Cooldown:          4s internal
 ```
 
 ## Effect
 
-When struck, 25% chance to slip backward (relative -Z hop) leaving a shadow afterimage.
+When struck, 20%/30% chance (level) to dissolve backward: a short shadow
+dash (relative -Z hop), 1s of Resistance I, and a lingering afterimage.
+Evasion identity — not a stat, a moment.
 
 ## VFX
 
-Smoke + soul silhouette, muffled enderman teleport sound.
+Core `NL_VFX_SHADOW_DASH`: smoke + soul silhouette, 3-beat afterimage
+trail, muffled enderman teleport.
 
 ## Balance
 
-Evasive, not offensive; 5s cooldown.
-
-## Notes
-
-Identity: MOVEMENT VISUAL / MOBILITY.
+Fixed small hop (counterable), 4s cooldown, short resistance window.
+MaxLevel 2 scales only the proc chance.
 
 ## Files
 
 ```text
 enchantments/movement/shadowstep.yml
-skills/movement/shadowstep.yml            (when the logic lives in metaskills)
-vfx/movement/shadowstep.yml               (when the enchant has active VFX)
-resourcepack/assets/minecraft/lang/{en_us,it_it}.json
+skills/movement/shadowstep.yml
+skills/core/burst.yml
 ```

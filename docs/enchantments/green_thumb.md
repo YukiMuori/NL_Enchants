@@ -1,40 +1,41 @@
-# Green Thumb
+# Bloom (nl:green_thumb)
 
 ```text
-ID:                nl:green_thumb
-Italian name:      Mano Verde
-English name:      Green Thumb
+ID:                nl:green_thumb  (ID kept for item compatibility)
+Italian name:      Fioritura
+English name:      Bloom
 Category:          farming
 Rarity:            COMMON
-Maximum Level:     2
-Supported Items:   #minecraft:enchantable/hoe
+Maximum Level:     3
+Supported Items:   #minecraft:enchantable/mining (Primary: hoes)
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onBlockBreak on crops (4 gate lines)
-Cooldown:          —
+Trigger(s):        ~onBlockBreak on crops/melons/pumpkins (material gates)
+Cooldown:          none — chance-gated (5/10/15% by level)
 ```
 
 ## Effect
 
-Harvesting a crop: 5/10% chance (level × 5%) for a burst of growth — bonemeal applied to the blocks around you. REDESIGNED v0.3.0: the hoe-~onUse design relied on unverified behavior.
+Harvesting may release an **expanding natural wave**: three growth rings
+(radius 2 → 3 → 4, 4 ticks apart) pulse outward around you, bonemealing
+every plant they touch — crops accelerate, grass pops flowers, the farm
+breathes.
 
 ## VFX
 
-Composter sparkles + bone-meal sound.
+Core `NL_VFX_BLOOM_WAVE`: composter + happy-villager motes riding the
+rings, bone-meal patter + soft bell. Each ring also puffs as it expands.
 
 ## Balance
 
-Bonemeal on grass can pop flowers — a fitting vanilla flourish.
-
-## Notes
-
-Identity: FARMING.
+Identity: farming reward loop — harvest feeds growth. Bonemeal cannot
+fully-grown crops, so the wave never wastes itself on the block you just
+harvested. MaxLevel 3 scales only the chance.
 
 ## Files
 
 ```text
 enchantments/farming/green_thumb.yml
-skills/farming/green_thumb.yml            (when the logic lives in metaskills)
-vfx/farming/green_thumb.yml               (when the enchant has active VFX)
-resourcepack/assets/minecraft/lang/{en_us,it_it}.json
+skills/farming/green_thumb.yml
+skills/core/ring.yml
 ```

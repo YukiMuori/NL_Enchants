@@ -11,6 +11,7 @@ enchantment explainable in one sentence.
 - **Languages:** English (`en_us`) and Italian (`it_it`)
 - **License:** MIT
 - **Catalog:** 30 enchantments across 8 categories
+- **Status:** v0.4.0 — Phase 1 of the Neverland rework shipped (Winged Leap, Shadowstep, Hemorrhage, Combo, Earthshatter, Bloom, Replanter, Sentinel); Phases 2–4 follow field testing
 
 ## Requirements
 
@@ -69,13 +70,14 @@ swords+axes, armor = any piece, boots, bow, pickaxe, hoe, tools.
 | ID | English | Italian | Rarity | Max | Items | One-sentence effect |
 | --- | --- | --- | --- | --- | --- | --- |
 | `nl:sluggish` | Sluggish | Sbavato | UNCOMMON | III | weapon | Strikes can bog the target down in a viscous haze. |
-| `nl:bleeding` | Bleeding | Sanguinante | UNCOMMON | III | weapon | Strikes can open wounds that keep hurting. |
+| `nl:bleeding` | **Hemorrhage** | Emorragia | UNCOMMON | III | weapon | Consecutive strikes open wounds that finally burst. |
 | `nl:staggering` | Staggering | Barcollante | RARE | II | weapon | Strikes can briefly knock the target off balance. |
 | `nl:executioner` | Executioner | Esecutore | RARE | III | weapon | Strikes against weakened targets hit harder — and you can see when. |
 | `nl:predator` | Predator | Predatore | RARE | II | weapon | Strike back harder at the enemy that just hit you. |
 | `nl:momentum` | Momentum | Impeto | UNCOMMON | III | weapon | Chained kills keep you fast — taking a hit breaks the flow. |
 | `nl:echo` | Echo | Eco | EPIC | III | weapon | A part of your strike sometimes repeats a moment later. |
 | `nl:mark` | Mark | Marchio | RARE | I | weapon | Your first hit marks a target; keeping the pressure rewarded. |
+| `nl:combo` | Combo | Combo | RARE | III | weapon | Keep striking to build a combo — the fourth hit finishes. |
 
 ### Ranged · `enchantments/ranged/`
 
@@ -89,7 +91,7 @@ swords+axes, armor = any piece, boots, bow, pickaxe, hoe, tools.
 
 | ID | English | Italian | Rarity | Max | Items | One-sentence effect |
 | --- | --- | --- | --- | --- | --- | --- |
-| `nl:double_jump` | Double Jump | Doppio Salto | RARE | I | boots | Press the jump key again while airborne to leap a second time. |
+| `nl:double_jump` | **Winged Leap** | Balzo Alato | EPIC | III | boots | Press jump again mid-air to ride the wind — 1/2/5 extra directional leaps. |
 | `nl:shadowstep` | Shadowstep | Passo d'Ombra | RARE | I | boots | When struck, slip backward leaving a shadow of yourself behind. |
 | `nl:climber` | Climber | Scalatore | UNCOMMON | I | boots | Sprint to climb ladders and vines faster; jump to leap off them. |
 
@@ -97,7 +99,7 @@ swords+axes, armor = any piece, boots, bow, pickaxe, hoe, tools.
 
 | ID | English | Italian | Rarity | Max | Items | One-sentence effect |
 | --- | --- | --- | --- | --- | --- | --- |
-| `nl:shatter` | Shatter | Frantuma | RARE | III | pickaxe | Your picks sometimes crack the neighboring blocks of the same family. |
+| `nl:shatter` | **Earthshatter** | Spaccaterra | RARE | III | pickaxe | Your picks send cracks rippling through the same stone family. |
 | `nl:prospector` | Prospector | Prospezione | RARE | I | pickaxe | Mining ore sends out a pulse — diamonds nearby make it sing. |
 | `nl:conservation` | Conservation | Conservazione | UNCOMMON | II | tools | Your tools sometimes ignore wear. |
 
@@ -105,7 +107,7 @@ swords+axes, armor = any piece, boots, bow, pickaxe, hoe, tools.
 
 | ID | English | Italian | Rarity | Max | Items | One-sentence effect |
 | --- | --- | --- | --- | --- | --- | --- |
-| `nl:green_thumb` | Green Thumb | Mano Verde | COMMON | II | hoe | Harvesting sometimes spreads a burst of growth around you. |
+| `nl:green_thumb` | **Bloom** | Fioritura | COMMON | III | hoe | Harvesting may send a wave of growth rippling outward. |
 | `nl:reaping` | Reaping | Mietitura | RARE | I | hoe | Harvesting sometimes sweeps the neighboring crops in one go. |
 | `nl:replanter` | Replanter | Ripiantatore | COMMON | I | hoe | Harvested crops are immediately replanted. |
 
@@ -122,7 +124,7 @@ swords+axes, armor = any piece, boots, bow, pickaxe, hoe, tools.
 
 | ID | English | Italian | Rarity | Max | Items | One-sentence effect |
 | --- | --- | --- | --- | --- | --- | --- |
-| `nl:sentinel` | Sentinel | Sentinella | RARE | I | helmet | Your helm quietly stirs when hostile eyes watch you. |
+| `nl:sentinel` | Sentinel | Sentinella | RARE | I | helmet | Struck near the dark? Every hostile nearby is revealed, glowing. |
 | `nl:wayfarer` | Wayfarer | Viandante | UNCOMMON | I | armor | Long stretches of honest travel reward you with a moment of vigor. |
 
 ### Legendary · `enchantments/legendary/`

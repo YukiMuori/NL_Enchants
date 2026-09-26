@@ -19,31 +19,32 @@ lines (if any) + one sentence about the feel (too strong/weak/often).
 
 | Enchant | Test | Expected |
 | --- | --- | --- |
-| `nl:double_jump` | Wear boots, jump, press jump again mid-air (also try holding) | second vanilla-strength leap + puff |
-| `nl:shadowstep` | Wear boots, take a melee hit several times | occasional backward slip + smoke |
+| `nl:double_jump` (Winged Leap) | L1: jump+jump mid-air. L2/L3: chain 2/5 leaps. Try holding space | directional leaps (up+forward), flap VFX, FINISHER burst on the last charge |
+| `nl:shadowstep` | Take melee hits repeatedly (L1 vs L2) | ~20/30% backward dash + afterimage + 1s resistance, not more than once per 4s |
 | `nl:climber` | Wear boots, hold sprint on a ladder/vine; press jump on it | faster climb; jump-off leap |
 | `nl:sluggish` III | Hit a mob ~20 times | ~1 slow proc every 2–3 hits, 2.5s Slowness I |
-| `nl:bleeding` III | Hit a mob ~20 times | occasional 1-damage ticks ×4 + end burst |
+| `nl:bleeding` (Hemorrhage) III | Hit ONE mob 4+ times, then switch target | marks escalate, 3rd hit bursts (DoT 3s + end hit); new target = fresh chain |
 | `nl:staggering` II | Hit a mob ~20 times | occasional brief stutter-pin |
 | `nl:executioner` III | Damage a mob below 30%, then hit | marker symbol sometimes; hits deal +3 |
 | `nl:predator` II | Let a mob hit you, then hit it back | +2 on the first counter-hit only |
 | `nl:momentum` | Kill 3 mobs in a row without taking damage | Speed I each kill; breaks on damage |
 | `nl:echo` III | Hit mobs ~20 times | occasional second impact after ~0.3s |
 | `nl:mark` | Hit one mob twice | first hit marks (glow), second hits +1.5 |
+| `nl:combo` | Hit any target 5+ times in rhythm | tiers 1-3 escalate, 4th hit = finisher burst, chain restarts; stops after 4s idle |
 | `nl:hawkeye` II | Shoot fully drawn vs quick-release | full draw: +1.5 arrow dmg + burst |
 | `nl:ricochet` | Miss a shot near a hostile within 8 blocks | arrow sprite springs once, 4 dmg |
 | `nl:recall` | Shoot ~30 arrows | ~1 in 3 misses returns an arrow |
-| `nl:shatter` III | Mine stone/ores repeatedly | occasional neighbor crack (≤12/≤8) |
+| `nl:shatter` (Earthshatter) III | Mine stone/ores repeatedly | occasional crack wave ≤12/≤8 + shockwave VFX; respect claims |
 | `nl:prospector` | Mine ore near/beside hidden diamonds | strong chime vs soft tick |
 | `nl:conservation` II | Mine a lot; watch durability | noticeably slower wear |
-| `nl:green_thumb` II | Harvest crops repeatedly | occasional growth burst around you |
+| `nl:green_thumb` (Bloom) III | Harvest crops repeatedly | ~5/10/15%: three expanding growth rings (r=2/3/4) with motes |
 | `nl:reaping` | Harvest wheat with neighbors | 35% sweep of the 3×3 |
-| `nl:replanter` | Harvest crops | instant replant every time |
+| `nl:replanter` | Harvest wheat/carrots/potatoes/beetroots (hoe held) | instant replant EVERY time — this was rewritten, high priority |
 | `nl:grounded` II×4 | Wear full set; take knockback (explosions) | strongly reduced knockback |
 | `nl:reprisal` III | Get hit repeatedly | ~1 in 5 hits reflects 3 dmg |
 | `nl:second_wind` | Drop below 30% HP once, then again within 45s | once: regen+speed burst; then: nothing for 45s |
 | `nl:tenacity` | Take hits every <5s for a while | Resistance I during the chain |
-| `nl:sentinel` | Stand near hostiles | glow pulse + chime every 5s |
+| `nl:sentinel` | Get hit near hostiles (and near passive mobs as control) | hostiles within 10b get glowing outline 5s; PASSIVE mobs must NOT glow; no trigger without hostiles nearby |
 | `nl:wayfarer` | Sprint outdoors for a minute | regen pulse every ~60s while moving |
 | `nl:resonance` | Get hit wearing 1 piece, then the full set | Regen I 3s vs Regen II 8s (20s cd each); no load errors from resonance.yml |
 | `nl:voidbound` | Take a killing blow (twice, 10 min apart) | survive at ~0 HP + Absorption; second time nothing |

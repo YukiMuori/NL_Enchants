@@ -11,6 +11,7 @@ ogni incantesimo spiegabile in una frase.
 - **Lingue:** Inglese (`en_us`) e Italiano (`it_it`)
 - **Licenza:** MIT
 - **Catalogo:** 30 incantesimi in 8 categorie
+- **Stato:** v0.4.0 — Fase 1 del rework Neverland consegnata (Balzo Alato, Passo d'Ombra, Emorragia, Combo, Spaccaterra, Fioritura, Ripiantatore, Sentinella); le Fasi 2–4 seguono dopo i test in gioco
 
 > Questo README è la traduzione italiana. I nomi e le descrizioni mostrati qui
 > coincidono con le stringhe del resource pack (`it_it`). Gli ID tecnici sono
@@ -72,13 +73,14 @@ stivali, arco, piccone, zappa, attrezzi.
 | ID | Nome | Rarità | Max | Oggetti | Effetto |
 | --- | --- | --- | --- | --- | --- |
 | `nl:sluggish` | Sbavato | UNCOMMON | III | arma | I tuoi colpi possono intrappolare il bersaglio in una nebbia vischiosa. |
-| `nl:bleeding` | Sanguinante | UNCOMMON | III | arma | I tuoi colpi possono aprire ferite che continuano a sanguinare. |
+| `nl:bleeding` | **Emorragia** | UNCOMMON | III | arma | I colpi consecutivi aprono ferite che alla fine esplodono. |
 | `nl:staggering` | Barcollante | RARE | II | arma | I tuoi colpi possono far perdere l'equilibrio al bersaglio per un istante. |
 | `nl:executioner` | Esecutore | RARE | III | arma | I colpi contro bersagli indeboliti colpiscono più forte — e vedi quando sono vulnerabili. |
 | `nl:predator` | Predatore | RARE | II | arma | Contrattacca con più forza il nemico che ti ha appena colpito. |
 | `nl:momentum` | Impeto | UNCOMMON | III | arma | Le uccisioni in serie ti tengono rapido — subire un colpo spezza la catena. |
 | `nl:echo` | Eco | EPIC | III | arma | Una parte del tuo colpo a volte si ripete un istante dopo. |
 | `nl:mark` | Marchio | RARE | I | arma | Il primo colpo marchia il bersaglio — i colpi successivi sul marchiato colpiscono più forte. |
+| `nl:combo` | Combo | RARE | III | arma | Continua a colpire per costruire una combo — il quarto colpo conclude. |
 
 ### Distanza · `enchantments/ranged/`
 
@@ -92,7 +94,7 @@ stivali, arco, piccone, zappa, attrezzi.
 
 | ID | Nome | Rarità | Max | Oggetti | Effetto |
 | --- | --- | --- | --- | --- | --- |
-| `nl:double_jump` | Doppio Salto | RARE | I | stivali | Premi di nuovo il tasto di salto mentre sei in aria per eseguire un secondo balzo. |
+| `nl:double_jump` | **Balzo Alato** | EPIC | III | stivali | Premi di nuovo salto in aria per cavalcare il vento — 1/2/5 balzi direzionali extra. |
 | `nl:shadowstep` | Passo d'Ombra | RARE | I | stivali | Se colpito, puoi scivolare all'indietro lasciando dietro di te la tua ombra. |
 | `nl:climber` | Scalatore | UNCOMMON | I | stivali | Corri per arrampicarti più velocemente su scale e liane; salta per slanciarti via. |
 
@@ -100,7 +102,7 @@ stivali, arco, piccone, zappa, attrezzi.
 
 | ID | Nome | Rarità | Max | Oggetti | Effetto |
 | --- | --- | --- | --- | --- | --- |
-| `nl:shatter` | Frantuma | RARE | III | piccone | Il tuo piccone a volte frantuma i blocchi adiacenti della stessa famiglia. |
+| `nl:shatter` | **Spaccaterra** | RARE | III | piccone | Il tuo piccone invia crepe a onda nella stessa famiglia di pietra. |
 | `nl:prospector` | Prospezione | RARE | I | piccone | Estrarre minerale invia un impulso: se diamanti si nascondono nelle vicinanze, canta. |
 | `nl:conservation` | Conservazione | UNCOMMON | II | attrezzi | I tuoi attrezzi a volte ignorano l'usura. |
 
@@ -108,7 +110,7 @@ stivali, arco, piccone, zappa, attrezzi.
 
 | ID | Nome | Rarità | Max | Oggetti | Effetto |
 | --- | --- | --- | --- | --- | --- |
-| `nl:green_thumb` | Mano Verde | COMMON | II | zappa | Raccogliere a volte sparge un'ondata di crescita intorno a te. |
+| `nl:green_thumb` | **Fioritura** | COMMON | III | zappa | Raccogliere può scatenare un'onda di crescita che si espande. |
 | `nl:reaping` | Mietitura | RARE | I | zappa | Raccogliere a volte porta via in un colpo solo anche le colture vicine. |
 | `nl:replanter` | Ripiantatore | COMMON | I | zappa | Le colture raccolte vengono immediatamente riseminate. |
 
@@ -125,7 +127,7 @@ stivali, arco, piccone, zappa, attrezzi.
 
 | ID | Nome | Rarità | Max | Oggetti | Effetto |
 | --- | --- | --- | --- | --- | --- |
-| `nl:sentinel` | Sentinella | RARE | I | elmo | Il tuo elmo si agita silenziosamente quando occhi ostili ti osservano. |
+| `nl:sentinel` | Sentinella | RARE | I | elmo | Colpito accanto al buio? Ogni ostile vicino viene rivelato, luminoso. |
 | `nl:wayfarer` | Viandante | UNCOMMON | I | armatura | Lunghi tratti di viaggio onesto ti ricompensano con un momento di vigore. |
 
 ### Leggendari · `enchantments/legendary/`

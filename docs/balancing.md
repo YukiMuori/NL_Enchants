@@ -45,9 +45,9 @@ Availability bands by rarity (Weight / MinCost / MaxCost / AnvilCost):
 
 | Enchant | Key values |
 | --- | --- |
-| `nl:double_jump` | impulse +0.42 Y · charge 5s · settle 3t · MaxLevel I |
+| `nl:double_jump` | Winged Leap: 1/2/5 extra leaps · +0.45Y/+0.35fwd · charges 6s · input guard 1s |
 | `nl:sluggish` | chance 5/10/15% · Slowness I 2.5s |
-| `nl:bleeding` | chance 5/10/15% · 1 dmg/s · 4s |
+| `nl:bleeding` | Hemorrhage: marks 4s decay · burst = 3×1 dmg + 2 end hit |
 | `nl:staggering` | chance 5/10% · root ~0.3s · conflicts sluggish |
 | `nl:executioner` | threshold <30% HP · +1/+2/+3 dmg · marker 3s cd |
 | `nl:predator` | stalk 5s · +2/+3 dmg · consumed on use |
@@ -57,19 +57,19 @@ Availability bands by rarity (Weight / MinCost / MaxCost / AnvilCost):
 | `nl:hawkeye` | +0.75 arrow dmg/level at tension >0.9 (direct lines) |
 | `nl:ricochet` | window 4s · nearest hostile ≤8b · 4 flat dmg · 1 spring |
 | `nl:recall` | miss 35% / hit 20% · 1 arrow · cd 2s |
-| `nl:shadowstep` | 25% on damaged · backward hop · cd 5s · MaxLevel I |
+| `nl:shadowstep` | proc 20/30% · dash + Resist 1s · cd 4s · MaxLevel II |
 | `nl:climber` | sprint climb +0.1 Y/tick · jump leap +0.42 Y · climbables only |
-| `nl:shatter` | stone 5/10/15% max 12 · ore 4/8/12% max 8 · 3×3×3 · perblock=2 |
+| `nl:shatter` | Earthshatter: stone 5/10/15% max 12 · ore 4/8/12% max 8 · shockwave VFX |
 | `nl:prospector` | diamond-sense ping · r=8 · cd 6s |
 | `nl:conservation` | ~15%/level (I), ~20%/level (II) negate chance |
-| `nl:green_thumb` | chance 5/10% · bonemeal burst r=2 on harvest |
+| `nl:green_thumb` | Bloom: wave rings r=2/3/4 · chance 5/10/15% · crops+melon+pumpkin |
 | `nl:reaping` | 35% · 3×3×3 max 8 crops · perblock=2 |
 | `nl:replanter` | instant replant · MaxLevel I · QoL |
 | `nl:grounded` | +20%/+40% KB resistance per piece (stacks across pieces) |
 | `nl:reprisal` | 20% · 1/2/3 thorns dmg · conflicts reflection |
 | `nl:second_wind` | trigger <30% HP · Regen I + Speed I 3s · cd 45s |
 | `nl:tenacity` | window 5s · Resistance I 3s while chain lives |
-| `nl:sentinel` | scan / 5s · r=12 · max 4 marked · chime-only |
+| `nl:sentinel` | on-hit glow ping · r=10 · max 12 hostiles · 5s glow · cd 5s |
 | `nl:wayfarer` | moving+outdoor+grounded · Regen II 3s · cd 60s |
 | `nl:resonance` | ANY piece Regen I 3s · FULL set Regen II 8s · pulse / 8s |
 | `nl:voidbound` | lethal negate (totem-aware) + Absorption II 10s · cd 600s |

@@ -1,40 +1,42 @@
-# Shatter
+# Earthshatter (nl:shatter)
 
 ```text
-ID:                nl:shatter
-Italian name:      Frantuma
-English name:      Shatter
+ID:                nl:shatter  (ID kept for item compatibility)
+Italian name:      Spaccaterra
+English name:      Earthshatter
 Category:          mining
 Rarity:            RARE
 Maximum Level:     3
-Supported Items:   #minecraft:enchantable/pickaxe
+Supported Items:   #minecraft:enchantable/mining (Primary: pickaxes)
 Valid Slots:       MAINHAND
 Conflicts:         none
-Trigger(s):        ~onBlockBreak (one gate line per vanilla block tag/material)
-Cooldown:          veinminer throttle perblock=2
+Trigger(s):        ~onBlockBreak (material-list gates)
+Cooldown:          veinminer throttle (perblock=2)
 ```
 
 ## Effect
 
-5/10/15% (stone, level×5%) or 4/8/12% (ores, level×4%) chance to crack matching neighbors in a 3×3×3 (max 12 stone / 8 ore). Drops respect the held tool.
+5/10/15% chance (stone family, level×5%) or 4/8/12% (ores, level×4%) for
+the pick to send cracks through the neighboring same-family blocks — a
+3×3×3 shockwave (max 12 stone / 8 ore). Drops use the held tool (Fortune /
+Silk Touch respected); per-block durability applies.
 
 ## VFX
 
-Crit crackle + sweep sound at the broken block.
+Core `NL_VFX_EARTH_SHOCKWAVE`: cobble crack spray, crit dust, wide end-rod
+ring, deep explosion + deepslate boom.
 
-## Balance
+## Balance / Safety
 
-veinminer's built-in re-entrancy guard prevents recursion; maxblocks caps worst case. Gates are single-tag conditions (verified form); material lists live only in veinminer's own filter (unknown entries skipped by design).
-
-## Notes
-
-Identity: AREA MINING.
+veinminer publishes synthetic BlockBreakEvents per block, so protection
+plugins (claims, regions) can veto each break — the safe area-mining
+design. Built-in re-entrancy guard prevents recursion; maxblocks caps
+worst case.
 
 ## Files
 
 ```text
 enchantments/mining/shatter.yml
-skills/mining/shatter.yml            (when the logic lives in metaskills)
-vfx/mining/shatter.yml               (when the enchant has active VFX)
-resourcepack/assets/minecraft/lang/{en_us,it_it}.json
+skills/mining/shatter.yml
+skills/core/ring.yml
 ```
