@@ -1,0 +1,22 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Haste — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+#  RUNTIME-VERIFY: mainhand ~onEquip semantics (hold/unhold).
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:haste:
+  Display: '<white>Haste'
+  Description: '<gray>Swing your tools faster while held.'
+  Rarity: RARE
+  MaxLevel: 3
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/mining'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_HASTE_INSTALL} @self ~onEquip
+  - skill{s=NL_HASTE_REMOVE} @self ~onUnequip
