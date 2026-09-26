@@ -17,7 +17,14 @@ nl:green_thumb:
   AnvilCost: 1
   ValidSlots:
   - MAINHAND
-  SupportedItems: '#minecraft:enchantable/hoe'
+  SupportedItems: '#minecraft:enchantable/mining'
+  PrimaryItems:
+  - minecraft:wooden_hoe
+  - minecraft:stone_hoe
+  - minecraft:iron_hoe
+  - minecraft:golden_hoe
+  - minecraft:diamond_hoe
+  - minecraft:netherite_hoe
   Enchanting:
     Weight: 6
     MinCost: 4

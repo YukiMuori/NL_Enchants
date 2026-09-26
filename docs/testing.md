@@ -61,6 +61,18 @@ lines (if any) + one sentence about the feel (too strong/weak/often).
 - **A4 — enchant variables in aura ticks**: expected NOT to work; the pack
   must not produce errors for them (constants only by design).
 
+## Field-log fixes already applied (0.3.0 → 0.3.2)
+
+- `hasMythicEnchant` in skill files failed to load → moved to enchant
+  lines (R8); console must show NO "Failed to load custom condition".
+- All `NL_VFX_*` were missing → packs only load conventional folders;
+  VFX moved under `skills/vfx/` (R9). After reload the console must NOT
+  contain any "Could not find MetaSkill NL_VFX_" line.
+- `#minecraft:enchantable/pickaxe|hoe` rejected → 5 enchants were skipped
+  from the datapack; now `enchantable/mining` + PrimaryItems (R10).
+  Console must show NO "[Datapack] ... Skipped" lines.
+- `triggerblocktype` tag gates never matched → material lists now.
+
 ## Known-risk list (from the rebuild)
 
 - `~onUse`-dependent designs were REMOVED (hawkeye, green_thumb redesigned).

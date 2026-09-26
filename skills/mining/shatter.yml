@@ -2,6 +2,7 @@
 #  NL_Enchants — shatter skills. Gameplay logic only.
 #  veinminer: official MythicEnchants mechanic — re-entrancy guard, tool
 #  drops, per-block durability and tick throttling are built in.
+#  (Gates live on the enchant lines as material lists — see that file.)
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_SHATTER_STONE:

@@ -50,8 +50,7 @@ NL_Enchants/
 │   └── <categoria>/<id>.yml      UN FILE PER INCANTESIMO (nome file = ID)
 ├── skills/
 │   └── <categoria>/<id>.yml      logica di gioco (metaskill NL_ENCHANT_*)
-├── vfx/
-│   └── <categoria>/<id>.yml      solo presentazione (metaskill NL_VFX_*)
+├── skills/vfx/                   solo presentazione (metaskill NL_VFX_*)
 ├── datapack/nl/                  frammenti datapack con namespace nl (tag)
 ├── resourcepack/                 asset client: voci di lingua en_us / it_it
 ├── docs/

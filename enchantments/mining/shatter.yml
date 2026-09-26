@@ -1,15 +1,13 @@
 # ══════════════════════════════════════════════════════════════════════════════
 #  NL_Enchants — shatter (one file per enchant)
-#  Docs: docs/enchantments/shatter.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#  Docs: docs/enchantments/shatter.md
 #
-#  RELIABILITY RULES (v0.3.0):
-#   · dispatch lines mirror official MythicEnchants examples exactly
-#   · direct enchant lines may use <math:...> (Enchantment-Config form)
-#   · one condition per line; no comma lists inside conditions
+#  v0.3.2 — field fixes: (a) SupportedItems uses #minecraft:enchantable/mining
+#  (runtime-provided valid tag; pickaxe/hoe tags do not exist) narrowed by
+#  PrimaryItems to pickaxes; (b) triggerblocktype gates use MATERIAL LISTS —
+#  '#' block tags are rejected by the TriggerBlockTypeFilter (field-verified).
 # ══════════════════════════════════════════════════════════════════════════════
-#  One gate line per vanilla block tag / material (verified single-target
-#  form). veinminer itself matches the full material list (unknown entries
-#  are safely skipped per its documentation).
+
 nl:shatter:
   Display: '<aqua>Shatter'
   Description: '<gray>Your picks sometimes crack the neighboring blocks of the same family.'
@@ -18,21 +16,18 @@ nl:shatter:
   AnvilCost: 4
   ValidSlots:
   - MAINHAND
-  SupportedItems: '#minecraft:enchantable/pickaxe'
+  SupportedItems: '#minecraft:enchantable/mining'
+  PrimaryItems:
+  - minecraft:wooden_pickaxe
+  - minecraft:stone_pickaxe
+  - minecraft:iron_pickaxe
+  - minecraft:golden_pickaxe
+  - minecraft:diamond_pickaxe
+  - minecraft:netherite_pickaxe
   Enchanting:
     Weight: 3
     MinCost: 16
     MaxCost: 38
   Skills:
-  - skill{s=NL_ENCHANT_SHATTER_STONE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:base_stone_overworld}
-  - skill{s=NL_ENCHANT_SHATTER_STONE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:base_stone_nether}
-  - skill{s=NL_ENCHANT_SHATTER_STONE} @self ~onBlockBreak ?triggerblocktype{t=COBBLESTONE}
-  - skill{s=NL_ENCHANT_SHATTER_STONE} @self ~onBlockBreak ?triggerblocktype{t=COBBLED_DEEPSLATE}
-  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:coal_ores}
-  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:iron_ores}
-  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:copper_ores}
-  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:gold_ores}
-  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:redstone_ores}
-  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:lapis_ores}
-  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:diamond_ores}
-  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak ?triggerblocktype{t=#minecraft:emerald_ores}
+  - skill{s=NL_ENCHANT_SHATTER_STONE} @self ~onBlockBreak ?triggerblocktype{t=STONE,COBBLESTONE,DEEPSLATE,COBBLED_DEEPSLATE,TUFF,GRANITE,DIORITE,ANDESITE,NETHERRACK,BLACKSTONE}
+  - skill{s=NL_ENCHANT_SHATTER_ORE} @self ~onBlockBreak ?triggerblocktype{t=COAL_ORE,DEEPSLATE_COAL_ORE,IRON_ORE,DEEPSLATE_IRON_ORE,COPPER_ORE,DEEPSLATE_COPPER_ORE,GOLD_ORE,DEEPSLATE_GOLD_ORE,REDSTONE_ORE,DEEPSLATE_REDSTONE_ORE,LAPIS_ORE,DEEPSLATE_LAPIS_ORE,DIAMOND_ORE,DEEPSLATE_DIAMOND_ORE,EMERALD_ORE,DEEPSLATE_EMERALD_ORE,NETHER_GOLD_ORE,NETHER_QUARTZ_ORE}

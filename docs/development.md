@@ -12,7 +12,8 @@ must never be mixed inside one skill.
 enchantments/<category>/<id>.yml  the enchantment definition — THIN dispatcher,
                                   ONE FILE PER ENCHANT (file name = enchant ID)
 skills/<category>/<id>.yml        gameplay logic (NL_ENCHANT_* metaskills)
-vfx/<category>/<id>.yml           presentation only (NL_VFX_* metaskills)
+skills/vfx/<category>/<id>.yml    presentation only (NL_VFX_* metaskills)
+                                  (must be under skills/ — see rule R9)
 resourcepack/                     client-side names/descriptions (en_us, it_it)
 docs/enchantments/<id>.md         the human-readable specification
 ```
@@ -73,7 +74,9 @@ Currently load-bearing verified facts (re-verify after plugin upgrades):
 | `hasMythicEnchant` (id/level/slot), `itemDurability`, `batchedchance` | MythicEnchants → Conditions |
 | `addcounter` / `?counter` / `<counter.KEY>` | MythicEnchants → Counter |
 | Rarity tiers incl. `RARE`, `LEGENDARY`, `MYTHIC` | MythicEnchants → Rarities |
-| `#minecraft:enchantable/{weapon,foot_armor,bow,pickaxe,hoe,armor,durability}` item tags | Minecraft 1.21+ item tags |
+| Valid `#minecraft:enchantable/*` tags (armor, foot_armor, ..., weapon, melee_weapon, sharp_weapon, bow, mining, durability, ... — NO pickaxe/hoe) | MythicEnchants datapack validator error, field log 0.3.1 |
+| `triggerblocktype` accepts material lists, rejects `#` block tags | MythicEnchants TriggerBlockTypeFilter warning, field log 0.3.1 |
+| MythicMobs packs load conventional folders only (Skills/, Items/, ...) | MythicMobs Packs page + field log 0.3.1 |
 | `onJump` aura mechanic (Paper-only) | MythicMobs → Mechanics → onjump |
 | `OnInput` aura component (`requirejump`, `requiresprint`) | MythicMobs → Aura Components → OnInput |
 | `OnBlockBreak` component (`oB=`, `bt=`) + recursion warning | MythicMobs → Aura Components → OnBlockBreak |
@@ -136,10 +139,12 @@ now enforced for every line of this pack:
 - **R3 — Metaskill mechanics inherit.** Mechanics without a targeter
   inherit the dispatch targeter (documented Metaskills behavior). Explicit
   `@target`/`@self` only where an override is intended.
-- **R4 — One condition per line.** No comma lists inside conditions (the
-  documented forms show single tags/materials). Material lists are allowed
-  ONLY inside mechanics that document list handling themselves (veinminer
-  skips unknown entries by design).
+- **R4 — One condition per line; lists only where proven.** Comma lists
+  inside `triggerblocktype` ARE required and work (generic condition-array
+  behavior; '#' block tags are REJECTED there — field-verified 0.3.1
+  "unrecognized material — it will never match"). Lists are otherwise only
+  allowed inside mechanics that document them (veinminer skips unknown
+  entries by design).
 - **R5 — `CancelIfNoTargets: false`** on utility metaskills that are not
   guaranteed a target (default is `true`, which silently cancels).
 - **R6 — Only documented mechanics.** Every mechanic/condition/targeter
@@ -147,6 +152,17 @@ now enforced for every line of this pack:
   is marked EXPERIMENTAL in the spec and testing docs.
 - **R7 — Prefer boring.** A simpler enchant that always works beats a
   clever one that sometimes works.
+- **R9 — Pack folders are conventional.** MythicMobs packs load known
+  folders (Skills/, Items/, Mobs/, ...). A custom root `vfx/` folder is
+  silently IGNORED (field-verified 0.3.1: every NL_VFX_* metaskill was
+  "Could not find MetaSkill"). All metaskills therefore live under
+  `skills/` — VFX in `skills/vfx/<category>/`. The validator errors if a
+  root `vfx/` folder reappears.
+- **R10 — SupportedItems uses only real tags.** The MythicEnchants
+  datapack validator rejects unknown `#minecraft:enchantable/*` tags and
+  SKIPS the enchantment from the datapack (field-verified 0.3.1:
+  pickaxe/hoe tags do not exist). Valid tags are whitelisted in the
+  validator; narrow scoping is done with PrimaryItems material keys.
 - **R8 — MythicEnchants conditions only in enchantment files.**
   `hasMythicEnchant` (and friends) FAIL TO LOAD inside plain MythicMobs
   skill files (field-verified 0.3.0: "Failed to load custom condition").

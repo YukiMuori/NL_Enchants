@@ -93,16 +93,19 @@ def main() -> int:
                 for line in skills:
                     skill_texts.append((path, str(line)))
 
-    # ── 4: skill / vfx definitions ─────────────────────────────────────────
+    # ── 4: skill / vfx definitions (single skills/ tree; vfx live in skills/vfx) ──
     ME_CONDITION_TOKENS = (
         "hasmythicenchant", "mench{", "lethalcheck", "soulbounduses",
         "batchedchance", "hasexperience", "itemdurability", "customblock{",
     )
+    # R9: MythicMobs packs only load conventional folders — a root vfx/ dir
+    # would be silently ignored (field-verified), so it must not exist.
+    if (ROOT / "vfx").is_dir() and any((ROOT / "vfx").rglob("*.yml")):
+        err("vfx/ directory exists — move VFX metaskills under skills/vfx/ "
+            "(rule R9: MythicMobs ignores non-conventional pack folders)")
     defined_skills: dict[str, Path] = {}
-    for section in ("skills", "vfx"):
-        base = ROOT / section
-        if not base.is_dir():
-            continue
+    base = ROOT / "skills"
+    if base.is_dir():
         for path in sorted(base.rglob("*.yml")):
             data = load_yaml(path)
             if not isinstance(data, dict):
@@ -131,6 +134,41 @@ def main() -> int:
                             f"condition token '{tok}' in a MythicMobs skill file "
                             f"(rule R8: use it in the enchantment's direct lines)")
 
+    # ── 4b: SupportedItems / PrimaryItems validation (field log 0.3.1) ────
+    # Valid #minecraft:enchantable/* tags as reported by the MythicEnchants
+    # datapack validator at runtime; pickaxe/hoe tags DO NOT exist.
+    VALID_ENCHANTABLE_TAGS = {
+        "armor", "foot_armor", "leg_armor", "chest_armor", "head_armor",
+        "weapon", "melee_weapon", "sharp_weapon", "bow", "crossbow",
+        "trident", "mace", "mining", "mining_loot", "fishing",
+        "fire_aspect", "sweeping", "lunge", "durability", "equippable",
+        "vanishing",
+    }
+    for eid, path in enchants.items():
+        cfg = load_yaml(path) or {}
+        ecfg = cfg.get(str(eid)) or {} if isinstance(cfg, dict) else {}
+        sup = ecfg.get("SupportedItems")
+        entries = [sup] if isinstance(sup, str) else (sup or [])
+        for entry in entries:
+            entry = str(entry)
+            if entry.startswith("#minecraft:enchantable/"):
+                if entry.split("enchantable/", 1)[1] not in VALID_ENCHANTABLE_TAGS:
+                    err(f"{path.relative_to(ROOT)}:{eid}: SupportedItems tag "
+                        f"'{entry}' is not a known vanilla enchantable tag")
+            elif entry.startswith("minecraft:") or entry.startswith("mythic:"):
+                pass
+            else:
+                err(f"{path.relative_to(ROOT)}:{eid}: unsupported SupportedItems "
+                    f"entry '{entry}'")
+        prim = ecfg.get("PrimaryItems") or []
+        for entry in (prim if isinstance(prim, list) else [prim]):
+            entry = str(entry)
+            if not (entry.startswith("minecraft:") or entry.startswith("mythic:")
+                    or entry.startswith("#")):
+                err(f"{path.relative_to(ROOT)}:{eid}: PrimaryItems entry "
+                    f"'{entry}' should be a minecraft: material, mythic: item "
+                    f"or #tag reference")
+
     # ── 5: skill references ────────────────────────────────────────────────
     for path, line in skill_texts:
         for ref in SKILL_REF_RE.findall(line):
@@ -140,7 +178,7 @@ def main() -> int:
     # ── 6: aura cleanup ────────────────────────────────────────────────────
     applied: set[str] = set()
     removed: set[str] = set()
-    for path in list((ROOT / "skills").rglob("*.yml")) + list((ROOT / "vfx").rglob("*.yml")) + \
+    for path in list((ROOT / "skills").rglob("*.yml")) + \
                 list((ROOT / "enchantments").rglob("*.yml")):
         text = path.read_text(encoding="utf-8")
         applied |= set(AURANAME_RE.findall(text))

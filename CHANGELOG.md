@@ -5,6 +5,36 @@ Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning:
 [SemVer](https://semver.org/) — MAJOR breaking · MINOR enchant/feature ·
 PATCH fix/balance. Gameplay values are never changed silently.
 
+## [0.3.2] — 2026-09-26
+
+Second field-log release. Three error classes found and fixed.
+
+### Fixed
+
+- **VFX folder was never loaded.** MythicMobs packs only load conventional
+  folders — the custom `vfx/` folder was silently ignored, so every
+  `NL_VFX_*` metaskill failed with "Could not find MetaSkill". All VFX
+  metaskills now live under `skills/vfx/<category>/` (rule R9; validator
+  errors if a root `vfx/` folder reappears).
+- **5 enchantments were skipped from the datapack.**
+  `#minecraft:enchantable/pickaxe` and `#minecraft:enchantable/hoe` do not
+  exist; the datapack validator rejected them ("Skipped — fix the errors").
+  shatter/prospector/reaping/green_thumb/replanter now use
+  `#minecraft:enchantable/mining`, narrowed with `PrimaryItems`
+  (pickaxe/hoe material keys). The valid-tag list is whitelisted in the
+  validator (rule R10).
+- **`triggerblocktype` gates never matched.** The TriggerBlockTypeFilter
+  rejects `#` block tags ("unrecognized material — it will never match").
+  shatter/prospector gates now use comma-separated material lists.
+
+### Notes
+
+- "Duplicate enchantment registration attempted: minecraft:lunge" and the
+  `ExampleQuest*` dialog warnings come from MythicMobs' own default packs,
+  not from NL_Enchants.
+- 38 enchantments loaded (30 custom + vanilla override batch); after these
+  fixes the datapack must install all 30 without "Skipped" lines.
+
 ## [0.3.1] — 2026-09-26
 
 ### Fixed

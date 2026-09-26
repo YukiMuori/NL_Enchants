@@ -47,8 +47,7 @@ NL_Enchants/
 │   └── <category>/<id>.yml       ONE FILE PER ENCHANTMENT (file name = ID)
 ├── skills/
 │   └── <category>/<id>.yml       gameplay logic metaskills (NL_ENCHANT_*)
-├── vfx/
-│   └── <category>/<id>.yml       presentation metaskills (NL_VFX_*)
+├── skills/vfx/                   presentation metaskills (NL_VFX_*)
 ├── datapack/nl/                  namespace-scoped datapack fragments (tags)
 ├── resourcepack/                 client assets: en_us / it_it language entries
 ├── docs/
@@ -192,6 +191,8 @@ python3 tools/validate.py
 | Movement enchants stop working after relogging | MythicMobs drops auras on quit — re-equip the boots |
 | Enchantment names not translated in-game | Resource pack not merged, or the datapack bakes server-side strings — see `docs/localization.md` |
 | `/enchant nl:...` unknown | Pack folder not directly under `plugins/MythicMobs/packs/NL_Enchants/` |
+| Some enchantments deal no damage / no VFX after `/mm reload` | Console says `Could not find MetaSkill NL_VFX_...` → you kept the old `vfx/` folder: VFX now live under `skills/vfx/` (rule R9) |
+| Mining/farming enchants missing from `/enchant` | Console datapack error about `SupportedItems` tags → use v0.3.2+ (`enchantable/mining` + PrimaryItems) |
 
 ## Contributing
 

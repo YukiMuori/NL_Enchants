@@ -21,7 +21,7 @@ plugins/MythicMobs/packs/NL_Enchants/
 ├── packinfo.yml
 ├── enchantments/
 ├── skills/
-├── vfx/
+├── skills/vfx/
 ├── datapack/
 └── ...
 ```
