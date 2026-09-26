@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Crab's Touch — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  MythicStats (ME wiki): +1.0/lvl BLOCK_INTERACTION_RANGE (base 4.5 → 7.5 at L3).
+#  Offhand slot also valid: hold in offhand to place blocks at range (vanilla reach applies to placing too).
+#  RUNTIME-VERIFY: MythicStats system present in the server's MM build.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:crabs_touch:
+  Display: "<white>Crab's Touch"
+  Description: '<gray>Reach blocks farther away, up to 7.5 blocks.'
+  Rarity: RARE
+  MaxLevel: 3
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  - OFFHAND
+  SupportedItems: '#minecraft:enchantable/mining'
+  MythicStats:
+    - BLOCK_INTERACTION_RANGE <math:enchant_level> ADDITIVE
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38

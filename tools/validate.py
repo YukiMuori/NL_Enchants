@@ -85,9 +85,13 @@ def main() -> int:
             if not isinstance(cfg, dict):
                 err(f"{label}: enchant config must be a mapping")
                 continue
-            for field in ("Display", "MaxLevel", "ValidSlots", "SupportedItems", "Skills"):
+            for field in ("Display", "MaxLevel", "ValidSlots", "SupportedItems"):
                 if field not in cfg:
                     err(f"{label}: missing required field '{field}'")
+            # A MythicStats-only enchant (passive attribute scaling) has no skill
+            # lines — Skills is required only when there are none of those.
+            if "Skills" not in cfg and "MythicStats" not in cfg:
+                err(f"{label}: missing required field 'Skills'")
             # R11 (field 0.5.0): a multi-entry SupportedItems list is serialized
             # by the ME datapack writer as one "#[...]" string → invalid resource
             # location → datapack fails to load → the server refuses to boot.

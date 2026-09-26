@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Outreach — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  MythicStats: +0.5/lvl ENTITY_INTERACTION_RANGE (base 3.0 → 4.0 at L2).
+#  RUNTIME-VERIFY: MythicStats system present in the server's MM build.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:outreach:
+  Display: '<white>Outreach'
+  Description: '<gray>Increases your attack reach.'
+  Rarity: RARE
+  MaxLevel: 2
+  AnvilCost: 4
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/sharp_weapon'
+  PrimaryItems:
+  - '#minecraft:swords'
+  MythicStats:
+    - ENTITY_INTERACTION_RANGE <math:0.5*enchant_level> ADDITIVE
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38

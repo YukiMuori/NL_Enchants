@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Swift Strike — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  MythicStats: +0.6/lvl ATTACK_SPEED (base 4.0 → +3.0 at L5).
+#  RUNTIME-VERIFY: MythicStats system present in the server's MM build.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:swift_strike:
+  Display: '<white>Swift Strike'
+  Description: '<gray>Decreases your attack cooldown.'
+  Rarity: UNCOMMON
+  MaxLevel: 5
+  AnvilCost: 2
+  ValidSlots:
+  - MAINHAND
+  SupportedItems: '#minecraft:enchantable/sharp_weapon'
+  PrimaryItems:
+  - '#minecraft:swords'
+  MythicStats:
+    - ATTACK_SPEED <math:0.6*enchant_level> ADDITIVE
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30

@@ -1,0 +1,25 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Graviole — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  MythicStats: -0.1/lvl GRAVITY on the elytra wearer.
+#  RUNTIME-VERIFY: negative stat amounts + MythicStats presence; elytra is NOT in #enchantable/chest_armor —
+#  #enchantable/equippable is the only valid tag carrying it (R10/R11).
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:graviole:
+  Display: '<white>Graviole'
+  Description: '<gray>Your elytra resists gravity: longer flights, slower speed.'
+  Rarity: RARE
+  MaxLevel: 3
+  AnvilCost: 4
+  ValidSlots:
+  - CHEST
+  SupportedItems: '#minecraft:enchantable/equippable'
+  PrimaryItems:
+  - 'minecraft:elytra'
+  MythicStats:
+    - GRAVITY <math:-0.1*enchant_level> ADDITIVE
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38

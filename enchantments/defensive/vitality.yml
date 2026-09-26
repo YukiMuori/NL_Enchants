@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Vitality — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  MythicStats: +2/lvl HEALTH (base 20 → 26 = 13 hearts at L3).
+#  RUNTIME-VERIFY: MythicStats system present in the server's MM build.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:vitality:
+  Display: '<white>Vitality'
+  Description: '<gray>Increases your max health.'
+  Rarity: RARE
+  MaxLevel: 3
+  AnvilCost: 4
+  ValidSlots:
+  - CHEST
+  SupportedItems: '#minecraft:enchantable/chest_armor'
+  PrimaryItems:
+  - '#minecraft:chest_armor'
+  MythicStats:
+    - HEALTH <math:2*enchant_level> ADDITIVE
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38

@@ -1,0 +1,22 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Stride — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  MythicStats: +0.45/lvl STEP_HEIGHT (base 0.6 → 1.05/1.5/1.95).
+#  RUNTIME-VERIFY: MythicStats system present in the server's MM build.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:stride:
+  Display: '<white>Stride'
+  Description: '<gray>Step up full blocks without jumping.'
+  Rarity: UNCOMMON
+  MaxLevel: 3
+  AnvilCost: 2
+  ValidSlots:
+  - LEGS
+  SupportedItems: '#minecraft:enchantable/leg_armor'
+  MythicStats:
+    - STEP_HEIGHT <math:0.45*enchant_level> ADDITIVE
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
