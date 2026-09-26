@@ -1,88 +1,57 @@
-# Balancing Notes
+# Balancing
 
-## Philosophy
+Values are in the enchant files only — never changed silently; changes
+require a version bump and a CHANGELOG entry.
 
-NL_Enchants is a **vanilla-friendly Survival** pack. Numbers are chosen so a
-player can understand an enchantment from one sentence and feel it working
-without it dominating the game.
+## Rarity bands
 
-- Short, contextual, reactive effects over permanent stat inflation.
-- Every level must be a meaningful step; binary mechanics stay at MaxLevel 1.
-- Rarity describes identity (utility → signature), enchanting-table
-  `Weight`/`MinCost`/`MaxCost` control actual availability (MythicEnchants
-  decouples the two).
-- No instant kills, no screen clutter, no passive particle noise.
-
-## Tuning levers per enchantment
-
-| Lever | Where |
-| --- | --- |
-| Chance / duration / magnitude | skill lines in `skills/<category>/` |
-| Availability | `Enchanting:` block (Weight, MinCost, MaxCost) |
-| Exclusivity | `ConflictingEnchants:`, `Tags:` |
-| Presentation | `vfx/<category>/` — never balance through VFX |
-
-## Balance change policy
-
-Any gameplay-value change is a release note. Balance tweaks bump the PATCH
-version and are listed in `CHANGELOG.md` with the old and new value. VFX-only
-changes are also PATCH entries, clearly marked as cosmetic.
-
-## Current tuning — 0.2.0
-
-Availability bands by rarity (Weight / MinCost / MaxCost / AnvilCost):
-
-| Rarity | Weight | MinCost | MaxCost | AnvilCost |
+| Rarity | Weight | MinCost | MaxCost | Anvil |
 | --- | --- | --- | --- | --- |
 | COMMON | 6 | 4 | 24 | 1 |
 | UNCOMMON | 5 | 8 | 30 | 2 |
 | RARE | 3 | 16 | 38 | 4 |
-| EPIC | 2 | 24 | 44 | 5 |
-| LEGENDARY | 1–2 | 30 | 50 | 7 |
-| MYTHIC | 1 | 35 | 55 | 8 |
 
-### Per-enchant tuning
+## Per-enchant values (v0.5.0)
 
-| Enchant | Key values |
-| --- | --- |
-| `nl:double_jump` | Winged Leap: 1/2/5 extra leaps · +0.45Y/+0.35fwd · charges 6s · input guard 1s |
-| `nl:sluggish` | chance 5/10/15% · Slowness I 2.5s |
-| `nl:bleeding` | Hemorrhage: marks 4s decay · burst = 3×1 dmg + 2 end hit |
-| `nl:staggering` | chance 5/10% · root ~0.3s · conflicts sluggish |
-| `nl:executioner` | threshold <30% HP · +1/+2/+3 dmg · marker 3s cd |
-| `nl:predator` | stalk 5s · +2/+3 dmg · consumed on use |
-| `nl:momentum` | stacks max 5 · 5s · Speed I fixed · broken by damage |
-| `nl:echo` | 25% · delay 0.3s · +1/+2/+3 flat · cd 2s |
-| `nl:mark` | mark 8s · +1.5 dmg on marked · refresh on hit · MaxLevel I |
-| `nl:hawkeye` | +0.75 arrow dmg/level at tension >0.9 (direct lines) |
-| `nl:ricochet` | window 4s · nearest hostile ≤8b · 4 flat dmg · 1 spring |
-| `nl:recall` | miss 35% / hit 20% · 1 arrow · cd 2s |
-| `nl:shadowstep` | proc 20/30% · dash + Resist 1s · cd 4s · MaxLevel II |
-| `nl:climber` | sprint climb +0.1 Y/tick · jump leap +0.42 Y · climbables only |
-| `nl:shatter` | Earthshatter: stone 5/10/15% max 12 · ore 4/8/12% max 8 · shockwave VFX |
-| `nl:prospector` | diamond-sense ping · r=8 · cd 6s |
-| `nl:conservation` | ~15%/level (I), ~20%/level (II) negate chance |
-| `nl:green_thumb` | Bloom: wave rings r=2/3/4 · chance 5/10/15% · crops+melon+pumpkin |
-| `nl:reaping` | 35% · 3×3×3 max 8 crops · perblock=2 |
-| `nl:replanter` | instant replant · MaxLevel I · QoL |
-| `nl:grounded` | +20%/+40% KB resistance per piece (stacks across pieces) |
-| `nl:reprisal` | 20% · 1/2/3 thorns dmg · conflicts reflection |
-| `nl:second_wind` | trigger <30% HP · Regen I + Speed I 3s · cd 45s |
-| `nl:tenacity` | window 5s · Resistance I 3s while chain lives |
-| `nl:sentinel` | on-hit glow ping · r=10 · max 12 hostiles · 5s glow · cd 5s |
-| `nl:wayfarer` | moving+outdoor+grounded · Regen II 3s · cd 60s |
-| `nl:resonance` | ANY piece Regen I 3s · FULL set Regen II 8s · pulse / 8s |
-| `nl:voidbound` | lethal negate (totem-aware) + Absorption II 10s · cd 600s |
-| `nl:reflection` | projectile hits halved, half returned · cd 8s · MaxLevel I |
-| `nl:soulbond` | per-item 3 death charges · 2+ pieces bind whole outfit |
+| Enchant | Levels | Core numbers |
+| --- | --- | --- |
+| `nl:thor` | 3 | 5+5%/lvl chance, level dmg |
+| `nl:drain` | 7 | 12% chance; level+1 dmg, level heal |
+| `nl:arctic_freeze` | 3 | 5+5%/lvl; Slow 3s + 3×1 bleed |
+| `nl:blackout` | 5 | 4+4%/lvl; Blind 2s |
+| `nl:double_blow` | 4 | 10+5%/lvl; flat +lvl+2 |
+| `nl:first_strike` | 3 | +1+lvl if target >95% HP |
+| `nl:finishing` | 3 | +1+lvl if target <30% HP |
+| `nl:postpone` | 3 | 10+10%/lvl; velocity=0 |
+| `nl:repel` | 3 | 8+8%/lvl; knock 0.4y/−0.6z |
+| `nl:starvation` | 3 | 8+8%/lvl; Hunger 5s |
+| `nl:ravenous` | 4 | 10+10%/lvl; +lvl+1 food |
+| `nl:ninja` | 3 | +1+lvl while sneaking |
+| bane family (`enderbane` `zombie_crusher` `skullcrusher` `incinerate` `blaze_reaper` `cubism`) | 3–5 | +1–2 flat by level, type-gated |
+| `nl:multi_shot` | 3 | 25%; 1+lvl arrows, spread 20 |
+| `nl:flashbang` | 3 | 15+15%/lvl; Blind 3s |
+| `nl:frost` | 3 | 10+10%/lvl; freeze 1.5s+lvl×1s |
+| `nl:explosive` | 5 | 8+8%/lvl; fakeexplosion + lvl+1 dmg |
+| `nl:blast_mining` | 3 | 34%/lvl; 3×3×3, cap 2+2×lvl, per-block 2 durability |
+| `nl:experience` | 5 | 10+10%/lvl XP bottle on ores |
+| `nl:foraging` | 3 | 15+15%/lvl stick+sapling |
+| `nl:nether_prospector` | 3 | 10+10%/lvl extra debris |
+| `nl:haste` | 3 | Haste I while held (2s heartbeat) |
+| `nl:adrenaline` | 3 | 15+15%/lvl; Strength I 4s, hostiles only |
+| `nl:end/nether_affinity` | 3 | 15%/lvl reduction, cap 50%, world-gated |
+| `nl:rebounding` | 3 | reduce 10%/lvl (cap 30%), reflect 20%/lvl |
+| `nl:rumble` | 3 | 10+10%/lvl; lvl+1 AoE r=3, mobs only |
+| `nl:scorching` | 3 | 15%; ignite 1s+lvl×1s |
+| `nl:vanish` | 3 | 4+4%/lvl, 10s CD; Invis 3s |
+| `nl:escape` | 2 | 30%, 8s CD; Speed I 3s |
+| `nl:feather_step` | 5 | 20+16%/lvl full fall cancel |
+| `nl:waterborne` | 1 | Water Breathing refresh 5s |
+| `nl:replenish` | 1 | mature crops replant; immature untouched |
 
-PvP stance: the double jump is predictable (fixed delay, fixed impulse) and
-therefore counterable; it was deliberately not built as an escape tool
-(no horizontal dash, no slow-falling component).
+## Design rules kept from the rework
 
-General PvP stance for the full catalog: every combat/defensive reaction is
-either chance-gated, cooldown-gated, or consume-on-use; no enchant multiplies
-weapon damage beyond +4 flat in its best case (executioner III); no movement
-enchant grants sustained speed (momentum's Speed expires with the kill
-chain); emergency saves (voidbound, second_wind) are mutually exclusive by
-conflict and on long internal cooldowns.
+- One sentence per enchant; short reactive mechanics over long states.
+- Cooldowns on defensive procs (Vanish 10s, Escape 8s).
+- Rumble never hits players; bane bonuses are flat, not multiplicative.
+- Blast Mining scales by level via proc chance (34/68/100%), not radius —
+  radius jumps are a bigger feel spike than frequency jumps.

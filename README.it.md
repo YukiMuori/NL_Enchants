@@ -7,11 +7,11 @@ MythicMobs. Un pacchetto di incantesimi di produzione per il server **Neverland
 Survival**: effetti contestuali, meccaniche reattive e brevi, VFX leggibili —
 ogni incantesimo spiegabile in una frase.
 
-- **Namespace:** `nl` (es. `nl:double_jump`)
+- **Namespace:** `nl` (es. `nl:thor`)
 - **Lingue:** Inglese (`en_us`) e Italiano (`it_it`)
 - **Licenza:** MIT
-- **Catalogo:** 30 incantesimi in 8 categorie
-- **Stato:** v0.4.0 — Fase 1 del rework Neverland consegnata (Balzo Alato, Passo d'Ombra, Emorragia, Combo, Spaccaterra, Fioritura, Ripiantatore, Sentinella); le Fasi 2–4 seguono dopo i test in gioco
+- **Catalogo:** 38 incantesimi in 6 categorie
+- **Stato:** v0.5.0 — catalogo Vanilla+ (portato dalla lista Vanilla+ di AdvancedEnchantments); test runtime sul server in arrivo (Balzo Alato, Passo d'Ombra, Emorragia, Combo, Spaccaterra, Fioritura, Ripiantatore, Sentinella); le Fasi 2–4 seguono dopo i test in gioco
 
 > Questo README è la traduzione italiana. I nomi e le descrizioni mostrati qui
 > coincidono con le stringhe del resource pack (`it_it`). Gli ID tecnici sono
@@ -63,87 +63,65 @@ NL_Enchants/
 
 ## Catalogo incantesimi
 
-Ogni voce ha una scheda completa in [`docs/enchantments/`](docs/enchantments/)
-(effetto, trigger, VFX, note di bilanciamento, valutazione prestazioni,
-limiti noti). Gruppi di oggetti: arma = spade+asce, armatura = qualsiasi pezzo,
-stivali, arco, piccone, zappa, attrezzi.
+38 incantesimi in 6 categorie, portati dalla lista "Vanilla+" di AdvancedEnchantments.
+Le note di design di ogni incantesimo sono in `docs/enchantments/<id>.md`; cosa è stato scartato e perché è in `docs/enchantments/_skipped-from-ae-list.md`.
+### Combat
 
-### Combattimento · `enchantments/combat/`
+| Incantesimo | ID | Max | Rarità |
+| --- | --- | --- | --- |
+| Gelo Artico | `nl:arctic_freeze` | 3 | UNCOMMON |
+| Blackout | `nl:blackout` | 5 | UNCOMMON |
+| Colpo Doppio | `nl:double_blow` | 4 | RARE |
+| Drenaggio | `nl:drain` | 7 | RARE |
+| Flagello dell'Ender | `nl:enderbane` | 5 | RARE |
+| Frantumazombie | `nl:zombie_crusher` | 3 | UNCOMMON |
+| Frantumateschi | `nl:skullcrusher` | 3 | UNCOMMON |
+| Incenerisci | `nl:incinerate` | 3 | UNCOMMON |
+| Mietifuoco | `nl:blaze_reaper` | 3 | RARE |
+| Cubismo | `nl:cubism` | 3 | UNCOMMON |
+| Primo Colpo | `nl:first_strike` | 3 | UNCOMMON |
+| Colpo di Grazia | `nl:finishing` | 3 | UNCOMMON |
+| Rinvio | `nl:postpone` | 3 | COMMON |
+| Rinculo | `nl:repel` | 3 | COMMON |
+| Fame Nera | `nl:starvation` | 3 | COMMON |
+| Thor | `nl:thor` | 3 | RARE |
+| Ninja | `nl:ninja` | 3 | RARE |
+| Fame da Lupo | `nl:ravenous` | 4 | UNCOMMON |### Ranged
 
-| ID | Nome | Rarità | Max | Oggetti | Effetto |
-| --- | --- | --- | --- | --- | --- |
-| `nl:sluggish` | Sbavato | UNCOMMON | III | arma | I tuoi colpi possono intrappolare il bersaglio in una nebbia vischiosa. |
-| `nl:bleeding` | **Emorragia** | UNCOMMON | III | arma | I colpi consecutivi aprono ferite che alla fine esplodono. |
-| `nl:staggering` | Barcollante | RARE | II | arma | I tuoi colpi possono far perdere l'equilibrio al bersaglio per un istante. |
-| `nl:executioner` | Esecutore | RARE | III | arma | I colpi contro bersagli indeboliti colpiscono più forte — e vedi quando sono vulnerabili. |
-| `nl:predator` | Predatore | RARE | II | arma | Contrattacca con più forza il nemico che ti ha appena colpito. |
-| `nl:momentum` | Impeto | UNCOMMON | III | arma | Le uccisioni in serie ti tengono rapido — subire un colpo spezza la catena. |
-| `nl:echo` | Eco | EPIC | III | arma | Una parte del tuo colpo a volte si ripete un istante dopo. |
-| `nl:mark` | Marchio | RARE | I | arma | Il primo colpo marchia il bersaglio — i colpi successivi sul marchiato colpiscono più forte. |
-| `nl:combo` | Combo | RARE | III | arma | Continua a colpire per costruire una combo — il quarto colpo conclude. |
+| Incantesimo | ID | Max | Rarità |
+| --- | --- | --- | --- |
+| Raffica | `nl:multi_shot` | 3 | RARE |
+| Flashbang | `nl:flashbang` | 3 | UNCOMMON |
+| Gelo | `nl:frost` | 3 | UNCOMMON |
+| Esplosiva | `nl:explosive` | 5 | RARE |### Mining
 
-### Distanza · `enchantments/ranged/`
+| Incantesimo | ID | Max | Rarità |
+| --- | --- | --- | --- |
+| Estrazione a Blast | `nl:blast_mining` | 3 | RARE |
+| Esperienza | `nl:experience` | 5 | UNCOMMON |
+| Raccolta | `nl:foraging` | 3 | COMMON |
+| Prospezione dell'Nether | `nl:nether_prospector` | 3 | UNCOMMON |
+| Celerità | `nl:haste` | 3 | RARE |### Defensive
 
-| ID | Nome | Rarità | Max | Oggetti | Effetto |
-| --- | --- | --- | --- | --- | --- |
-| `nl:hawkeye` | Occhio di Falco | RARE | II | arco | I colpi ad arco completamente teso volano più forti e più veri. |
-| `nl:ricochet` | Rimbalzo | EPIC | I | arco | Una freccia mancata rimbalza una volta verso un nemico vicino. |
-| `nl:recall` | Richiamo | UNCOMMON | I | arco | Le frecce a volte tornano nella tua faretra dopo l'impatto. |
+| Incantesimo | ID | Max | Rarità |
+| --- | --- | --- | --- |
+| Adrenalina | `nl:adrenaline` | 3 | UNCOMMON |
+| Affinità dell'End | `nl:end_affinity` | 3 | UNCOMMON |
+| Affinità del Nether | `nl:nether_affinity` | 3 | UNCOMMON |
+| Rimbalzo | `nl:rebounding` | 3 | RARE |
+| Scuotimento | `nl:rumble` | 3 | UNCOMMON |
+| Ardente | `nl:scorching` | 3 | COMMON |
+| Svanire | `nl:vanish` | 3 | UNCOMMON |
+| Acquatica | `nl:waterborne` | 1 | UNCOMMON |### Movement
 
-### Movimento · `enchantments/movement/`
+| Incantesimo | ID | Max | Rarità |
+| --- | --- | --- | --- |
+| Fuga | `nl:escape` | 2 | COMMON |
+| Passo di Piuma | `nl:feather_step` | 5 | RARE |### Farming
 
-| ID | Nome | Rarità | Max | Oggetti | Effetto |
-| --- | --- | --- | --- | --- | --- |
-| `nl:double_jump` | **Balzo Alato** | EPIC | III | stivali | Premi di nuovo salto in aria per cavalcare il vento — 1/2/5 balzi direzionali extra. |
-| `nl:shadowstep` | Passo d'Ombra | RARE | I | stivali | Se colpito, puoi scivolare all'indietro lasciando dietro di te la tua ombra. |
-| `nl:climber` | Scalatore | UNCOMMON | I | stivali | Corri per arrampicarti più velocemente su scale e liane; salta per slanciarti via. |
-
-### Estrazione · `enchantments/mining/`
-
-| ID | Nome | Rarità | Max | Oggetti | Effetto |
-| --- | --- | --- | --- | --- | --- |
-| `nl:shatter` | **Spaccaterra** | RARE | III | piccone | Il tuo piccone invia crepe a onda nella stessa famiglia di pietra. |
-| `nl:prospector` | Prospezione | RARE | I | piccone | Estrarre minerale invia un impulso: se diamanti si nascondono nelle vicinanze, canta. |
-| `nl:conservation` | Conservazione | UNCOMMON | II | attrezzi | I tuoi attrezzi a volte ignorano l'usura. |
-
-### Agricoltura · `enchantments/farming/`
-
-| ID | Nome | Rarità | Max | Oggetti | Effetto |
-| --- | --- | --- | --- | --- | --- |
-| `nl:green_thumb` | **Fioritura** | COMMON | III | zappa | Raccogliere può scatenare un'onda di crescita che si espande. |
-| `nl:reaping` | Mietitura | RARE | I | zappa | Raccogliere a volte porta via in un colpo solo anche le colture vicine. |
-| `nl:replanter` | Ripiantatore | COMMON | I | zappa | Le colture raccolte vengono immediatamente riseminate. |
-
-### Difesa · `enchantments/defensive/`
-
-| ID | Nome | Rarità | Max | Oggetti | Effetto |
-| --- | --- | --- | --- | --- | --- |
-| `nl:grounded` | Radicamento | UNCOMMON | II | armatura | Stai saldo — una parte della spinta subita scivola su di te. |
-| `nl:reprisal` | Riflesso | UNCOMMON | III | armatura | I colpi subiti a volte rispondono mordendo l'attaccante. |
-| `nl:second_wind` | Secondo Fiato | RARE | II | armatura | Sull'orlo della fine, uno slancio di vigore ti porta un po' più avanti. |
-| `nl:tenacity` | Tenacia | RARE | II | armatura | Incassare colpo dopo colpo ti indurisce contro i successivi. |
-
-### Esplorazione · `enchantments/exploration/`
-
-| ID | Nome | Rarità | Max | Oggetti | Effetto |
-| --- | --- | --- | --- | --- | --- |
-| `nl:sentinel` | Sentinella | RARE | I | elmo | Colpito accanto al buio? Ogni ostile vicino viene rivelato, luminoso. |
-| `nl:wayfarer` | Viandante | UNCOMMON | I | armatura | Lunghi tratti di viaggio onesto ti ricompensano con un momento di vigore. |
-
-### Leggendari · `enchantments/legendary/`
-
-| ID | Nome | Rarità | Max | Oggetti | Effetto |
-| --- | --- | --- | --- | --- | --- |
-| `nl:resonance` | Risonanza | LEGENDARY | I | armatura | I pezzi sintonizzati vibrano insieme, ricucendo le tue ferite quando vieni colpito. |
-| `nl:voidbound` | Vincolato al Vuoto | MYTHIC | I | armatura | Quando la morte ti avrebbe preso, il Vuoto si rifiuta, per una volta, di raccoglierti. |
-| `nl:reflection` | Riflesso Speculare | LEGENDARY | I | armatura | L'acciaio in volo si rivolta contro il suo arciere. |
-| `nl:soulbond` | Anima Gemella | LEGENDARY | I | armatura | Ogni pezzo legato rifiuta di lasciarti — fino a tre volte. |
-
-> **Nota sui nomi:** la lista di concept originale assegnava il nome italiano
-> *Riflesso* sia a Reprisal sia a Reflection. Reprisal mantiene *Riflesso*
-> (come specificato per primo); Reflection usa *Riflesso Speculare* — gli ID
-> non cambiano. Vedi `docs/enchantments/reflection.md`.
-
+| Incantesimo | ID | Max | Rarità |
+| --- | --- | --- | --- |
+| Risema | `nl:replenish` | 1 | COMMON |
 ## Rarità
 
 La rarità descrive l'identità e il raggruppamento di un incantesimo; la
@@ -181,7 +159,7 @@ convenzioni di commit. Validazione statica:
 python3 tools/validate.py
 ```
 
-> **Stato validazione:** *la v0.3.0 è una ricostruzione di affidabilità —
+> **Stato validazione:** *la v0.5.0 è una ricostruzione del catalogo —
 > validazione statica completata; la validazione runtime su Paper +
 > MythicMobs + MythicEnchants è OBBLIGATORIA.* Segui `docs/testing.md`
 > (matrice di test per incantesimo) e riporta gli errori di console.

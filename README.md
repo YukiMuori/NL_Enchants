@@ -7,11 +7,11 @@ MythicMobs. A production enchantment pack for the **Neverland Survival**
 server: contextual effects, short reactive mechanics, readable VFX — every
 enchantment explainable in one sentence.
 
-- **Namespace:** `nl` (e.g. `nl:double_jump`)
+- **Namespace:** `nl` (e.g. `nl:thor`)
 - **Languages:** English (`en_us`) and Italian (`it_it`)
 - **License:** MIT
-- **Catalog:** 30 enchantments across 8 categories
-- **Status:** v0.4.0 — Phase 1 of the Neverland rework shipped (Winged Leap, Shadowstep, Hemorrhage, Combo, Earthshatter, Bloom, Replanter, Sentinel); Phases 2–4 follow field testing
+- **Catalog:** 38 enchants across 6 categories
+- **Status:** v0.5.0 — Vanilla+ catalog (ported from the AdvancedEnchantments Vanilla+ list); runtime testing on server pending
 
 ## Requirements
 
@@ -35,7 +35,7 @@ enchantment explainable in one sentence.
    requirement).
 3. Merge the `resourcepack/` folder into your server resource pack
    (language entries only — see `SETUP.md`).
-4. Verify in-game: `/enchant @s nl:double_jump 1` on a pair of boots.
+4. Verify in-game: `/enchant @s nl:thor 1` on a sword.
 
 Full instructions and troubleshooting: [SETUP.md](SETUP.md).
 
@@ -60,87 +60,65 @@ NL_Enchants/
 
 ## Enchantment catalog
 
-Each entry links to a full specification in
-[`docs/enchantments/`](docs/enchantments/) (effect, triggers, VFX, balance
-notes, performance assessment, known limitations). Item groups: weapon =
-swords+axes, armor = any piece, boots, bow, pickaxe, hoe, tools.
+38 enchants across 6 categories, ported from the AdvancedEnchantments "Vanilla+" list.
+Per-enchant design notes live in `docs/enchantments/<id>.md`; what was skipped and why is in `docs/enchantments/_skipped-from-ae-list.md`.
+### Combat
 
-### Combat · `enchantments/combat/`
+| Enchantment | ID | Max | Rarity |
+| --- | --- | --- | --- |
+| Arctic Freeze | `nl:arctic_freeze` | 3 | UNCOMMON |
+| Blackout | `nl:blackout` | 5 | UNCOMMON |
+| Double Blow | `nl:double_blow` | 4 | RARE |
+| Drain | `nl:drain` | 7 | RARE |
+| Enderbane | `nl:enderbane` | 5 | RARE |
+| Zombie Crusher | `nl:zombie_crusher` | 3 | UNCOMMON |
+| Skullcrusher | `nl:skullcrusher` | 3 | UNCOMMON |
+| Incinerate | `nl:incinerate` | 3 | UNCOMMON |
+| Blaze Reaper | `nl:blaze_reaper` | 3 | RARE |
+| Cubism | `nl:cubism` | 3 | UNCOMMON |
+| First Strike | `nl:first_strike` | 3 | UNCOMMON |
+| Finishing | `nl:finishing` | 3 | UNCOMMON |
+| Postpone | `nl:postpone` | 3 | COMMON |
+| Repel | `nl:repel` | 3 | COMMON |
+| Starvation | `nl:starvation` | 3 | COMMON |
+| Thor | `nl:thor` | 3 | RARE |
+| Ninja | `nl:ninja` | 3 | RARE |
+| Ravenous | `nl:ravenous` | 4 | UNCOMMON |### Ranged
 
-| ID | English | Italian | Rarity | Max | Items | One-sentence effect |
-| --- | --- | --- | --- | --- | --- | --- |
-| `nl:sluggish` | Sluggish | Sbavato | UNCOMMON | III | weapon | Strikes can bog the target down in a viscous haze. |
-| `nl:bleeding` | **Hemorrhage** | Emorragia | UNCOMMON | III | weapon | Consecutive strikes open wounds that finally burst. |
-| `nl:staggering` | Staggering | Barcollante | RARE | II | weapon | Strikes can briefly knock the target off balance. |
-| `nl:executioner` | Executioner | Esecutore | RARE | III | weapon | Strikes against weakened targets hit harder — and you can see when. |
-| `nl:predator` | Predator | Predatore | RARE | II | weapon | Strike back harder at the enemy that just hit you. |
-| `nl:momentum` | Momentum | Impeto | UNCOMMON | III | weapon | Chained kills keep you fast — taking a hit breaks the flow. |
-| `nl:echo` | Echo | Eco | EPIC | III | weapon | A part of your strike sometimes repeats a moment later. |
-| `nl:mark` | Mark | Marchio | RARE | I | weapon | Your first hit marks a target; keeping the pressure rewarded. |
-| `nl:combo` | Combo | Combo | RARE | III | weapon | Keep striking to build a combo — the fourth hit finishes. |
+| Enchantment | ID | Max | Rarity |
+| --- | --- | --- | --- |
+| Multi-Shot | `nl:multi_shot` | 3 | RARE |
+| Flashbang | `nl:flashbang` | 3 | UNCOMMON |
+| Frost | `nl:frost` | 3 | UNCOMMON |
+| Explosive | `nl:explosive` | 5 | RARE |### Mining
 
-### Ranged · `enchantments/ranged/`
+| Enchantment | ID | Max | Rarity |
+| --- | --- | --- | --- |
+| Blast Mining | `nl:blast_mining` | 3 | RARE |
+| Experience | `nl:experience` | 5 | UNCOMMON |
+| Foraging | `nl:foraging` | 3 | COMMON |
+| Nether Prospector | `nl:nether_prospector` | 3 | UNCOMMON |
+| Haste | `nl:haste` | 3 | RARE |### Defensive
 
-| ID | English | Italian | Rarity | Max | Items | One-sentence effect |
-| --- | --- | --- | --- | --- | --- | --- |
-| `nl:hawkeye` | Hawkeye | Occhio di Falco | RARE | II | bow | Fully-drawn shots fly harder and truer. |
-| `nl:ricochet` | Ricochet | Rimbalzo | EPIC | I | bow | A missed arrow springs once toward a nearby enemy. |
-| `nl:recall` | Recall | Richiamo | UNCOMMON | I | bow | Arrows sometimes return to your quiver after landing. |
+| Enchantment | ID | Max | Rarity |
+| --- | --- | --- | --- |
+| Adrenaline | `nl:adrenaline` | 3 | UNCOMMON |
+| End Affinity | `nl:end_affinity` | 3 | UNCOMMON |
+| Nether Affinity | `nl:nether_affinity` | 3 | UNCOMMON |
+| Rebounding | `nl:rebounding` | 3 | RARE |
+| Rumble | `nl:rumble` | 3 | UNCOMMON |
+| Scorching | `nl:scorching` | 3 | COMMON |
+| Vanish | `nl:vanish` | 3 | UNCOMMON |
+| Waterborne | `nl:waterborne` | 1 | UNCOMMON |### Movement
 
-### Movement · `enchantments/movement/`
+| Enchantment | ID | Max | Rarity |
+| --- | --- | --- | --- |
+| Escape | `nl:escape` | 2 | COMMON |
+| Feather Step | `nl:feather_step` | 5 | RARE |### Farming
 
-| ID | English | Italian | Rarity | Max | Items | One-sentence effect |
-| --- | --- | --- | --- | --- | --- | --- |
-| `nl:double_jump` | **Winged Leap** | Balzo Alato | EPIC | III | boots | Press jump again mid-air to ride the wind — 1/2/5 extra directional leaps. |
-| `nl:shadowstep` | Shadowstep | Passo d'Ombra | RARE | I | boots | When struck, slip backward leaving a shadow of yourself behind. |
-| `nl:climber` | Climber | Scalatore | UNCOMMON | I | boots | Sprint to climb ladders and vines faster; jump to leap off them. |
-
-### Mining · `enchantments/mining/`
-
-| ID | English | Italian | Rarity | Max | Items | One-sentence effect |
-| --- | --- | --- | --- | --- | --- | --- |
-| `nl:shatter` | **Earthshatter** | Spaccaterra | RARE | III | pickaxe | Your picks send cracks rippling through the same stone family. |
-| `nl:prospector` | Prospector | Prospezione | RARE | I | pickaxe | Mining ore sends out a pulse — diamonds nearby make it sing. |
-| `nl:conservation` | Conservation | Conservazione | UNCOMMON | II | tools | Your tools sometimes ignore wear. |
-
-### Farming · `enchantments/farming/`
-
-| ID | English | Italian | Rarity | Max | Items | One-sentence effect |
-| --- | --- | --- | --- | --- | --- | --- |
-| `nl:green_thumb` | **Bloom** | Fioritura | COMMON | III | hoe | Harvesting may send a wave of growth rippling outward. |
-| `nl:reaping` | Reaping | Mietitura | RARE | I | hoe | Harvesting sometimes sweeps the neighboring crops in one go. |
-| `nl:replanter` | Replanter | Ripiantatore | COMMON | I | hoe | Harvested crops are immediately replanted. |
-
-### Defensive · `enchantments/defensive/`
-
-| ID | English | Italian | Rarity | Max | Items | One-sentence effect |
-| --- | --- | --- | --- | --- | --- | --- |
-| `nl:grounded` | Grounded | Radicamento | UNCOMMON | II | armor | You stand firm — a share of knockback slides off you. |
-| `nl:reprisal` | Reprisal | Riflesso | UNCOMMON | III | armor | Blows against you sometimes bite back at the attacker. |
-| `nl:second_wind` | Second Wind | Secondo Fiato | RARE | II | armor | At the brink, a burst of vigor carries you a little longer. |
-| `nl:tenacity` | Tenacity | Tenacia | RARE | II | armor | Weathering blow after blow hardens you against the next ones. |
-
-### Exploration · `enchantments/exploration/`
-
-| ID | English | Italian | Rarity | Max | Items | One-sentence effect |
-| --- | --- | --- | --- | --- | --- | --- |
-| `nl:sentinel` | Sentinel | Sentinella | RARE | I | helmet | Struck near the dark? Every hostile nearby is revealed, glowing. |
-| `nl:wayfarer` | Wayfarer | Viandante | UNCOMMON | I | armor | Long stretches of honest travel reward you with a moment of vigor. |
-
-### Legendary · `enchantments/legendary/`
-
-| ID | English | Italian | Rarity | Max | Items | One-sentence effect |
-| --- | --- | --- | --- | --- | --- | --- |
-| `nl:resonance` | Resonance | Risonanza | LEGENDARY | I | armor | Attuned pieces hum together, knitting your wounds when you are struck. |
-| `nl:voidbound` | Voidbound | Vincolato al Vuoto | MYTHIC | I | armor | Once, when death should have taken you, the void refuses to collect. |
-| `nl:reflection` | Reflection | Riflesso Speculare | LEGENDARY | I | armor | Airborne steel turns against its archer. |
-| `nl:soulbond` | Soulbond | Anima Gemella | LEGENDARY | I | armor | Each bonded piece refuses to leave you — up to three times. |
-
-> **Naming note:** the original concept list assigned the Italian name
-> *Riflesso* to both Reprisal and Reflection. Reprisal keeps *Riflesso*
-> (as specified first); Reflection uses *Riflesso Speculare* — IDs are
-> unaffected. See `docs/enchantments/reflection.md`.
-
+| Enchantment | ID | Max | Rarity |
+| --- | --- | --- | --- |
+| Replenish | `nl:replenish` | 1 | COMMON |
 ## Rarity
 
 Rarity describes an enchantment's identity and grouping; enchanting-table

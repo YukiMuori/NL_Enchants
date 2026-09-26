@@ -38,16 +38,17 @@ platform MythicEnchants already requires.
 The authoritative test protocol is `docs/testing.md`. Architecture-level
 checks that gate several enchants:
 
-- **Listener-aura enchants** (`nl:double_jump`, `nl:climber`,
-  `nl:sentinel`, `nl:wayfarer`, `nl:resonance`) after a **relog**: MythicMobs
+- **Listener-aura enchants** (`nl:ninja`, `nl:haste`, `nl:replenish`,
+  `nl:waterborne`) after a **relog**: MythicMobs
   cleans auras on quit; re-equipping restores them unless MythicEnchants
   re-fires `~onEquip` at login (verify and update the specs accordingly).
 - **`<skill.var.enchant-level>` inside metaskills**: any console error
   naming the variable invalidates rule R1 — report immediately.
 - **`~onBlockBreak` gates** (`triggerblocktype` with vanilla block tags):
   confirm tag form behaves like the documented tag/material form.
-- **`unbreaking{c=...}` per-level semantics** (`nl:conservation`): confirm
-  the effective negate rates and retune if needed.
+- **`<skill.var.enchant-level>` arithmetic inside metaskills** (e.g.
+  `<skill.var.enchant-level+1>`): if console errors name the variable,
+  fall back to per-level constants and report.
 - **`recoveritem` re-equip** (`nl:soulbond`): confirm `reequip=true`
   restores armor to the correct slot after death recovery.
 - **`nl:grounded` set stacking**: 4× II pieces reach 80% knockback

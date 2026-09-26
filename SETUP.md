@@ -58,10 +58,19 @@ the datapack strings MythicEnchants generates — see
 ## 5. Verify
 
 ```text
-/enchant @s nl:double_jump 1     → applies to worn/held boots
+/enchant @s nl:thor 1            → applies to held sword
 ```
 
-Then on your feet: jump, and press jump again mid-air.
+Then hit a mob: occasional lightning strike. (`/mm reload` twice if the
+first cast after a fresh install does nothing — see troubleshooting.)
+
+### World names for the affinity enchants
+
+`nl:end_affinity` and `nl:nether_affinity` gate on world names via the
+MythicMobs `world` condition. The defaults cover the most common
+Bukkit/Multiverse names; open
+`enchantments/defensive/{end,nether}_affinity.yml` and edit the
+`?world{w=...}` list to your server's actual world names if different.
 
 ## 6. Optional configuration (none required)
 

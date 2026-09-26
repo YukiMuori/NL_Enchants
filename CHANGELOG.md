@@ -5,6 +5,50 @@ Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning:
 [SemVer](https://semver.org/) — MAJOR breaking · MINOR enchant/feature ·
 PATCH fix/balance. Gameplay values are never changed silently.
 
+## [0.5.0] — 2026-09-26
+
+**Vanilla+ catalog.** The previous Neverland catalog was retired and
+rebuilt as a feasibility-filtered port of the [AdvancedEnchantments
+"Vanilla+" list](https://ae.advancedplugins.net/enchantments/list-of-enchantments/vanilla-enchants):
+38 enchants across 6 categories. Every mechanic used is verified against
+the official MythicMobs/MythicEnchants docs; everything not implementable
+is documented with its reason in
+`docs/enchantments/_skipped-from-ae-list.md`. Architecture, skills/core
+VFX library and development rules (docs/development.md) carry over.
+
+### Added (combat)
+`nl:arctic_freeze` · `nl:blackout` · `nl:double_blow` · `nl:drain` ·
+`nl:enderbane` · `nl:zombie_crusher` · `nl:skullcrusher` ·
+`nl:incinerate` · `nl:blaze_reaper` · `nl:cubism` · `nl:first_strike` ·
+`nl:finishing` · `nl:postpone` · `nl:repel` · `nl:starvation` ·
+`nl:thor` · `nl:ninja` · `nl:ravenous`
+
+### Added (ranged)
+`nl:multi_shot` · `nl:flashbang` · `nl:frost` · `nl:explosive`
+
+### Added (mining)
+`nl:blast_mining` · `nl:experience` · `nl:foraging` ·
+`nl:nether_prospector` · `nl:haste`
+
+### Added (defensive)
+`nl:adrenaline` · `nl:end_affinity` · `nl:nether_affinity` ·
+`nl:rebounding` · `nl:rumble` · `nl:scorching` · `nl:vanish` ·
+`nl:waterborne`
+
+### Added (movement / farming)
+`nl:escape` · `nl:feather_step` · `nl:replenish`
+
+### Removed
+The full v0.4.0 Neverland catalog (Winged Leap, Shadowstep, Hemorrhage,
+Combo, Earthshatter, Bloom, Replanter, Sentinel and the rest) and its
+skills/docs/lang entries. Know-how lives on in `docs/development.md`.
+
+### Notes
+- `nl:end_affinity` / `nl:nether_affinity` need your server's world names
+  in their `?world{w=...}` gates (see SETUP.md).
+- Runtime validation on Paper + MythicMobs + MythicEnchants still required
+  (`docs/testing.md`).
+
 ## [0.4.0] — 2026-09-26
 
 **Neverland rework — Phase 1.** Philosophy shift: fewer banal procs,
