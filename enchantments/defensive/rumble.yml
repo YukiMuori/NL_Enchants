@@ -1,0 +1,23 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Rumble — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:rumble:
+  Display: '<white>Rumble'
+  Description: '<gray>Chance to damage back all entities around you when hit.'
+  Rarity: UNCOMMON
+  MaxLevel: 3
+  AnvilCost: 2
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - skill{s=NL_RUMBLE_WAVE} @self ~onDamaged ?chance{c=<math:0.1+0.1*enchant_level>}

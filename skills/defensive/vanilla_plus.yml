@@ -1,0 +1,35 @@
+NL_ADRENALINE_SURGE:
+  Skills:
+  - potion{type=INCREASE_DAMAGE;d=80;l=0;hasParticles=false} @self
+  - particles{p=heart;a=2;hs=0.3;vs=0.4;y=1.5} @self
+
+NL_RUMBLE_WAVE:
+  Skills:
+  - damage{a=<skill.var.enchant-level+1>} @EntitiesInRadius{r=3;targetPlayers=false}
+  - particles{p=explosion_emitter;a=1;hs=0;vs=0;y=0.5} @self
+  - sound{s=entity.generic.explode;v=0.3;p=1.2} @self
+
+NL_SCORCHING_BLAZE:
+  Skills:
+  - ignite{ticks=<skill.var.enchant-level*20+20>}
+  - particles{p=flame;a=8;hs=0.3;vs=0.5;y=1}
+
+NL_VANISH_BLINK:
+  Cooldown: 10
+  Skills:
+  - potion{type=INVISIBILITY;d=60;l=0;hasParticles=false} @self
+  - particles{p=smoke;a=12;hs=0.4;vs=0.8;y=1} @self
+  - sound{s=entity.enderman.teleport;v=0.3;p=1.3} @self
+
+NL_WATERBORNE_INSTALL:
+  CancelIfNoTargets: false
+  Skills:
+  - aura{auraname=nl_waterborne_pulse;d=1728000;i=100;overwriteAll=true;CancelOnDeath=false;ot=NL_WATERBORNE_PULSE} @self
+
+NL_WATERBORNE_PULSE:
+  Skills:
+  - potion{type=WATER_BREATHING;d=140;l=0;hasParticles=false} @self
+
+NL_WATERBORNE_REMOVE:
+  Skills:
+  - auraremove{aura=nl_waterborne_pulse} @self

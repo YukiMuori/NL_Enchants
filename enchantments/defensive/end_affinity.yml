@@ -1,0 +1,24 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — End Affinity — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+#  EDIT world names to your server's End world (see SETUP.md).
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:end_affinity:
+  Display: '<white>End Affinity'
+  Description: '<gray>Reduces damage taken in the End.'
+  Rarity: UNCOMMON
+  MaxLevel: 3
+  AnvilCost: 2
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - reducedamage{a=<math:damage*0.15*enchant_level>;cap=0.5} @self ~onDamaged ?world{w=world_the_end,the_end,end}

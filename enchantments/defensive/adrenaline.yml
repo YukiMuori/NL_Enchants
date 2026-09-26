@@ -1,0 +1,23 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Adrenaline — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:adrenaline:
+  Display: '<white>Adrenaline'
+  Description: '<gray>Gain Strength when defending mob attacks.'
+  Rarity: UNCOMMON
+  MaxLevel: 3
+  AnvilCost: 2
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - skill{s=NL_ADRENALINE_SURGE} @trigger ~onDamaged ?entitytype{type=ZOMBIE,HUSK,DROWNED,ZOMBIE_VILLAGER,ZOMBIFIED_PIGLIN,SKELETON,STRAY,BOGGED,SPIDER,CAVE_SPIDER,CREEPER,WITCH,PILLAGER,VINDICATOR,VEX,RAVAGER,ENDERMAN,ENDERMITE,SILVERFISH,BLAZE,GHAST,HOGLIN,ZOGLIN,PIGLIN,PIGLIN_BRUTE,WITHER_SKELETON,MAGMA_CUBE,SLIME,PHANTOM,WITHER} ?chance{c=<math:0.15+0.15*enchant_level>}

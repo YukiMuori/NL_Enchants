@@ -1,0 +1,23 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Vanish — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:vanish:
+  Display: '<white>Vanish'
+  Description: '<gray>Chance to disappear for 3 seconds after taking damage.'
+  Rarity: UNCOMMON
+  MaxLevel: 3
+  AnvilCost: 2
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 5
+    MinCost: 8
+    MaxCost: 30
+  Skills:
+  - skill{s=NL_VANISH_BLINK} @self ~onDamaged ?chance{c=<math:0.04+0.04*enchant_level>}

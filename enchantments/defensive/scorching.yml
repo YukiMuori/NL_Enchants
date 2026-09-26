@@ -1,0 +1,23 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Scorching — Vanilla+ set (AE list)
+#  Rules: docs/development.md (R1-R10). ME mechanics/conditions in DIRECT lines only.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:scorching:
+  Display: '<white>Scorching'
+  Description: '<gray>Chance to ignite the attacker in flames.'
+  Rarity: COMMON
+  MaxLevel: 3
+  AnvilCost: 1
+  ValidSlots:
+  - HEAD
+  - CHEST
+  - LEGS
+  - FEET
+  SupportedItems: '#minecraft:enchantable/armor'
+  Enchanting:
+    Weight: 6
+    MinCost: 4
+    MaxCost: 24
+  Skills:
+  - skill{s=NL_SCORCHING_BLAZE} @trigger ~onDamaged ?chance{c=0.15}
