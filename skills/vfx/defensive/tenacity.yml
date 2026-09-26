@@ -1,8 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — defensive VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_TENACITY_PULSE:
-  Skills:
-  - particles{p=end_rod;a=4;hs=0.35;vs=0.35;y=1.2} @self
-  - sound{s=block.bell.use;v=0.15;p=1.5} @self

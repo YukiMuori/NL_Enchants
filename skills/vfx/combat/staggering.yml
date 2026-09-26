@@ -1,8 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_STAGGERING_HIT:
-  Skills:
-  - particles{p=crit;a=10;hs=0.3;vs=0.4;y=1} @self
-  - sound{s=entity.iron_golem.damage;v=0.5;p=1.2} @self

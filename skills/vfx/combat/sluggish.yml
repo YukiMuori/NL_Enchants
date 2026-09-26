@@ -1,8 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_SLUGGISH_HIT:
-  Skills:
-  - particles{p=falling_honey;a=8;hs=0.35;vs=0.3;y=1;s=0.01} @self
-  - sound{s=block.honey_block.place;v=0.6;p=0.7} @self

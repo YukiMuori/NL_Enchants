@@ -1,7 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — movement VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_CLIMBER_GRIP:
-  Skills:
-  - particles{p=cloud;a=1;hs=0.2;vs=0.2;s=0.02} @self

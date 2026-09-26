@@ -1,8 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_ECHO_HIT:
-  Skills:
-  - particles{p=end_rod;a=12;hs=0.3;vs=0.4;y=1} @self
-  - sound{s=entity.evoker.cast;v=0.4;p=1.8} @self

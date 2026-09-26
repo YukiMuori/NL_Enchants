@@ -1,8 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — legendary VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_REFLECTION_SHATTER:
-  Skills:
-  - particles{p=end_rod;a=10;hs=0.3;vs=0.3;y=1.2} @self
-  - sound{s=block.glass.break;v=0.3;p=2} @self

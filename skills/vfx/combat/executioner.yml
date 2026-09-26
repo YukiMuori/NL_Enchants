@@ -1,8 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_EXECUTIONER_STRIKE:
-  Skills:
-  - particles{p=crit;a=12;hs=0.3;vs=0.4;y=1} @self
-  - sound{s=entity.player.attack.crit;v=0.7;p=1.1} @self

@@ -1,9 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combo finisher. Pure MythicMobs only (R8).
-#  Escalating tier feedback lives in skills/vfx/combat/combo.yml.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_ENCHANT_COMBO_FINISH:
-  Skills:
-  - damage{a=<skill.var.enchant-level>}
-  - skill{s=NL_VFX_IMPACT}

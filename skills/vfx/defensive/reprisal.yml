@@ -1,8 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — defensive VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_REPRISAL_PULSE:
-  Skills:
-  - particles{p=damage_indicator;a=6;hs=0.4;vs=0.4;y=1} @self
-  - sound{s=item.trident.thorns;v=0.5;p=1.2} @self
