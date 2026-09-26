@@ -1,0 +1,28 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — VFX core library: winged leap feedback.
+#
+#  ItemDisplay wing animation evaluated and DEFERRED: summon/display syntax
+#  is not verified for this context and the guarantee of cleanup cannot be
+#  given yet. Particle wings (two side arcs via repeat) carry the identity
+#  without entity risk — see docs/enchantments/double_jump.md.
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Normal extra jump: wing flap — two side puffs + soft burst + airy whoosh.
+NL_VFX_WING_FLAP:
+  Skills:
+  - particles{p=cloud;a=8;hs=0.35;vs=0.1;y=-0.3;s=0.05} @self
+  - particles{p=end_rod;a=6;hs=0.9;vs=0.1;y=1.1;s=0.08} @self
+  - particles{p=firework;a=4;hs=0.8;vs=0.2;y=1.2} @self
+  - sound{s=entity.ender_dragon.flap;v=0.7;p=1.4} @self
+  - sound{s=block.note_block.chime;v=0.4;p=1.8} @self
+
+# Final available jump: large burst + wide ring + directional trail + strong call.
+NL_VFX_WING_FINISH:
+  Skills:
+  - particles{p=cloud;a=14;hs=0.5;vs=0.15;y=-0.3;s=0.08} @self
+  - particles{p=end_rod;a=20;hs=1.3;vs=0.08;y=0.2;s=0.06} @self
+  - particles{p=firework;a=10;hs=0.6;vs=0.4;y=1.2;s=0.1} @self
+  - particles{p=wax_off;a=10;hs=1.1;vs=0.05;y=0.1;s=0.05} @self
+  - sound{s=entity.ender_dragon.flap;v=1;p=1.1} @self
+  - sound{s=entity.experience_orb.pickup;v=0.6;p=0.6} @self
+  - sound{s=block.note_block.chime;v=0.6;p=1.2} @self

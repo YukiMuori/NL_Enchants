@@ -1,0 +1,32 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — VFX core library: rings, pulses and shockwaves.
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Flat expanding-looking ring at the caster (wide low spread reads as a ring).
+NL_VFX_MAGIC_RING:
+  Skills:
+  - particles{p=end_rod;a=24;hs=1.1;vs=0.05;y=0.2;s=0.02} @self
+  - sound{s=block.note_block.chime;v=0.6;p=1.2} @self
+
+# Rising pulse — single soft heartbeat column.
+NL_VFX_PULSE:
+  Skills:
+  - particles{p=end_rod;a=6;hs=0.25;vs=0.6;y=0.5;s=0.04} @self
+  - sound{s=block.amethyst_block.chime;v=0.4;p=1.1} @self
+
+# Earth shockwave — ground crack + deep boom for mining waves.
+NL_VFX_EARTH_SHOCKWAVE:
+  Skills:
+  - particles{p=block;m=COBBLESTONE;a=16;hs=0.8;vs=0.3;y=0.2;s=0.08} @self
+  - particles{p=crit;a=10;hs=0.7;vs=0.3;y=0.3} @self
+  - particles{p=end_rod;a=12;hs=1.2;vs=0.05;y=0.3;s=0.03} @self
+  - sound{s=entity.generic.explode;v=0.35;p=0.7} @self
+  - sound{s=block.deepslate.break;v=0.6;p=0.6} @self
+
+# Natural bloom wave — expanding growth ring for farming waves.
+NL_VFX_BLOOM_WAVE:
+  Skills:
+  - particles{p=composter;a=10;hs=1.6;vs=0.3;y=0.4} @self
+  - particles{p=happy_villager;a=8;hs=1.2;vs=0.4;y=0.6} @self
+  - sound{s=item.bone_meal.use;v=0.6;p=1.1} @self
+  - sound{s=block.note_block.bell;v=0.35;p=1.5} @self

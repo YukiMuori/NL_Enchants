@@ -1,0 +1,34 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — VFX core library: bursts and impacts.
+#  Reusable presentation components. No gameplay logic here, ever.
+#  Budget per call is noted in comments. Compose, don't duplicate.
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Soft magic burst at the caster — generic "ability happened" flourish.
+NL_VFX_MAGIC_BURST:
+  Skills:
+  - particles{p=end_rod;a=12;hs=0.5;vs=0.5;y=1;s=0.06} @self
+  - particles{p=witch;a=6;hs=0.4;vs=0.4;y=1;s=0.02} @self
+  - sound{s=entity.evoker.cast;v=0.35;p=1.6} @self
+
+# Directional impact on the inherited target — hits that matter.
+NL_VFX_IMPACT:
+  Skills:
+  - particles{p=crit;a=14;hs=0.3;vs=0.4;y=1} @self
+  - particles{p=flash;a=1;hs=0;vs=0;y=1} @self
+  - sound{s=entity.player.attack.crit;v=0.8;p=0.9} @self
+
+# Blood hit — wound feedback for hemorrhage-family effects.
+NL_VFX_BLOOD_HIT:
+  Skills:
+  - particles{p=damage_indicator;a=6;hs=0.3;vs=0.4;y=1} @self
+  - particles{p=block;m=REDSTONE_BLOCK;a=6;hs=0.25;vs=0.35;y=1;s=0.04} @self
+  - sound{s=entity.player.hurt_sweetberry_bush;v=0.5;p=0.8} @self
+
+# Shadow dash afterimage — 4 smoke+soul pulses behind the player.
+NL_VFX_SHADOW_DASH:
+  Skills:
+  - particles{p=smoke;a=10;hs=0.3;vs=0.9;y=1} @self
+  - particles{p=soul;a=8;hs=0.3;vs=0.8;y=1;s=0.03} @self
+  - particles{p=smoke;a=8;hs=0.35;vs=0.9;y=1;repeat=3;repeatInterval=3} @self
+  - sound{s=entity.enderman.teleport;v=0.4;p=0.6} @self
