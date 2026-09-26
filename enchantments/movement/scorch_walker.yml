@@ -1,0 +1,28 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  NL_Enchants — Scorch Walker — Vanilla+ utility set
+#  Rules: docs/development.md (R1-R11). ME mechanics/conditions in DIRECT lines only.
+#  Walker: aura tick places MAGMA_BLOCK at your feet while you are in lava (blocktype gate).
+#  L2 also fully negates LAVA contact damage (L1: magma + powder-snow protection only).
+#  ADAPTATION vs spec: no frost-walker-style surface gen exists — single block under feet.
+#  Placed magma persists (vanilla-like); RUNTIME-VERIFY the aura tick + blocktype condition.
+# ══════════════════════════════════════════════════════════════════════════════
+
+nl:scorch_walker:
+  Display: '<white>Scorch Walker'
+  Description: '<gray>Walk on lava on scorching magma blocks.'
+  Rarity: RARE
+  MaxLevel: 2
+  AnvilCost: 4
+  ValidSlots:
+  - FEET
+  SupportedItems: '#minecraft:enchantable/foot_armor'
+  Enchanting:
+    Weight: 3
+    MinCost: 16
+    MaxCost: 38
+  Skills:
+  - skill{s=NL_SCORCH_INSTALL} @self ~onEquip
+  - skill{s=NL_SCORCH_REMOVE} @self ~onUnequip
+  - reducedamage{a=1000;cap=1} @self ~onDamaged ?lastdamagecause{c=HOT_FLOOR}
+  - reducedamage{a=1000;cap=1} @self ~onDamaged ?lastdamagecause{c=FREEZE}
+  - reducedamage{a=1000;cap=1} @self ~onDamaged ?lastdamagecause{c=LAVA}

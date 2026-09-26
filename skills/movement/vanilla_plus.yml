@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  Vanilla+ utility skills — MythicMobs mechanics only (R8). Constants/skill.var only (R1).
+# ══════════════════════════════════════════════════════════════════════════════
+
+NL_SCORCH_INSTALL:
+  CancelIfNoTargets: false
+  Skills:
+  - aura{auraname=nl_scorch_pulse;d=1728000;i=2;overwriteAll=true;CancelOnDeath=false;ot=NL_SCORCH_TICK} @self
+
+NL_SCORCH_TICK:
+  Conditions:
+  - blocktype{b=LAVA} true
+  Skills:
+  - setblock{m=MAGMA_BLOCK} @selflocation
+  - particles{p=small_flame;a=2;hs=0.3;vs=0.2;y=0.2} @selflocation
+
+NL_SCORCH_REMOVE:
+  Skills:
+  - auraremove{aura=nl_scorch_pulse} @self
+
