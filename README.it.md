@@ -7,7 +7,7 @@ MythicMobs. Un pacchetto di incantesimi di produzione per il server **Neverland
 Survival**: effetti contestuali, meccaniche reattive e brevi, VFX leggibili —
 ogni incantesimo spiegabile in una frase.
 
-- **Namespace:** `nl` (es. `nl:thor`)
+- **Namespace:** `nl` (es. `nl:swift_strike`)
 - **Lingue:** Inglese (`en_us`) e Italiano (`it_it`)
 - **Licenza:** MIT
 - **Catalogo:** 38 incantesimi in 6 categorie
@@ -63,8 +63,7 @@ NL_Enchants/
 
 ## Catalogo incantesimi
 
-38 incantesimi in 6 categorie, portati dalla lista "Vanilla+" di AdvancedEnchantments. Le probabilità scalano col livello se non indicato.
-Le note di design di ogni incantesimo sono in `docs/enchantments/<id>.md`; i numeri completi sono in `docs/balancing.md`; cosa è stato scartato e perché è in `docs/enchantments/_skipped-from-ae-list.md`.
+14 incantesimi dalla lista utility vanilla+ richiesta (meccaniche verificate — vedi `docs/catalog-plan.md`; 4 scarti con motivazione in `docs/enchantments/_skipped-from-list.md`).
 
 > Nota tooltip: in vanilla si vede solo il nome — la riga descrizione richiede il mod client "Enchantment Descriptions" (vedi SETUP.md). Questa tabella è il riferimento.
 
@@ -72,69 +71,40 @@ Le note di design di ogni incantesimo sono in `docs/enchantments/<id>.md`; i num
 
 | Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Gelo Artico | `nl:arctic_freeze` | 3 | UNCOMMON | 5+5%/livello: Lentezza I 3s + brivido di 1 danno/s per 3s |
-| Blackout | `nl:blackout` | 5 | UNCOMMON | 4+4%/livello: Cecità 2s al colpo |
-| Colpo Doppio | `nl:double_blow` | 4 | RARE | 10+5%/livello: colpo extra di danno livello+2 (tridente) |
-| Drenaggio | `nl:drain` | 7 | RARE | 12%: danno livello+1 e ti cura di livello PV |
-| Flagello dell'Ender | `nl:enderbane` | 5 | RARE | +1+livello danni ad Enderman, Endermite, Shulker, Drago dell'End |
-| Frantumazombie | `nl:zombie_crusher` | 3 | UNCOMMON | +livello danni a zombie e varianti |
-| Frantumateschi | `nl:skullcrusher` | 3 | UNCOMMON | +livello danni a scheletri e varianti |
-| Incenerisci | `nl:incinerate` | 3 | UNCOMMON | +1+livello danni + fiamme ai ragni |
-| Mietifuoco | `nl:blaze_reaper` | 3 | RARE | +1+livello danni alle creature del Nether |
-| Cubismo | `nl:cubism` | 3 | UNCOMMON | +1+livello danni a Slime e Cubi di Magma |
-| Primo Colpo | `nl:first_strike` | 3 | UNCOMMON | +1+livello danni finché il bersaglio è sopra il 95% di vita |
-| Colpo di Grazia | `nl:finishing` | 3 | UNCOMMON | +1+livello danni quando il bersaglio è sotto il 30% di vita |
-| Rinvio | `nl:postpone` | 3 | COMMON | 10+10%/livello: il colpo non causa knockback |
-| Rinculo | `nl:repel` | 3 | COMMON | 8+8%/livello: scaglia il bersaglio in alto e all'indietro |
-| Fame Nera | `nl:starvation` | 3 | COMMON | 8+8%/livello: Fame I per 5s |
-| Thor | `nl:thor` | 3 | RARE | 5+5%/livello: fulmine vero che infligge livello danni (armi melee) |
-| Ninja | `nl:ninja` | 3 | RARE | i colpi in sneak infliggono +1+livello danni |
-| Fame da Lupo | `nl:ravenous` | 4 | UNCOMMON | 10+10%/livello: recupera livello+1 cibo e saturazione combattendo |
+| Aspetto Glaciale | `nl:ice_aspect` | 2 | RARE | 10%/livello: congela la vittima per 3s (può comunque guardarsi intorno e difendersi) |
+| Ragnatela | `nl:websnare` | 2 | UNCOMMON | 8+8%/livello: una ragnatela compare sotto la vittima, intrappolandola |
+| Colpo Rapido | `nl:swift_strike` | 5 | UNCOMMON | +0.6 velocità d'attacco/livello — fino al 75% di recupero più rapido al liv. 5 |
+| Portata Ampia | `nl:outreach` | 2 | RARE | +0.5/livello di portata d'attacco — fino a 4 blocchi al liv. 2 |
 
-### Arci e Balestre
+### Archi
 
 | Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Raffica | `nl:multi_shot` | 3 | RARE | 25%: scocca una raffica di 1+livello frecce sul bersaglio |
-| Flashbang | `nl:flashbang` | 3 | UNCOMMON | 15+15%/livello: Cecità 3s al colpo |
-| Gelo | `nl:frost` | 3 | UNCOMMON | 10+10%/livello: congelamento neve in polvere per 1,5s + livello×1s |
-| Esplosiva | `nl:explosive` | 5 | RARE | 8+8%/livello: esplosione visiva + danno livello+1 (non rompe mai blocchi) |
+| Tossico | `nl:toxic` | 1 | UNCOMMON | le frecce avvelenano la vittima 11s; i non-morti sono immuni. Solo arco |
+| Soffio della Brezza | `nl:breeze_burst` | 1 | RARE | le frecce scatenano una raffica all'impatto e rilasciano una Carica di Vento |
 
-### Miniera
+### Attrezzi
 
 | Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Estrazione a Blast | `nl:blast_mining` | 3 | RARE | 34%/livello: rompe un'area 3×3×3 (max 2+2×livello blocchi, usura attrezzo applicata) |
-| Esperienza | `nl:experience` | 5 | UNCOMMON | 10+10%/livello: bottiglia d'XP extra dai minerali estratti |
-| Raccolta | `nl:foraging` | 3 | COMMON | 15+15%/livello: bastone e arboscello extra dalle foglie |
-| Prospezione dell'Nether | `nl:nether_prospector` | 3 | UNCOMMON | 10+10%/livello: Antico Detrito extra |
-| Celerità | `nl:haste` | 3 | RARE | Celerità I mentre l'attrezzo è in mano |
+| Tocco del Granchio | `nl:crabs_touch` | 3 | RARE | +1/livello di portata sui blocchi (7,5 al liv. 3); funziona anche nella seconda mano — rompe e piazza da lontano |
 
 ### Difesa
 
 | Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Adrenalina | `nl:adrenaline` | 3 | UNCOMMON | 15+15%/livello: Forza I 4s quando un mob ostile ti colpisce |
-| Affinità dell'End | `nl:end_affinity` | 3 | UNCOMMON | -15%/livello danni subiti nell'End (max 50%) |
-| Affinità del Nether | `nl:nether_affinity` | 3 | UNCOMMON | -15%/livello danni subiti nel Nether (max 50%) |
-| Rimbalzo | `nl:rebounding` | 3 | RARE | danno melee subito -10%/livello (max 30%), ne riflette il 20%/livello |
-| Scuotimento | `nl:rumble` | 3 | UNCOMMON | 10+10%/livello: danno livello+1 a tutti i mob entro 3 blocchi quando colpito |
-| Ardente | `nl:scorching` | 3 | COMMON | 15%: incendiato l'attaccante per 1s + livello×1s |
-| Svanire | `nl:vanish` | 3 | UNCOMMON | 4+4%/livello (attesa 10s): Invisibilità 3s dopo un colpo subito |
-| Acquatica | `nl:waterborne` | 1 | UNCOMMON | Apnea mentre l'elmo è indossato |
+| Vitalità | `nl:vitality` | 3 | RARE | +2 vita massima/livello — 13 cuori al liv. 3 mentre indossata |
+| Guardia del Cielo | `nl:skyguard` | 4 | RARE | solo elytra: −4%/livello danni subiti (la Protezione delle elytra) |
+| Protezione Cinetica | `nl:kinetic_protection` | 4 | UNCOMMON | −25%/livello danni cinetici dell'elytra (schianto contro i muri) |
+| Recupero | `nl:retrieval` | 4 | UNCOMMON | 20%/livello: le frecce che ti colpiscono vengono recuperate nel tuo inventario (80% al liv. 4) |
+| Graviole | `nl:graviole` | 3 | RARE | solo elytra: gravità −10%/livello — voli più lunghi e plananti, velocità massima ridotta |
 
 ### Movimento
 
 | Incantesimo | ID | Max | Rarità | Cosa fa |
 | --- | --- | --- | --- | --- |
-| Fuga | `nl:escape` | 2 | COMMON | 30% (attesa 8s): Velocità I 3s dopo un colpo subito |
-| Passo di Piuma | `nl:feather_step` | 5 | RARE | 20+16%/livello: annulla completamente i danni da caduta |
-
-### Agricoltura
-
-| Incantesimo | ID | Max | Rarità | Cosa fa |
-| --- | --- | --- | --- | --- |
-| Risema | `nl:replenish` | 1 | COMMON | i raccolti maturi si riseminano istantaneamente; quelli giovani non vengono toccati |
+| Passo Ardente | `nl:scorch_walker` | 2 | RARE | cammina sulla lava su blocchi di magma; immune a magma e neve in polvere; al liv. 2 anche alla lava |
+| Passo Lungo | `nl:stride` | 3 | UNCOMMON | salga i blocchi interi senza saltare (gradini più alti a liv. 2/3) |
 
 ## Rarità
 

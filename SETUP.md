@@ -74,11 +74,19 @@ the descriptions match the client language automatically.
 ## 5. Verify
 
 ```text
-/enchant @s nl:thor 1            → applies to held sword
+/enchant @s nl:swift_strike 1     → applies to held sword
 ```
 
-Then hit a mob: occasional lightning strike. (`/mm reload` twice if the
-first cast after a fresh install does nothing — see troubleshooting.)
+Then swing: the attack cooldown shortens visibly. (`/mm reload` twice if
+the first cast after a fresh install does nothing — see troubleshooting.)
+
+### MythicStats passives (Swift Strike, Stride, Vitality, Outreach,
+### Crab's Touch, Graviole)
+
+These six use the MythicEnchants `MythicStats` field, which requires a
+MythicMobs build with the **Stats system** (recent MythicMobs). If the
+console logs unknown-mechanic/MythicStats errors after install, update
+MythicMobs — the other eight enchants work regardless.
 
 ### World names for the affinity enchants
 

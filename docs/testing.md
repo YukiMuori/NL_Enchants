@@ -6,72 +6,51 @@ runtime verification on Paper + MythicMobs + MythicEnchants. Nothing is
 
 ## Before you start
 
-1. Install the pack (`SETUP.md`), restart **twice** (enchant registration
-   needs a full restart; skill edits only need `/mm reload`).
+1. Install the pack (`SETUP.md`), restart **twice** (delete
+   `world/datapacks/MythicEnchants/` if upgrading over an older build).
 2. Keep the **console open** — failed skill lines print errors there.
 3. Grant test items with `/enchant @s <id> <level>`.
-4. `nl:end_affinity` / `nl:nether_affinity`: first edit the `?world{w=...}`
-   lists to your server's world names (SETUP.md).
 
 Report back, for each enchant: WORKS / FAILS + the exact console error
 lines (if any) + one sentence about the feel (too strong/weak/often).
+
+## Architecture gates (check these FIRST — they gate 6 enchants)
+
+- **MythicStats system**: watch the console on startup for MythicStats /
+  unknown-mechanic errors. Gate for Swift Strike, Stride, Vitality,
+  Outreach, Crab's Touch, Graviole. If absent → update MythicMobs.
+- **Negative stat amount** (`nl:graviole`, GRAVITY −0.1/lvl): verify the
+  <math:> expression resolves (console names the line if not).
+- **Elytra scoping**: `/enchant @s nl:skyguard 1` + `/enchant @s
+  nl:graviole 1` on an ELYTRA (not a chestplate) — equippable tag +
+  PrimaryItems.
+- **`FLY_INTO_WALL` cause** (`nl:kinetic_protection`): if it never
+  triggers, the cause name is wrong on this server — quote the console.
 
 ## Per-enchant test matrix
 
 | Enchant | Test | Expected |
 | --- | --- | --- |
-| `nl:thor` | L1–L3, hit mobs ~30× with a sword | occasional real lightning (level damage); no fire grief (does it ignite? verify) |
-| `nl:drain` | hit ~10× | heals on ~12% of hits; no overheal beyond max |
-| `nl:arctic_freeze` | hit ~15× | Slowness + 1/s bleed for 3s on proc; snowflakes |
-| `nl:blackout` | hit ~20× L1 vs L5 | brief blindness, freq scales with level |
-| `nl:double_blow` (trident) | throw/sweep ~15× | extra crit-hit every ~5–7 attacks |
-| `nl:first_strike` | hit full-HP vs wounded mob | bonus only on the opening hit |
-| `nl:finishing` | finish wounded mobs | bonus under 30% HP + sparks |
-| `nl:postpone` | hit ~10× | occasionally the mob barely moves |
-| `nl:repel` | hit ~10× | occasional up+back fling with ram sound |
-| `nl:starvation` | hit ~10× (creative test on player) | hunger icon sometimes |
-| `nl:ravenous` | fight with low hunger bar | refills ~1 in 10 hits |
-| `nl:enderbane` / `nl:zombie_crusher` / `nl:skullcrusher` / `nl:incinerate` / `nl:blaze_reaper` / `nl:cubism` | hit the right mobs vs wrong ones | bonus + VFX only on listed types |
-| `nl:ninja` | sneak-attack vs normal attacks | bonus + smoke only on sneak hits; no state left after unequip |
-| `nl:ravenous` | — | (row above) |
-| `nl:multi_shot` | shoot ~10× | 1-in-4 arrow volley; volley arrows not pickable |
-| `nl:flashbang` | shoot ~10× | blindness + flash on proc |
-| `nl:frost` | shoot ~10× | powder-snow freeze (can't move) on proc |
-| `nl:explosive` | shoot ~10× | big puff + damage + never destroys blocks |
-| `nl:blast_mining` | mine stone/dirt with L1–L3 pick; also inside a claim | 3×3 wave on ~34%/level; claims can veto (verify) |
-| `nl:experience` | mine ~10 ores | occasional XP bottle |
-| `nl:foraging` | break ~10 leaf blocks | occasional stick+sapling |
-| `nl:nether_prospector` | mine ~10 debris | occasional double debris |
-| `nl:haste` | hold tool vs swap away | haste while held, gone after unequip; RUNTIME-VERIFY mainhand equip semantics |
-| `nl:adrenaline` | let mobs hit you | Strength I sometimes; no proc vs fall |
-| `nl:rebounding` | melee mob hits you | reduced damage + reflected hit |
-| `nl:rumble` | get hit surrounded by mobs | AoE hit on ~10%/level |
-| `nl:scorching` | let mobs hit you | attacker ignites on 15% |
-| `nl:vanish` | take hits | rare 3s invisibility, ≥10s between |
-| `nl:waterborne` | helmet on, dive | bubbles never drop |
-| `nl:escape` | take hits | 3s Speed on 30%, ≥8s between |
-| `nl:feather_step` | fall from height repeatedly | fall cancel ~20+16%/level |
-| `nl:replenish` | break crops: mature and immature | mature replants instantly; immature NEVER replants (must drop normally) |
+| `nl:swift_strike` | L1 vs L5, swing repeatedly | cooldown clearly shorter; L5 near-spam |
+| `nl:stride` | walk into a 1-block step (L1), slab+wall (L2/L3) | steps up without jumping |
+| `nl:vitality` | wear L1→L3, check hearts; unequip | 22/24/26 max HP; restored on unequip; check after death |
+| `nl:outreach` | L2, hit a mob at ~3.5–4 blocks | connects; vanilla 3.0 does not |
+| `nl:crabs_touch` | L3, break/place at 6–7.5 blocks; tool in OFFHAND | reach works; offhand placing works |
+| `nl:graviole` | fly with L1/L3 elytra | floatier glide, longer airtime, lower top speed |
+| `nl:ice_aspect` | hit ~10× L1, ~10× L2 | frozen 3s ~10%/20%; frozen mobs still rotate/attack |
+| `nl:websnare` | hit ~15× | cobweb under victim sometimes; cobweb breaks normally |
+| `nl:toxic` | shoot zombie vs skeleton | poison 11s on zombie; skeleton unaffected |
+| `nl:breeze_burst` | shoot mobs ~10× | wind pop + Wind Charge item drops at the victim |
+| `nl:kinetic_protection` | elytra-crash into a wall at L1..L4 | 25/50/75/100% less kinetic damage |
+| `nl:skyguard` | take hits L1 vs L4 | damage down 4%/16% |
+| `nl:retrieval` | let a skeleton shoot you ~10× per level | arrows fly into inventory 20→80% |
+| `nl:scorch_walker` | swim in lava L1; stand on magma / powder snow; L2 swim again | magma under feet, cross the lake; HOT_FLOOR+FREEZE negated; L2: lava damage negated; boots unequip stops it |
 
-## Architecture-level checks (gate several enchants)
+## Known documented deviations (not bugs)
 
-- **Listener-aura enchants** (`nl:ninja`, `nl:haste`, `nl:replenish`,
-  `nl:waterborne`) after a **relog**: auras may be cleaned on quit —
-  re-equip must restore them; verify and report.
-- **`<skill.var.enchant-level>` inside metaskills**: any console error
-  naming the variable invalidates the pattern — report immediately.
-- **`entitytype` / `world` / `triggerblocktype` gates**: wrong mobs
-  triggering, wrong world applying, or ore lines never firing all point
-  at the gate — quote the console line.
-- **Description layer (verified fact):** vanilla tooltips show only the
-  NAME. Check the generated datapack
-  (`world/datapacks/MythicEnchants/data/nl/enchantment/thor.json`):
-  `description` = translate key → RP controls names; baked text → server
-  strings win. With the "Enchantment Descriptions" client mod + our
-  resource pack, the description line must appear (Italian client → Italian
-  text). Vanilla clients: no description line is possible — document, don't
-  chase bugs.
-- **Potion-type names** in this pack beyond the previously proven
-  RESISTANCE/SPEED/REGEN (e.g. BLINDNESS, HUNGER, INVISIBILITY,
-  WATER_BREATHING, FAST_DIGGING, INCREASE_DAMAGE): a load error on
-  `potion{type=...}` means that name needs checking against the wiki.
+- Breeze Burst fires on ENTITY impact, not block impact (no such trigger).
+- Retrieval grants a plain arrow on top of the normal arrow drop.
+- Scorch Walker generates one block under the feet, not a surface.
+- Toxic is bow-only (R11).
+- Spec incompatibilities (Ice Aspect/Websnare/Fire Aspect; Outreach/Swift
+  Strike) are NOT enforced — ME has no verified incompatibility option.

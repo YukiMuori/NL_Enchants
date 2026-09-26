@@ -11,47 +11,31 @@ require a version bump and a CHANGELOG entry.
 | UNCOMMON | 5 | 8 | 30 | 2 |
 | RARE | 3 | 16 | 38 | 4 |
 
-## Per-enchant values (v0.5.0)
+## Per-enchant values (v0.6.0)
 
 | Enchant | Levels | Core numbers |
 | --- | --- | --- |
-| `nl:thor` | 3 | 5+5%/lvl chance, level dmg — swords/melee only (R11) |
-| `nl:drain` | 7 | 12% chance; level+1 dmg, level heal |
-| `nl:arctic_freeze` | 3 | 5+5%/lvl; Slow 3s + 3×1 bleed |
-| `nl:blackout` | 5 | 4+4%/lvl; Blind 2s |
-| `nl:double_blow` | 4 | 10+5%/lvl; flat +lvl+2 |
-| `nl:first_strike` | 3 | +1+lvl if target >95% HP |
-| `nl:finishing` | 3 | +1+lvl if target <30% HP |
-| `nl:postpone` | 3 | 10+10%/lvl; velocity=0 |
-| `nl:repel` | 3 | 8+8%/lvl; knock 0.4y/−0.6z |
-| `nl:starvation` | 3 | 8+8%/lvl; Hunger 5s |
-| `nl:ravenous` | 4 | 10+10%/lvl; +lvl+1 food |
-| `nl:ninja` | 3 | +1+lvl while sneaking |
-| bane family (`enderbane` `zombie_crusher` `skullcrusher` `incinerate` `blaze_reaper` `cubism`) | 3–5 | +1–2 flat by level, type-gated |
-| `nl:multi_shot` | 3 | 25%; 1+lvl arrows, spread 20 |
-| `nl:flashbang` | 3 | 15+15%/lvl; Blind 3s |
-| `nl:frost` | 3 | 10+10%/lvl; freeze 1.5s+lvl×1s |
-| `nl:explosive` | 5 | 8+8%/lvl; fakeexplosion + lvl+1 dmg |
-| `nl:blast_mining` | 3 | 34%/lvl; 3×3×3, cap 2+2×lvl, per-block 2 durability |
-| `nl:experience` | 5 | 10+10%/lvl XP bottle on ores |
-| `nl:foraging` | 3 | 15+15%/lvl stick+sapling |
-| `nl:nether_prospector` | 3 | 10+10%/lvl extra debris |
-| `nl:haste` | 3 | Haste I while held (2s heartbeat) |
-| `nl:adrenaline` | 3 | 15+15%/lvl; Strength I 4s, hostiles only |
-| `nl:end/nether_affinity` | 3 | 15%/lvl reduction, cap 50%, world-gated |
-| `nl:rebounding` | 3 | reduce 10%/lvl (cap 30%), reflect 20%/lvl |
-| `nl:rumble` | 3 | 10+10%/lvl; lvl+1 AoE r=3, mobs only |
-| `nl:scorching` | 3 | 15%; ignite 1s+lvl×1s |
-| `nl:vanish` | 3 | 4+4%/lvl, 10s CD; Invis 3s |
-| `nl:escape` | 2 | 30%, 8s CD; Speed I 3s |
-| `nl:feather_step` | 5 | 20+16%/lvl full fall cancel |
-| `nl:waterborne` | 1 | Water Breathing refresh 5s |
-| `nl:replenish` | 1 | mature crops replant; immature untouched |
+| `nl:swift_strike` | 5 | +0.6/lvl attack speed (base 4.0 → +3.0 at L5) |
+| `nl:stride` | 3 | +0.45/lvl step height (0.6 → 1.05/1.5/1.95) |
+| `nl:vitality` | 3 | +2/lvl max health (+6 = 13 hearts at L3) |
+| `nl:outreach` | 2 | +0.5/lvl entity reach (3.0 → 3.5/4.0) |
+| `nl:crabs_touch` | 3 | +1.0/lvl block reach (4.5 → 5.5/6.5/7.5); main+offhand |
+| `nl:graviole` | 3 | gravity −10%/lvl on elytra |
+| `nl:ice_aspect` | 2 | 10%/lvl; freeze 3s |
+| `nl:websnare` | 2 | 8+8%/lvl; cobweb persists |
+| `nl:toxic` | 1 | poison 11s; undead immune; bow only |
+| `nl:breeze_burst` | 1 | wind burst + 1 Wind Charge item on arrow entity-impact |
+| `nl:kinetic_protection` | 4 | −25%/lvl kinetic damage (FLY_INTO_WALL) |
+| `nl:skyguard` | 4 | −4%/lvl all damage on elytra |
+| `nl:retrieval` | 4 | 20%/lvl (→ 80%); plain arrows |
+| `nl:scorch_walker` | 2 | magma under feet in lava; negate HOT_FLOOR+FREEZE; L2 + LAVA |
 
-## Design rules kept from the rework
+## Tuning notes
 
-- One sentence per enchant; short reactive mechanics over long states.
-- Cooldowns on defensive procs (Vanish 10s, Escape 8s).
-- Rumble never hits players; bane bonuses are flat, not multiplicative.
-- Blast Mining scales by level via proc chance (34/68/100%), not radius —
-  radius jumps are a bigger feel spike than frequency jumps.
+- MythicStats values are ADDITIVE over vanilla bases (reach 4.5/3.0,
+  attack speed 4.0, step height 0.6, health 20, gravity 1.0).
+- Stat-based passives have no proc RNG — balance via magnitude per level.
+- Graviole's trade (longer flight vs slower top speed) is inherent to
+  lowering gravity: the dive is what builds elytra speed.
+- Cobwebs (Websnare) persist; consider a cleanup policy if players abuse
+  terrain clutter — current decision: vanilla behavior, no cleanup.

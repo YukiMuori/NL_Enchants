@@ -1,44 +1,60 @@
-# Catalog plan — v0.5.0 "Vanilla+" port
+# Catalog plan — v0.6.0 "Vanilla+ utility" set
 
-Source list: [AdvancedEnchantments — Vanilla+ enchants](https://ae.advancedplugins.net/enchantments/list-of-enchantments/vanilla-enchants).
+Source: 18-enchants list provided by the server owner (vanilla+ datapack
+style: Breeze Burst … Websnare). Method per R6: every enchant was mapped
+onto mechanics verified on the official MythicMobs / MythicEnchants docs
+(see docs/development.md). 14 ship; 4 are documented skips
+(`_skipped-from-list.md`). Nothing was invented to close a gap.
 
-Method (rule R6): every AE enchant was checked against the mechanics
-**verified** on the official MythicMobs / MythicEnchants docs (see the
-verified-facts table in `docs/development.md`). Feasible enchants ship;
-the rest are listed in
-[`_skipped-from-ae-list.md`](_skipped-from-ae-list.md) with the exact
-missing mechanic. Nothing was invented to close a gap.
+## New capability unlocked this round: MythicStats
 
-## Shipped (38 enchants, 6 categories)
+The MythicEnchants "MythicStats" field (official ME wiki docs) applies
+MythicMobs built-in stats while the item is equipped. The built-in stat
+list includes vanilla attributes, which directly power six of the
+requested enchants:
+
+| Enchant | Stat | Scaling |
+| --- | --- | --- |
+| Crab's Touch | BLOCK_INTERACTION_RANGE | +1.0/lvl (→ 7.5 reach) |
+| Outreach | ENTITY_INTERACTION_RANGE | +0.5/lvl (→ 4.0 reach) |
+| Swift Strike | ATTACK_SPEED | +0.6/lvl |
+| Stride | STEP_HEIGHT | +0.45/lvl |
+| Vitality | HEALTH | +2.0/lvl (→ 13 hearts) |
+| Graviole | GRAVITY | −0.1/lvl |
+
+The validator now accepts a MythicStats-only enchant (no Skills block).
+
+## Shipped (14)
 
 | Category | Enchants |
 | --- | --- |
-| combat | `nl:arctic_freeze` (Arctic Freeze 3), `nl:blackout` (Blackout 5), `nl:double_blow` (Double Blow 4), `nl:drain` (Drain 7), `nl:enderbane` (Enderbane 5), `nl:zombie_crusher` (Zombie Crusher 3), `nl:skullcrusher` (Skullcrusher 3), `nl:incinerate` (Incinerate 3), `nl:blaze_reaper` (Blaze Reaper 3), `nl:cubism` (Cubism 3), `nl:first_strike` (First Strike 3), `nl:finishing` (Finishing 3), `nl:postpone` (Postpone 3), `nl:repel` (Repel 3), `nl:starvation` (Starvation 3), `nl:thor` (Thor 3), `nl:ninja` (Ninja 3), `nl:ravenous` (Ravenous 4) |
-| ranged | `nl:multi_shot` (Multi-Shot 3), `nl:flashbang` (Flashbang 3), `nl:frost` (Frost 3), `nl:explosive` (Explosive 5) |
-| mining | `nl:blast_mining` (Blast Mining 3), `nl:experience` (Experience 5), `nl:foraging` (Foraging 3), `nl:nether_prospector` (Nether Prospector 3), `nl:haste` (Haste 3) |
-| defensive | `nl:adrenaline` (Adrenaline 3), `nl:end_affinity` (End Affinity 3), `nl:nether_affinity` (Nether Affinity 3), `nl:rebounding` (Rebounding 3), `nl:rumble` (Rumble 3), `nl:scorching` (Scorching 3), `nl:vanish` (Vanish 3), `nl:waterborne` (Waterborne 1) |
-| movement | `nl:escape` (Escape 2), `nl:feather_step` (Feather Step 5) |
-| farming | `nl:replenish` (Replenish 1) |
+| combat | `nl:ice_aspect` (2) · `nl:websnare` (2) · `nl:swift_strike` (5) · `nl:outreach` (2) |
+| ranged | `nl:toxic` (1) · `nl:breeze_burst` (1) |
+| mining | `nl:crabs_touch` (3) |
+| defensive | `nl:vitality` (3) · `nl:skyguard` (4) · `nl:kinetic_protection` (4) · `nl:retrieval` (4) · `nl:graviole` (3) |
+| movement | `nl:stride` (3) · `nl:scorch_walker` (2) |
 
-Documented adaptations (no mechanic invented, only scaled):
+## Documented adaptations
 
-- **Double Blow** — AE repeats the attack; we deal a flat extra hit
-  (level+2) with crit feedback. `item_attack` inside metaskills is not
-  guaranteed resolvable (R1), so no damage-scaled second blow.
-- **Ninja** — AE checks sneaking on hit; we use the verified OnInput
-  component (`requiresneak=true`) to arm a short-lived sneak token.
-- **Waterborne** — refresh is not water-gated: no verified in-block
-  condition; on land Water Breathing has no visible effect.
-- **Haste** absorbs AE **Alacrity** (same effect) — no duplicate (rule).
-- **Escape** absorbs AE **Getaway** — same low-HP speed idea, one ID.
-- **Explosive** uses `fakeexplosion` (official visual-only mechanic) plus
-  its own damage: we never block damage.
-- **End/Nether Affinity** gate on world names — defaults cover common
-  names; see SETUP.md to adjust to your server.
+- **Breeze Burst** — fires on entity impact (no projectile-block-impact
+  trigger exists in ME); grants both the wind burst and a collectible
+  Wind Charge item.
+- **Retrieval** — the arrow that hit still drops; the enchant adds a
+  retrieved arrow (plain) on chance. Tipped effects not replicated.
+- **Scorch Walker** — one magma block under the feet (no frost-walker
+  surface generation); L2 adds lava-damage immunity.
+- **Toxic** — bow only (bow+crossbow would need two SupportedItems tags,
+  illegal per R11).
+- **Outreach / Swift Strike** — scoped to `#minecraft:enchantable/sharp_weapon`
+  (no sword-only tag exists); spec's sword-only table scope noted.
+- **Ice Aspect / Outreach / Swift Strike** — spec-listed incompatibilities
+  are documented only: ME has no verified incompatibility option.
+- **Elytra enchants** (Graviole, Skyguard) — elytra lives in
+  `#minecraft:enchantable/equippable`, narrowed with PrimaryItems.
 
-## Skipped (see `_skipped-from-ae-list.md` for per-enchant reasons)
+## "Found in…" loot placement — out of scope (documented)
 
-Bane-family variants beyond the shipped ones, fishing enchants, XP-grant
-and drop-multiplier where unverified, inventory manipulation, crit
-detection, curse event-canceling, right-click activators, and others —
-all blocked by a named missing mechanic, not by choice.
+The source list specifies loot sources (trial-chamber vaults, end-city
+chests, librarian trades…). MythicEnchants has no verified loot-table
+integration; placement is a server-owner task using vanilla loot tables —
+the `nl:` IDs work in vanilla `set_enchantments` loot functions.

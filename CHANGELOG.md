@@ -5,6 +5,45 @@ Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning:
 [SemVer](https://semver.org/) — MAJOR breaking · MINOR enchant/feature ·
 PATCH fix/balance. Gameplay values are never changed silently.
 
+## [0.6.0] — 2026-09-26
+
+**Vanilla+ utility set.** The v0.5.0 catalog was retired and rebuilt from
+the server-owner's 18-enchant vanilla+ list: 14 enchants ship, 4 are
+documented skips (`docs/enchantments/_skipped-from-list.md`). First use
+of the **MythicStats** system — six passive attribute enchants (reach,
+attack speed, step height, max health, gravity). Rules base is now
+R1–R11 (R11: SupportedItems must be a single string — a list crashes the
+ME datapack at boot).
+
+### Added (passives — MythicStats)
+`nl:swift_strike` · `nl:stride` · `nl:vitality` · `nl:outreach` ·
+`nl:crabs_touch` · `nl:graviole`
+
+### Added (procs & effects)
+`nl:ice_aspect` · `nl:websnare` · `nl:toxic` · `nl:breeze_burst` ·
+`nl:kinetic_protection` · `nl:skyguard` · `nl:retrieval` ·
+`nl:scorch_walker`
+
+### Skipped (no verified mechanic)
+Gluttony (drop capture) · Luminousity (entity light) · Precision (arrow
+accuracy) · Pyrolysis (autosmelt)
+
+### Changed
+- `tools/validate.py`: Skills block optional when `MythicStats` is
+  present; R11 static check (added 0.5.0-fix) retained.
+- Elytra enchants scope via `#minecraft:enchantable/equippable` +
+  PrimaryItems (elytra is not in `#enchantable/chest_armor`).
+
+### Removed
+The full v0.5.0 catalog (Thor, Drain, Blast Mining, …) and its
+skills/docs/lang entries.
+
+### Notes
+- MythicStats passives need a MythicMobs build with the Stats system
+  (SETUP.md).
+- Runtime validation on Paper + MythicMobs + MythicEnchants still
+  required (`docs/testing.md`).
+
 ## [0.5.0] — 2026-09-26
 
 **Vanilla+ catalog.** The previous Neverland catalog was retired and

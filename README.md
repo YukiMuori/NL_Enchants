@@ -7,11 +7,11 @@ MythicMobs. A production enchantment pack for the **Neverland Survival**
 server: contextual effects, short reactive mechanics, readable VFX — every
 enchantment explainable in one sentence.
 
-- **Namespace:** `nl` (e.g. `nl:thor`)
+- **Namespace:** `nl` (e.g. `nl:swift_strike`)
 - **Languages:** English (`en_us`) and Italian (`it_it`)
 - **License:** MIT
-- **Catalog:** 38 enchants across 6 categories
-- **Status:** v0.5.0 — Vanilla+ catalog (ported from the AdvancedEnchantments Vanilla+ list); runtime testing on server pending
+- **Catalog:** 14 enchants across 5 categories
+- **Status:** v0.6.0 — vanilla+ utility set (owner list); MythicStats-based passives; runtime testing pending
 
 ## Requirements
 
@@ -35,7 +35,7 @@ enchantment explainable in one sentence.
    requirement).
 3. Merge the `resourcepack/` folder into your server resource pack
    (language entries only — see `SETUP.md`).
-4. Verify in-game: `/enchant @s nl:thor 1` on a sword.
+4. Verify in-game: `/enchant @s nl:swift_strike 1` on a sword.
 
 Full instructions and troubleshooting: [SETUP.md](SETUP.md).
 
@@ -60,78 +60,48 @@ NL_Enchants/
 
 ## Enchantment catalog
 
-38 enchants across 6 categories, ported from the AdvancedEnchantments "Vanilla+" list. Chances scale with level unless stated.
-Per-enchant design notes live in `docs/enchantments/<id>.md`; full numbers live in `docs/balancing.md`; what was skipped and why is in `docs/enchantments/_skipped-from-ae-list.md`.
+14 enchants, ported from the server-owner vanilla+ utility list (mechanics-verified — see `docs/catalog-plan.md`; 4 skips with reasons in `docs/enchantments/_skipped-from-list.md`).
 
-> Tooltip note: vanilla shows only the name — the description line needs the client mod "Enchantment Descriptions" (see SETUP.md). This table is the reference.
+> Tooltips: vanilla shows only the name — the description line needs the client mod "Enchantment Descriptions" (see SETUP.md). This table is the reference.
 
 ### Combat
 
 | Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Arctic Freeze | `nl:arctic_freeze` | 3 | UNCOMMON | 5+5%/lvl: Slowness I 3s + a 1 dmg/s chill for 3s |
-| Blackout | `nl:blackout` | 5 | UNCOMMON | 4+4%/lvl: Blindness 2s on hit |
-| Double Blow | `nl:double_blow` | 4 | RARE | 10+5%/lvl: extra hit dealing level+2 damage (trident) |
-| Drain | `nl:drain` | 7 | RARE | 12%: level+1 damage, heals you for level HP |
-| Enderbane | `nl:enderbane` | 5 | RARE | +1+lvl damage vs Enderman, Endermite, Shulker, Ender Dragon |
-| Zombie Crusher | `nl:zombie_crusher` | 3 | UNCOMMON | +lvl damage vs zombies and variants |
-| Skullcrusher | `nl:skullcrusher` | 3 | UNCOMMON | +lvl damage vs skeletons and variants |
-| Incinerate | `nl:incinerate` | 3 | UNCOMMON | +1+lvl damage + flames vs spiders |
-| Blaze Reaper | `nl:blaze_reaper` | 3 | RARE | +1+lvl damage vs Nether creatures |
-| Cubism | `nl:cubism` | 3 | UNCOMMON | +1+lvl damage vs Slimes and Magma Cubes |
-| First Strike | `nl:first_strike` | 3 | UNCOMMON | +1+lvl damage while the target is above 95% health |
-| Finishing | `nl:finishing` | 3 | UNCOMMON | +1+lvl damage when the target is below 30% health |
-| Postpone | `nl:postpone` | 3 | COMMON | 10+10%/lvl: the hit deals no knockback |
-| Repel | `nl:repel` | 3 | COMMON | 8+8%/lvl: hurls the target up and backward |
-| Starvation | `nl:starvation` | 3 | COMMON | 8+8%/lvl: Hunger I for 5s |
-| Thor | `nl:thor` | 3 | RARE | 5+5%/lvl: real lightning dealing level damage (melee weapons) |
-| Ninja | `nl:ninja` | 3 | RARE | hits while sneaking deal +1+lvl damage |
-| Ravenous | `nl:ravenous` | 4 | UNCOMMON | 10+10%/lvl: restore level+1 food + saturation while fighting |
+| Ice Aspect | `nl:ice_aspect` | 2 | RARE | 10%/lvl: freezes the victim solid for 3s (they can still look around and fight) |
+| Websnare | `nl:websnare` | 2 | UNCOMMON | 8+8%/lvl: a cobweb spawns under the victim, trapping them |
+| Swift Strike | `nl:swift_strike` | 5 | UNCOMMON | +0.6 attack speed/lvl — up to 75% faster attack recovery at L5 |
+| Outreach | `nl:outreach` | 2 | RARE | +0.5/lvl attack reach — up to 4 blocks at L2 |
 
-### Arci e Balestre
+### Bows
 
 | Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Multi-Shot | `nl:multi_shot` | 3 | RARE | 25%: fires a volley of 1+level arrows at the target |
-| Flashbang | `nl:flashbang` | 3 | UNCOMMON | 15+15%/lvl: Blindness 3s on hit |
-| Frost | `nl:frost` | 3 | UNCOMMON | 10+10%/lvl: powder-snow freeze for 1.5s + level×1s |
-| Explosive | `nl:explosive` | 5 | RARE | 8+8%/lvl: visual explosion + level+1 damage (never breaks blocks) |
+| Toxic | `nl:toxic` | 1 | UNCOMMON | arrows poison the victim 11s; undead are immune. Bow only |
+| Breeze Burst | `nl:breeze_burst` | 1 | RARE | arrows burst with wind on impact and drop a Wind Charge |
 
-### Miniera
+### Tools
 
 | Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Blast Mining | `nl:blast_mining` | 3 | RARE | 34%/lvl: breaks a 3×3×3 area (cap 2+2×level blocks, tool damage applies) |
-| Experience | `nl:experience` | 5 | UNCOMMON | 10+10%/lvl: extra XP bottle from mined ores |
-| Foraging | `nl:foraging` | 3 | COMMON | 15+15%/lvl: extra stick + sapling from broken leaves |
-| Nether Prospector | `nl:nether_prospector` | 3 | UNCOMMON | 10+10%/lvl: extra Ancient Debris |
-| Haste | `nl:haste` | 3 | RARE | Haste I while the tool is held |
+| Crab's Touch | `nl:crabs_touch` | 3 | RARE | +1/lvl block reach (7.5 at L3); works held in the offhand too — reach blocks AND place from afar |
 
-### Difesa
+### Defense
 
 | Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Adrenaline | `nl:adrenaline` | 3 | UNCOMMON | 15+15%/lvl: Strength I 4s when a hostile mob hits you |
-| End Affinity | `nl:end_affinity` | 3 | UNCOMMON | -15%/lvl damage taken in the End (cap 50%) |
-| Nether Affinity | `nl:nether_affinity` | 3 | UNCOMMON | -15%/lvl damage taken in the Nether (cap 50%) |
-| Rebounding | `nl:rebounding` | 3 | RARE | melee damage taken -10%/lvl (cap 30%), reflects 20%/lvl back |
-| Rumble | `nl:rumble` | 3 | UNCOMMON | 10+10%/lvl: level+1 damage to all mobs within 3 blocks when hit |
-| Scorching | `nl:scorching` | 3 | COMMON | 15%: ignites the attacker for 1s + level×1s |
-| Vanish | `nl:vanish` | 3 | UNCOMMON | 4+4%/lvl (10s cooldown): Invisibility 3s after taking damage |
-| Waterborne | `nl:waterborne` | 1 | UNCOMMON | Water Breathing while the helmet is worn |
+| Vitality | `nl:vitality` | 3 | RARE | +2 max health/lvl — 13 hearts at L3 while worn |
+| Skyguard | `nl:skyguard` | 4 | RARE | elytra only: −4%/lvl damage taken (Protection for elytras) |
+| Kinetic Protection | `nl:kinetic_protection` | 4 | UNCOMMON | −25%/lvl elytra kinetic damage (crash into walls) |
+| Retrieval | `nl:retrieval` | 4 | UNCOMMON | 20%/lvl: arrows that hit you are retrieved into your inventory (80% at L4) |
+| Graviole | `nl:graviole` | 3 | RARE | elytra only: gravity −10%/lvl — longer, floatier flights, slower top speed |
 
-### Movimento
+### Movement
 
 | Enchantment | ID | Max | Rarity | What it does |
 | --- | --- | --- | --- | --- |
-| Escape | `nl:escape` | 2 | COMMON | 30% (8s cooldown): Speed I 3s after taking damage |
-| Feather Step | `nl:feather_step` | 5 | RARE | 20+16%/lvl: cancels fall damage completely |
-
-### Agricoltura
-
-| Enchantment | ID | Max | Rarity | What it does |
-| --- | --- | --- | --- | --- |
-| Replenish | `nl:replenish` | 1 | COMMON | mature crops replant instantly when broken; young crops are never touched |
+| Scorch Walker | `nl:scorch_walker` | 2 | RARE | walk on lava on magma blocks; immune to magma and powder snow; L2 also to lava |
+| Stride | `nl:stride` | 3 | UNCOMMON | step up full blocks without jumping (higher steps at L2/L3) |
 
 ## Rarity
 
