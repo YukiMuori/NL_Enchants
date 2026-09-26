@@ -1,11 +1,10 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — movement skills for one enchant. Gameplay logic only.
+#  NL_Enchants — shadowstep skills. Pure MythicMobs only (R8).
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_SHADOWSTEP_DODGE:
-  Cooldown: 5
-  Conditions:
-  - chance{c=0.25}
+  Cooldown: 4
   Skills:
-  - velocity{m=ADD;x=0;y=0.1;z=-0.55;r=true} @self
-  - skill{s=NL_VFX_SHADOWSTEP_AFTERIMAGE} @self
+  - velocity{m=ADD;x=0;y=0.1;z=-0.6;r=true} @self
+  - potion{type=RESISTANCE;d=20;l=0;hasParticles=false} @self
+  - skill{s=NL_VFX_SHADOW_DASH} @self

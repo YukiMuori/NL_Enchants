@@ -1,13 +1,16 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — movement enchantment (one file per enchant)
-#  Docs: docs/enchantments/shadowstep.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#  NL_Enchants — SHADOWSTEP
+#  Docs: docs/enchantments/shadowstep.md
+#
+#  When struck: dash backward leaving an afterimage, brief resistance.
+#  Level scales the proc chance (20%/30%) — inline math on this direct line.
 # ══════════════════════════════════════════════════════════════════════════════
 
 nl:shadowstep:
   Display: '<aqua>Shadowstep'
-  Description: '<gray>When struck, you may slip backward leaving a shadow of yourself behind.'
+  Description: '<gray>When struck, you may dissolve into shadow and slip backward.'
   Rarity: RARE
-  MaxLevel: 1
+  MaxLevel: 2
   AnvilCost: 4
   ValidSlots:
   - FEET
@@ -17,4 +20,4 @@ nl:shadowstep:
     MinCost: 16
     MaxCost: 38
   Skills:
-  - skill{s=NL_ENCHANT_SHADOWSTEP_DODGE} @self ~onDamaged
+  - skill{s=NL_ENCHANT_SHADOWSTEP_DODGE} @self ~onDamaged ?chance{c=<math:0.1+0.1*enchant_level>}
