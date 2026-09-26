@@ -1,21 +1,13 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — sentinel skills. Gameplay logic only.
-#  mobsinradius TYPES LIST IS DOCUMENTED ("Multiple types" example).
-#  Feedback is self-centered (no per-mob marking — unverified targeter).
+#  NL_Enchants — sentinel skills. Pure MythicMobs only (R8).
+#  Gate: hostiles within 10 blocks (verified multi-type condition).
+#  Mark: glow-component aura pinned on each nearby hostile for 5s.
 # ══════════════════════════════════════════════════════════════════════════════
 
-NL_ENCHANT_SENTINEL_EQUIP:
-  Skills:
-  - aura{auraname=nl_sentinel_watch;d=1728000;i=100;overwriteAll=true;CancelOnDeath=false;ot=NL_ENCHANT_SENTINEL_PULSE} @self
-
-NL_ENCHANT_SENTINEL_UNEQUIP:
-  Skills:
-  - auraremove{aura=nl_sentinel_watch} @self
-
-NL_ENCHANT_SENTINEL_PULSE:
-  CancelIfNoTargets: false
+NL_ENCHANT_SENTINEL_MARK:
+  Cooldown: 5
   Conditions:
-  - mobsinradius{types=ZOMBIE,SKELETON,SPIDER,CAVE_SPIDER,CREEPER,DROWNED,HUSK,STRAY,PILLAGER,VEX,VINDICATOR,WITCH,ENDERMAN,PIGLIN,ZOMBIFIED_PIGLIN,WITHER_SKELETON,BLAZE,PHANTOM,SILVERFISH;amount=1to999;radius=12}
+  - mobsinradius{types=ZOMBIE,SKELETON,SPIDER,CAVE_SPIDER,CREEPER,DROWNED,HUSK,STRAY,PILLAGER,VEX,VINDICATOR,WITCH,ENDERMAN,PIGLIN,ZOMBIFIED_PIGLIN,WITHER_SKELETON,BLAZE,PHANTOM,SILVERFISH;amount=1to999;radius=10}
   Skills:
-  - particles{p=glow;a=6;hs=0.4;vs=0.8;y=1} @self
-  - skill{s=NL_VFX_SENTINEL_PING} @self
+  - aura{auraname=nl_sentinel_glow;d=100;i=20;maxStacks=1;overwriteAll=true;components=[  - glow ]} @MobsInRadius{r=10;limit=12;types=ZOMBIE,SKELETON,SPIDER,CAVE_SPIDER,CREEPER,DROWNED,HUSK,STRAY,PILLAGER,VEX,VINDICATOR,WITCH,ENDERMAN,PIGLIN,ZOMBIFIED_PIGLIN,WITHER_SKELETON,BLAZE,PHANTOM,SILVERFISH}
+  - sound{s=block.amethyst_block.chime;v=0.5;p=0.5} @self

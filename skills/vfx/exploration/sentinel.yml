@@ -1,7 +1,0 @@
-# ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — exploration VFX for one enchant. Presentation only.
-# ══════════════════════════════════════════════════════════════════════════════
-
-NL_VFX_SENTINEL_PING:
-  Skills:
-  - sound{s=block.amethyst_block.chime;v=0.5;p=0.5} @self
