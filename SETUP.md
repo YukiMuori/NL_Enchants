@@ -55,6 +55,22 @@ Whether enchantment names resolve through these language files depends on
 the datapack strings MythicEnchants generates — see
 `docs/localization.md` for the verification procedure.
 
+### Descriptions in tooltips (read this before players ask)
+
+Vanilla Minecraft shows ONLY the enchantment name in item tooltips — a
+description line does not exist in vanilla, for any enchantment, custom or
+not. The descriptions in this pack are served through the standard
+**client-side** mods that add that line, and our keys already follow their
+convention (`enchantment.nl.<id>.desc`):
+
+- "Enchantment Descriptions" (Darkhax) — reads our keys directly.
+- "Item Tooltips" — reads our keys via its `.desc` fallback.
+
+Players on vanilla clients cannot see tooltip descriptions; the player-facing
+reference is the catalog tables in `README.md` / `README.it.md` (name, ID,
+max level, rarity, effect) — link them on your Discord or site. In Italian
+the descriptions match the client language automatically.
+
 ## 5. Verify
 
 ```text

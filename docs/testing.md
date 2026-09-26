@@ -63,6 +63,14 @@ lines (if any) + one sentence about the feel (too strong/weak/often).
 - **`entitytype` / `world` / `triggerblocktype` gates**: wrong mobs
   triggering, wrong world applying, or ore lines never firing all point
   at the gate — quote the console line.
+- **Description layer (verified fact):** vanilla tooltips show only the
+  NAME. Check the generated datapack
+  (`world/datapacks/MythicEnchants/data/nl/enchantment/thor.json`):
+  `description` = translate key → RP controls names; baked text → server
+  strings win. With the "Enchantment Descriptions" client mod + our
+  resource pack, the description line must appear (Italian client → Italian
+  text). Vanilla clients: no description line is possible — document, don't
+  chase bugs.
 - **Potion-type names** in this pack beyond the previously proven
   RESISTANCE/SPEED/REGEN (e.g. BLINDNESS, HUNGER, INVISIBILITY,
   WATER_BREATHING, FAST_DIGGING, INCREASE_DAMAGE): a load error on
