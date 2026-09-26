@@ -1,17 +1,54 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — combat skills. Gameplay logic only.
-#  Variable form inside metaskills: <skill.var.enchant-level> (official docs).
-#  Mechanics without a targeter INHERIT the dispatch targeter's targets.
+#  NL_Enchants — hemorrhage skills. Pure MythicMobs only (R8).
+#  Stack states are three distinct auras on the TARGET (s1 → s2 → s3);
+#  the third hit swaps s2 for the burst aura (DoT + end hit) and clears.
+#  DoT values are constants (aura tick context, R1).
 # ══════════════════════════════════════════════════════════════════════════════
 
-NL_ENCHANT_BLEEDING_PROC:
-  Conditions:
-  - chance{c=<skill.var.enchant-level>*0.05}
+NL_ENCHANT_BLEEDING_HIT:
+  CancelIfNoTargets: false
   Skills:
-  - aura{auraname=nl_bleeding;d=80;i=20;maxStacks=1;overwriteAll=true;ot=NL_ENCHANT_BLEEDING_TICK;oe=NL_VFX_BLEEDING_END}
-NL_ENCHANT_BLEEDING_TICK:
-  # Runs later (aura tick): constants only — no enchant variables here.
+  - skill{s=NL_ENCHANT_BLEEDING_S3} @self
+  - skill{s=NL_ENCHANT_BLEEDING_S2} @self
+  - skill{s=NL_ENCHANT_BLEEDING_S1} @self
+
+# Target already at mark II → BURST.
+NL_ENCHANT_BLEEDING_S3:
+  TargetConditions:
+  - hasaura{aura=nl_bleed_s2} true
+  Skills:
+  - auraremove{aura=nl_bleed_s2}
+  - skill{s=NL_VFX_BLOOD_HIT}
+  - aura{auraname=nl_bleed_burst;d=60;i=20;maxStacks=1;overwriteAll=true;ot=NL_ENCHANT_BLEEDING_DOT;oe=NL_ENCHANT_BLEEDING_END}
+
+# Target at mark I → mark II.
+NL_ENCHANT_BLEEDING_S2:
+  TargetConditions:
+  - hasaura{aura=nl_bleed_s1} true
+  Skills:
+  - auraremove{aura=nl_bleed_s1}
+  - aura{auraname=nl_bleed_s2;d=80;i=20;maxStacks=1;overwriteAll=true}
+  - particles{p=damage_indicator;a=3;hs=0.3;vs=0.4;y=1}
+
+# Fresh target → mark I.
+NL_ENCHANT_BLEEDING_S1:
+  TargetConditions:
+  - hasaura{aura=nl_bleed_s1} false
+  - hasaura{aura=nl_bleed_s2} false
+  Skills:
+  - aura{auraname=nl_bleed_s1;d=80;i=20;maxStacks=1;overwriteAll=true}
+  - particles{p=damage_indicator;a=2;hs=0.3;vs=0.4;y=1}
+
+# Burst DoT: 1 damage per second while the wound tears open.
+NL_ENCHANT_BLEEDING_DOT:
   CancelIfNoTargets: false
   Skills:
   - damage{a=1} @self
-  - skill{s=NL_VFX_BLEEDING_TICK} @self
+  - particles{p=damage_indicator;a=2;hs=0.3;vs=0.4;y=1} @self
+
+# Burst end: the wound rips open — final hit + blood feedback.
+NL_ENCHANT_BLEEDING_END:
+  CancelIfNoTargets: false
+  Skills:
+  - damage{a=2} @self
+  - skill{s=NL_VFX_BLOOD_HIT} @self

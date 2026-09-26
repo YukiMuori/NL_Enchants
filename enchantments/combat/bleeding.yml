@@ -1,15 +1,15 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — bleeding (one file per enchant)
-#  Docs: docs/enchantments/bleeding.md   ·   https://wiki.mythiccraft.io/mythicenchants
+#  NL_Enchants — HEMORRHAGE  (ID: nl:bleeding, kept for item compatibility)
+#  Docs: docs/enchantments/bleeding.md
 #
-#  RELIABILITY RULES (v0.3.0):
-#   · dispatch lines mirror official MythicEnchants examples exactly
-#   · metaskills use <skill.var.enchant-level> (the documented in-context form)
-#   · one condition per line; no comma lists inside conditions
+#  Consecutive hits on the same target build wounds:
+#    HIT 1 → wound mark I   HIT 2 → wound mark II   HIT 3 → BURST (DoT + end hit)
+#  Each stack decays after 4s; the burst clears all marks and restarts.
 # ══════════════════════════════════════════════════════════════════════════════
+
 nl:bleeding:
-  Display: '<white>Bleeding'
-  Description: '<gray>Your strikes can open wounds that keep hurting.'
+  Display: '<white>Hemorrhage'
+  Description: '<gray>Consecutive strikes open wounds that finally burst.'
   Rarity: UNCOMMON
   MaxLevel: 3
   AnvilCost: 2
@@ -23,4 +23,4 @@ nl:bleeding:
     MinCost: 8
     MaxCost: 30
   Skills:
-  - skill{s=NL_ENCHANT_BLEEDING_PROC} @target ~onAttack
+  - skill{s=NL_ENCHANT_BLEEDING_HIT} @target ~onAttack
