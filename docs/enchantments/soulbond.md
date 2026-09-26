@@ -10,31 +10,37 @@ Maximum Level:     1
 Supported Items:   #minecraft:enchantable/armor
 Valid Slots:       HEAD, CHEST, LEGS, FEET
 Conflicts:         none
-Trigger(s):        ~onDeath (recoveritem, official pattern) + ~onEquip
-Cooldown:          per-item 3 charges
+Trigger(s):        ~onDeath (recoveritem) + ~onEquip (link VFX)
+Cooldown:          none — per-item 3 charges (persistent on the item)
 ```
 
 ## Effect
 
-Each piece survives your death up to 3 times. With the FULL set worn, the bond extends to the whole outfit (four plain conditions — no composites).
+Each bonded piece protects **itself** on death: the item stays with you and
+is re-equipped, up to **3 times** per item (charges stored persistently on
+the item). Wearing the full set naturally protects the whole outfit — each
+piece with its own charge count.
 
 ## VFX
 
-End-rod + soul motes and a chime on equip.
+End-rod + soul motes and a chime when the bond is established on equip.
 
 ## Balance
 
-Official recoveritem mechanics; charges persist on each item.
+Built exactly on the official `RecoverItem` enchant example
+(`recoveritem{slot=TRIGGER;limit=3;reequip=true} @trigger ~onDeath`).
+Charges persist on the item across deaths; no cross-slot state, no cleanup.
 
 ## Notes
 
-Identity: EQUIPMENT SYNERGY.
+- v0.3.1: the outfit-web extension (cross-slot `hasMythicEnchant` checks
+  inside a MythicMobs skill file) failed to load in-game and was removed.
+  Per-piece protection achieves the same end result with zero risk.
+- RUNTIME-VERIFY: confirm `reequip=true` restores the piece to its slot.
 
 ## Files
 
 ```text
-enchantments/legendary/soulbond.yml
-skills/legendary/soulbond.yml            (when the logic lives in metaskills)
-vfx/legendary/soulbond.yml               (when the enchant has active VFX)
-resourcepack/assets/minecraft/lang/{en_us,it_it}.json
+enchantments/legendary/soulbond.yml    (official recoveritem line)
+vfx/legendary/soulbond.yml
 ```

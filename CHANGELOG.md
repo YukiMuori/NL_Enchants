@@ -5,6 +5,25 @@ Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning:
 [SemVer](https://semver.org/) — MAJOR breaking · MINOR enchant/feature ·
 PATCH fix/balance. Gameplay values are never changed silently.
 
+## [0.3.1] — 2026-09-26
+
+### Fixed
+
+- **MythicEnchants conditions no longer used inside MythicMobs skill
+  files.** Field log 0.3.0: `hasMythicEnchant` fails to load in `skills/`
+  ("Failed to load custom condition") — those skill files aborted.
+  - `nl:resonance` redesigned: reactive (on damaged) two-tier regen; the
+    full-set check is now four plain inline `?mench` conditions on the
+    enchant's DIRECT dispatch line, with graceful fallback to the base
+    tier. No listener aura needed anymore.
+  - `nl:soulbond` redesigned to the exact official `recoveritem` example:
+    each piece protects itself (3 persistent charges). The cross-slot
+    "web" extension was removed — same end result, zero load risk.
+- **Validator**: new rule R8 — MythicEnchants condition tokens are now
+  hard errors inside `skills/` and `vfx/`.
+- Note: the 0.3.0 field log showed NO other configuration errors — every
+  other mechanic line in the pack loaded cleanly.
+
 ## [0.3.0] — 2026-09-26
 
 **Reliability rebuild.** Field testing showed most of the 0.2.0 catalog

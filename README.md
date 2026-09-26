@@ -130,10 +130,10 @@ swords+axes, armor = any piece, boots, bow, pickaxe, hoe, tools.
 
 | ID | English | Italian | Rarity | Max | Items | One-sentence effect |
 | --- | --- | --- | --- | --- | --- | --- |
-| `nl:resonance` | Resonance | Risonanza | LEGENDARY | I | armor | Attuned pieces hum together, slowly knitting your wounds. |
+| `nl:resonance` | Resonance | Risonanza | LEGENDARY | I | armor | Attuned pieces hum together, knitting your wounds when you are struck. |
 | `nl:voidbound` | Voidbound | Vincolato al Vuoto | MYTHIC | I | armor | Once, when death should have taken you, the void refuses to collect. |
 | `nl:reflection` | Reflection | Riflesso Speculare | LEGENDARY | I | armor | Airborne steel turns against its archer. |
-| `nl:soulbond` | Soulbond | Anima Gemella | LEGENDARY | I | armor | Bonded gear refuses to leave you — and binds its companions too. |
+| `nl:soulbond` | Soulbond | Anima Gemella | LEGENDARY | I | armor | Each bonded piece refuses to leave you — up to three times. |
 
 > **Naming note:** the original concept list assigned the Italian name
 > *Riflesso* to both Reprisal and Reflection. Reprisal keeps *Riflesso*

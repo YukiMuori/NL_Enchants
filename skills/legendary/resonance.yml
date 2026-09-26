@@ -1,40 +1,18 @@
 # ══════════════════════════════════════════════════════════════════════════════
-#  NL_Enchants — resonance skills. Gameplay logic only.
-#  TWO tiers only (v0.3.0 simplification):
-#    ANY piece  → Regeneration I / 3s   (one documented composite OR)
-#    FULL set   → Regeneration II / 8s  (four plain conditions, no composites)
-#  FULL is evaluated first; the later ANY potion uses the potion mechanic's
-#  default force=false, so it never overrides the stronger effect.
+#  NL_Enchants — resonance skills. Pure MythicMobs mechanics ONLY.
+#  R8: no MythicEnchants conditions here — slot checks live in the
+#  enchantment's dispatch lines.
 # ══════════════════════════════════════════════════════════════════════════════
 
-NL_ENCHANT_RESONANCE_EQUIP:
-  Skills:
-  - aura{auraname=nl_resonance_hum;d=1728000;i=160;overwriteAll=true;CancelOnDeath=false;ot=NL_ENCHANT_RESONANCE_PULSE} @self
-  - skill{s=NL_VFX_RESONANCE_LINK} @self
-
-NL_ENCHANT_RESONANCE_UNEQUIP:
-  Skills:
-  - auraremove{aura=nl_resonance_hum} @self
-
-NL_ENCHANT_RESONANCE_PULSE:
-  CancelIfNoTargets: false
-  Skills:
-  - skill{s=NL_ENCHANT_RESONANCE_FULL} @self
-  - skill{s=NL_ENCHANT_RESONANCE_ANY} @self
-
-NL_ENCHANT_RESONANCE_FULL:
-  Conditions:
-  - hasMythicEnchant{id=nl:resonance;slot=HEAD}
-  - hasMythicEnchant{id=nl:resonance;slot=CHEST}
-  - hasMythicEnchant{id=nl:resonance;slot=LEGS}
-  - hasMythicEnchant{id=nl:resonance;slot=FEET}
+NL_RESONANCE_FULL:
+  Cooldown: 20
   Skills:
   - potion{type=REGENERATION;d=160;l=1;hasParticles=false} @self
   - skill{s=NL_VFX_RESONANCE_PULSE4} @self
 
-NL_ENCHANT_RESONANCE_ANY:
-  Conditions:
-  - '((hasMythicEnchant{id=nl:resonance;slot=HEAD} || hasMythicEnchant{id=nl:resonance;slot=CHEST}) || (hasMythicEnchant{id=nl:resonance;slot=LEGS} || hasMythicEnchant{id=nl:resonance;slot=FEET}))'
+NL_RESONANCE_ANY:
+  Cooldown: 20
   Skills:
   - potion{type=REGENERATION;d=60;l=0;hasParticles=false} @self
-  - skill{s=NL_VFX_RESONANCE_PULSE1} @self
+  # skip the small VFX when the full-set tier just fired (stronger regen on)
+  - skill{s=NL_VFX_RESONANCE_PULSE1} @self ?!haspotioneffect{type=REGENERATION;level=>0}

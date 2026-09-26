@@ -94,6 +94,10 @@ def main() -> int:
                     skill_texts.append((path, str(line)))
 
     # ── 4: skill / vfx definitions ─────────────────────────────────────────
+    ME_CONDITION_TOKENS = (
+        "hasmythicenchant", "mench{", "lethalcheck", "soulbounduses",
+        "batchedchance", "hasexperience", "itemdurability", "customblock{",
+    )
     defined_skills: dict[str, Path] = {}
     for section in ("skills", "vfx"):
         base = ROOT / section
@@ -118,6 +122,14 @@ def main() -> int:
                         skill_texts.append((path, str(line)))
                     for line in cfg.get("Conditions") or []:
                         skill_texts.append((path, str(line)))
+                # R8: MythicEnchants conditions do not load inside plain
+                # MythicMobs skill files (field-verified) — block them here.
+                low = path.read_text(encoding="utf-8").lower()
+                for tok in ME_CONDITION_TOKENS:
+                    if tok in low:
+                        err(f"{path.relative_to(ROOT)}:{sid}: MythicEnchants "
+                            f"condition token '{tok}' in a MythicMobs skill file "
+                            f"(rule R8: use it in the enchantment's direct lines)")
 
     # ── 5: skill references ────────────────────────────────────────────────
     for path, line in skill_texts:

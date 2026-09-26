@@ -147,6 +147,13 @@ now enforced for every line of this pack:
   is marked EXPERIMENTAL in the spec and testing docs.
 - **R7 — Prefer boring.** A simpler enchant that always works beats a
   clever one that sometimes works.
+- **R8 — MythicEnchants conditions only in enchantment files.**
+  `hasMythicEnchant` (and friends) FAIL TO LOAD inside plain MythicMobs
+  skill files (field-verified 0.3.0: "Failed to load custom condition").
+  Use them in the enchantment's direct `Skills:` lines as inline
+  conditions (`?mench{...}`), one condition per line. The validator
+  enforces this. Cross-slot logic must therefore be event-time, on the
+  enchant line, with a graceful fallback if the gate ever fails.
 
 ## Validation
 

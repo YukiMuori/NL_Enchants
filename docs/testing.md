@@ -45,10 +45,10 @@ lines (if any) + one sentence about the feel (too strong/weak/often).
 | `nl:tenacity` | Take hits every <5s for a while | Resistance I during the chain |
 | `nl:sentinel` | Stand near hostiles | glow pulse + chime every 5s |
 | `nl:wayfarer` | Sprint outdoors for a minute | regen pulse every ~60s while moving |
-| `nl:resonance` | 1 piece vs full set | Regen I pulses vs Regen II pulses |
+| `nl:resonance` | Get hit wearing 1 piece, then the full set | Regen I 3s vs Regen II 8s (20s cd each); no load errors from resonance.yml |
 | `nl:voidbound` | Take a killing blow (twice, 10 min apart) | survive at ~0 HP + Absorption; second time nothing |
 | `nl:reflection` | Get shot repeatedly | ~half damage taken + shooter bites back, 8s gate |
-| `nl:soulbond` | Die wearing 1 piece / full set | piece kept with you; full set keeps everything (3 charges) |
+| `nl:soulbond` | Die wearing a piece (3 times) | item kept + re-equipped each time, 3rd death it drops |
 
 ## Architecture-level checks (these gate several enchants)
 

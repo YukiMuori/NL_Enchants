@@ -133,10 +133,10 @@ stivali, arco, piccone, zappa, attrezzi.
 
 | ID | Nome | Rarità | Max | Oggetti | Effetto |
 | --- | --- | --- | --- | --- | --- |
-| `nl:resonance` | Risonanza | LEGENDARY | I | armatura | I pezzi sintonizzati vibrano insieme, ricucendo lentamente le tue ferite. |
+| `nl:resonance` | Risonanza | LEGENDARY | I | armatura | I pezzi sintonizzati vibrano insieme, ricucendo le tue ferite quando vieni colpito. |
 | `nl:voidbound` | Vincolato al Vuoto | MYTHIC | I | armatura | Quando la morte ti avrebbe preso, il Vuoto si rifiuta, per una volta, di raccoglierti. |
 | `nl:reflection` | Riflesso Speculare | LEGENDARY | I | armatura | L'acciaio in volo si rivolta contro il suo arciere. |
-| `nl:soulbond` | Anima Gemella | LEGENDARY | I | armatura | L'equipaggiamento legato rifiuta di lasciarti — e lega anche i suoi compagni. |
+| `nl:soulbond` | Anima Gemella | LEGENDARY | I | armatura | Ogni pezzo legato rifiuta di lasciarti — fino a tre volte. |
 
 > **Nota sui nomi:** la lista di concept originale assegnava il nome italiano
 > *Riflesso* sia a Reprisal sia a Reflection. Reprisal mantiene *Riflesso*

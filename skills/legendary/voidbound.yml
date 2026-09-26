@@ -1,8 +1,9 @@
 # ══════════════════════════════════════════════════════════════════════════════
 #  NL_Enchants — voidbound skills. Gameplay logic only.
-#  lethalcheck gates the dispatch line (official inline pattern).
-#  reducedamage with a=1000 + cap=1 fully negates the lethal event without
-#  needing the <math:damage> variable inside a metaskill.
+#  The lethality gate lives in the enchantment's dispatch line as an inline
+#  MythicEnchants condition (R8: never in this file).
+#  reducedamage with a=1000 + cap=1 fully negates the killing event without
+#  needing any damage variable inside a metaskill.
 # ══════════════════════════════════════════════════════════════════════════════
 
 NL_ENCHANT_VOIDBOUND_SAVE:
